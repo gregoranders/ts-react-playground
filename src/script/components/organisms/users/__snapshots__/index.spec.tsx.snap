@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UsersModelView snapshot 1`] = `
+<button
+  disabled={false}
+  onClick={[Function]}
+>
+  Generate Users [
+  0
+  ]
+</button>
+`;

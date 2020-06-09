@@ -1,0 +1,16 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { IndexPage } from './index';
+
+<Meta title='Pages|Index' component={IndexPage} parameters={{ jest: ['pages/index/index.spec.tsx'] }}/>
+
+# IndexPage
+
+<Preview>
+  <Story name='default'>
+    <IndexPage />
+  </Story>
+</Preview>
+
+## Props
+
+<Props of={IndexPage} />

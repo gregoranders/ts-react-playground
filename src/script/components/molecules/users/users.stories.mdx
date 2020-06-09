@@ -1,0 +1,29 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+
+import faker from 'faker';
+
+import { UsersView } from './index';
+
+import { DefaultUser, RandomUser, User, UserPropTypes, generate } from '@models/user';
+
+<Meta title='Molecules|UsersView' component={UsersView} parameters={{ jest: ['molecules/users/index.spec.tsx'] }}/>
+
+# UsersView
+
+<Preview>
+  <Story name='default'>
+    <UsersView users={[DefaultUser]} />
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='random'>
+    <UsersView users={generate(3)} />
+  </Story>
+</Preview>
+
+
+## Props
+
+<Props of={UsersView} />

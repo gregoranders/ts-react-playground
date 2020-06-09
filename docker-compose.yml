@@ -1,0 +1,27 @@
+version: '2.3'
+
+services:
+  web:
+    build: ./
+    container_name: web
+    image: web:latest
+    hostname: development.fritz.box
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./public:/var/www/localhost/htdocs
+    networks:
+      container_net:
+        ipv4_address: 172.16.237.10
+# Networks
+networks:
+  container_net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.237.0/24
+          gateway: 172.16.237.1
+# vim: tw=78 ft=sh ts=2 sw=2 sts=2 nu:
+

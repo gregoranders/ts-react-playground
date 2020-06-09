@@ -1,0 +1,34 @@
+plugins:
+  editorconfig:
+    enabled: false
+  tslint:
+    enabled: false
+  eslint:
+    enabled: true
+  fixme:
+    enabled: true
+  git-legal:
+    enabled: true
+exclude_patterns:
+  - "spec/"
+  - "!spec/support/helpers"
+  - "config/"
+  - "db/"
+  - "dist/"
+  - "public/"
+  - "features/"
+  - ".circleci/"
+  - ".github/"
+  - ".storybook/"
+  - ".vscode/"
+  - "**/node_modules/"
+  - "script/"
+  - "**/spec/"
+  - "**/test/"
+  - "**/tests/"
+  - "Tests/"
+  - "**/vendor/"
+  - "**/*_test.go"
+  - "**/*.d.ts"
+  - "**/*.spec.ts"
+  - "**/*.spec.tsx"

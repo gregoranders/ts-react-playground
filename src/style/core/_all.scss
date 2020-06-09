@@ -1,0 +1,84 @@
+@import '../../../node_modules/breakpoint-sass/stylesheets/_breakpoint';
+
+@import '_colors';
+@import '_variables';
+
+@import '_w3-pro';
+@import '_w3-theme';
+
+
+.w3-theme-l5 {
+  @include w3-theme-l5()
+}
+
+.w3-theme-l4 {
+  @include w3-theme-l4()
+}
+
+.w3-theme-l3 {
+  @include w3-theme-l3()
+}
+
+.w3-theme-l2 {
+  @include w3-theme-l2()
+}
+
+.w3-theme-l1 {
+  @include w3-theme-l1()
+}
+
+.w3-theme-d1 {
+  @include w3-theme-d1()
+}
+
+.w3-theme-d2 {
+  @include w3-theme-d2()
+}
+
+.w3-theme-d3 {
+  @include w3-theme-d3()
+}
+
+.w3-theme-d4 {
+  @include w3-theme-d4()
+}
+
+.w3-theme-d5 {
+  @include w3-theme-d5()
+}
+
+.w3-theme-light {
+  @include w3-theme-light()
+}
+
+.w3-theme-dark {
+  @include w3-theme-dark()
+}
+
+.w3-theme-action {
+  @include w3-theme-action()
+}
+
+.w3-theme {
+  @include w3-theme()
+}
+
+.w3-text-theme {
+  @include w3-text-theme()
+}
+
+.w3-border-theme {
+  @include w3-border-theme()
+}
+
+.w3-hover-theme:hover {
+  @include w3-hover-theme()
+}
+
+.w3-hover-text-theme:hover {
+  @include w3-hover-text-theme()
+}
+
+.w3-hover-border-theme:hover {
+  @include w3-hover-border-theme()
+}

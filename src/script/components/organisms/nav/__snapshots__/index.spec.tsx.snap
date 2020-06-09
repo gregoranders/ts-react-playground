@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nav snapshot 1`] = `
+<nav
+  className="w3-bar w3-theme-d3"
+>
+  <a
+    aria-current={null}
+    className="w3-bar-item w3-button w3-mobile w3-hover-theme"
+    href="/home"
+    onClick={[Function]}
+  >
+    Home
+  </a>
+  <a
+    aria-current={null}
+    className="w3-bar-item w3-button w3-mobile w3-hover-theme w3-right"
+    href="/about"
+    onClick={[Function]}
+  >
+    About
+  </a>
+</nav>
+`;

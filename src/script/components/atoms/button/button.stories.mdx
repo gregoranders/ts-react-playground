@@ -1,0 +1,31 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+import { Button } from './index';
+
+<Meta title='Atoms|Button' component={Button} parameters={{ jest: ['atoms/button/index.spec.tsx'] }}/>
+
+# Button
+
+## HTML Button
+
+<Preview>
+  <Story name='default'>
+    <Button onClick={action('clicked')} />
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='disabled'>
+    <Button onClick={action('clicked')} disabled={true} />
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='custom'>
+    <Button onClick={action('clicked')}>custom</Button>
+  </Story>
+</Preview>
+
+## Props
+
+<Props of={Button} />

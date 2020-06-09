@@ -1,0 +1,95 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            60:7d:58:ff:8b:29:2c:10:8f:7a:8c:95:59:fe:1a:58
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=DE, ST=NRW, L=Euskirchen, O=Fritz BOX, OU=Fritz Box CA, CN=Easy-RSA CA/emailAddress=ca@fritz.box
+        Validity
+            Not Before: May 10 13:19:28 2020 GMT
+            Not After : May 10 13:19:28 2021 GMT
+        Subject: C=DE, ST=NRW, L=Euskirchen, O=Fritz BOX, OU=Fritz Box CA, CN=development.fritz.box/emailAddress=ca@fritz.box
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                RSA Public-Key: (2048 bit)
+                Modulus:
+                    00:eb:1f:e1:92:e1:72:d1:b8:c9:37:a0:b9:71:6b:
+                    73:d2:81:01:a7:f4:2b:84:00:db:0f:02:61:3f:77:
+                    f8:6c:ff:4a:49:90:ff:18:16:52:4f:89:83:e8:39:
+                    47:64:a2:b8:56:68:ce:a2:56:e8:ed:a9:48:3b:9f:
+                    7a:3f:94:ba:af:3e:b5:25:60:97:45:0a:3b:dc:b3:
+                    87:64:c6:2a:2a:eb:fe:9c:49:63:ca:18:53:bc:ad:
+                    cf:7b:b3:81:0d:1c:51:5d:81:14:3a:44:2c:71:6e:
+                    a5:1b:46:a8:0b:ae:aa:ba:cb:c7:65:2f:e1:a1:7b:
+                    f5:38:50:92:d2:b3:31:e2:d2:ff:81:22:66:ae:30:
+                    be:0a:37:fa:e7:fd:aa:94:ad:8b:11:5e:44:e0:a9:
+                    b5:33:99:03:30:f6:89:0a:4c:6b:58:64:22:b2:ad:
+                    de:35:1b:b3:c3:da:0e:3b:3d:aa:8e:53:b7:cf:53:
+                    af:41:e2:ae:ca:80:a9:e3:dc:a0:80:42:56:26:ef:
+                    66:95:f0:83:79:9c:89:19:41:84:0d:00:92:75:5d:
+                    c7:bf:c0:b4:e9:f5:7f:25:8e:3f:92:48:fe:96:cf:
+                    60:f6:e8:d8:b6:41:9f:72:15:66:24:db:09:30:e7:
+                    2b:c8:da:55:ae:6b:b7:8e:c9:d8:1a:3d:0d:c7:9b:
+                    16:89
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Basic Constraints: 
+                CA:FALSE
+            X509v3 Subject Key Identifier: 
+                5B:AC:B0:50:25:F5:68:C1:F5:72:56:18:E5:02:0E:D4:DB:38:A3:69
+            X509v3 Authority Key Identifier: 
+                keyid:55:89:7F:BA:3C:DE:8D:1B:7E:8D:10:C9:DB:40:E1:B1:42:70:13:6D
+                DirName:/C=DE/ST=NRW/L=Euskirchen/O=Fritz BOX/OU=Fritz Box CA/CN=Easy-RSA CA/emailAddress=ca@fritz.box
+                serial:66:85:9C:03:D3:26:01:B5:07:AA:D5:0F:CE:3F:8F:CE:5C:4D:89:15
+
+            X509v3 Extended Key Usage: 
+                TLS Web Server Authentication
+            X509v3 Key Usage: 
+                Digital Signature, Key Encipherment
+            X509v3 Subject Alternative Name: 
+                DNS:development.fritz.box
+    Signature Algorithm: sha256WithRSAEncryption
+         a2:ac:e0:b9:22:65:32:4d:7a:e2:fa:aa:70:ef:24:e2:62:b8:
+         2a:6b:57:f9:4c:10:ad:b6:03:ee:44:08:52:f4:1a:2c:fc:45:
+         78:b0:29:a0:ce:41:af:0b:26:4d:c6:21:fb:6a:1d:47:63:05:
+         8c:a0:14:e2:c1:f8:96:25:ff:3b:89:a5:bd:44:a3:00:a6:a1:
+         f4:d8:40:55:2f:a3:82:08:14:a1:d6:26:70:ee:26:2e:0c:38:
+         6d:c5:f8:33:3a:b6:74:d2:44:37:97:ad:41:0c:e0:10:4e:68:
+         27:f3:c2:8d:cf:4f:89:6f:d4:d1:3e:03:2c:6a:ba:fd:af:59:
+         75:60:db:97:19:4f:3c:04:e2:95:23:59:4d:85:48:89:20:a1:
+         86:12:73:8b:b7:a4:bd:c6:55:ab:79:68:00:f2:38:04:4d:4b:
+         5e:02:a3:43:5f:b8:ff:b6:8f:c7:c0:47:dd:16:99:2a:c0:5b:
+         fe:04:7e:82:d1:04:8e:05:28:a6:ac:62:08:b7:ee:46:37:5c:
+         c7:b9:ea:e3:90:2e:e4:a9:24:5b:a4:0c:d5:f9:9a:bc:ab:bb:
+         43:6a:e4:92:a6:1b:80:d4:17:fa:c7:b1:5f:fe:0d:98:8d:04:
+         ac:a2:cb:fb:1e:e4:3b:d2:45:06:0f:15:de:1f:b1:23:1a:18:
+         47:cf:2d:fd
+-----BEGIN CERTIFICATE-----
+MIIE9zCCA9+gAwIBAgIQYH1Y/4spLBCPeoyVWf4aWDANBgkqhkiG9w0BAQsFADCB
+jjELMAkGA1UEBhMCREUxDDAKBgNVBAgMA05SVzETMBEGA1UEBwwKRXVza2lyY2hl
+bjESMBAGA1UECgwJRnJpdHogQk9YMRUwEwYDVQQLDAxGcml0eiBCb3ggQ0ExFDAS
+BgNVBAMMC0Vhc3ktUlNBIENBMRswGQYJKoZIhvcNAQkBFgxjYUBmcml0ei5ib3gw
+HhcNMjAwNTEwMTMxOTI4WhcNMjEwNTEwMTMxOTI4WjCBmDELMAkGA1UEBhMCREUx
+DDAKBgNVBAgMA05SVzETMBEGA1UEBwwKRXVza2lyY2hlbjESMBAGA1UECgwJRnJp
+dHogQk9YMRUwEwYDVQQLDAxGcml0eiBCb3ggQ0ExHjAcBgNVBAMMFWRldmVsb3Bt
+ZW50LmZyaXR6LmJveDEbMBkGCSqGSIb3DQEJARYMY2FAZnJpdHouYm94MIIBIjAN
+BgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA6x/hkuFy0bjJN6C5cWtz0oEBp/Qr
+hADbDwJhP3f4bP9KSZD/GBZST4mD6DlHZKK4VmjOolbo7alIO596P5S6rz61JWCX
+RQo73LOHZMYqKuv+nEljyhhTvK3Pe7OBDRxRXYEUOkQscW6lG0aoC66qusvHZS/h
+oXv1OFCS0rMx4tL/gSJmrjC+Cjf65/2qlK2LEV5E4Km1M5kDMPaJCkxrWGQisq3e
+NRuzw9oOOz2qjlO3z1OvQeKuyoCp49yggEJWJu9mlfCDeZyJGUGEDQCSdV3Hv8C0
+6fV/JY4/kkj+ls9g9ujYtkGfchVmJNsJMOcryNpVrmu3jsnYGj0Nx5sWiQIDAQAB
+o4IBQzCCAT8wCQYDVR0TBAIwADAdBgNVHQ4EFgQUW6ywUCX1aMH1clYY5QIO1Ns4
+o2kwgc4GA1UdIwSBxjCBw4AUVYl/ujzejRt+jRDJ20DhsUJwE22hgZSkgZEwgY4x
+CzAJBgNVBAYTAkRFMQwwCgYDVQQIDANOUlcxEzARBgNVBAcMCkV1c2tpcmNoZW4x
+EjAQBgNVBAoMCUZyaXR6IEJPWDEVMBMGA1UECwwMRnJpdHogQm94IENBMRQwEgYD
+VQQDDAtFYXN5LVJTQSBDQTEbMBkGCSqGSIb3DQEJARYMY2FAZnJpdHouYm94ghRm
+hZwD0yYBtQeq1Q/OP4/OXE2JFTATBgNVHSUEDDAKBggrBgEFBQcDATALBgNVHQ8E
+BAMCBaAwIAYDVR0RBBkwF4IVZGV2ZWxvcG1lbnQuZnJpdHouYm94MA0GCSqGSIb3
+DQEBCwUAA4IBAQCirOC5ImUyTXri+qpw7yTiYrgqa1f5TBCttgPuRAhS9Bos/EV4
+sCmgzkGvCyZNxiH7ah1HYwWMoBTiwfiWJf87iaW9RKMApqH02EBVL6OCCBSh1iZw
+7iYuDDhtxfgzOrZ00kQ3l61BDOAQTmgn88KNz0+Jb9TRPgMsarr9r1l1YNuXGU88
+BOKVI1lNhUiJIKGGEnOLt6S9xlWreWgA8jgETUteAqNDX7j/to/HwEfdFpkqwFv+
+BH6C0QSOBSimrGIIt+5GN1zHuerjkC7kqSRbpAzV+Zq8q7tDauSSphuA1Bf6x7Ff
+/g2YjQSsosv7HuQ70kUGDxXeH7EjGhhHzy39
+-----END CERTIFICATE-----

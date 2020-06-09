@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Main snapshot element 1`] = `
+<main
+  className="w3-margin"
+>
+  <span>
+    test
+  </span>
+</main>
+`;
+
+exports[`Main snapshot string 1`] = `
+<main
+  className="w3-margin"
+>
+  test
+</main>
+`;

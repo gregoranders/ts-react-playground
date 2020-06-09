@@ -1,0 +1,45 @@
+/* https://www.w3schools.com/colors/colors_monochromatic.asp */
+
+$color-white: #fff;
+$color-black: #000;
+
+$color-front: lighten($color-black, 10%);
+$color-back: darken($color-white, 10%);
+
+$color-blue-1: #e1ecf9;
+$color-blue-2: #609ce1;
+$color-blue-3: #2369b8;
+$color-blue-4: #133863;
+$color-blue-5: #091d34;
+
+$color-green-1: #e8f3e8;
+$color-green-2: #92c591;
+$color-green-3: #549d53;
+$color-green-4: #305a30;
+$color-green-5: #0a3409;
+
+$color-red-1: #fcdee0;
+$color-red-2: #f37c84;
+$color-red-3: #ea1f2d;
+$color-red-4: #950e17;
+$color-red-5: #34090c;
+
+$color-yellow-1: #fef7dc;
+$color-yellow-2: #fde281;
+$color-yellow-3: #fccb1d;
+$color-yellow-4: #b08a03;
+$color-yellow-5: #342b09;
+
+$color-theme-light: #f5f7f8;
+$color-theme-l5:    #f5f7f8;
+$color-theme-l4:    #dfe5e8;
+$color-theme-l3:    #becbd2;
+$color-theme-l2:    #9eb1bb;
+$color-theme-l1:    #7d97a5;
+$color-theme:       #607d8b;
+$color-theme-d1:    #57707d;
+$color-theme-d2:    #4d636f;
+$color-theme-d3:    #435761;
+$color-theme-d4:    #3a4b53;
+$color-theme-d5:    #303e45;
+$color-theme-dark:  #303e45;
