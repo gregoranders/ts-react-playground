@@ -1,0 +1,17 @@
+dist/
+coverage/
+coverage-it/
+public-it/
+node_modules/
+storybook-static/
+
+package-lock.json
+junit.xml
+.jest-test-results.json
+
+*.js
+*.js.map
+*.css
+*.css.map
+
+!docs/public
