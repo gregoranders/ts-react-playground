@@ -1,0 +1,22 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+
+import faker from 'faker';
+
+import { UsersModelView } from './index';
+
+import { DefaultUser, RandomUser, User, UserPropTypes, generate } from '@models/user';
+
+<Meta title='Organisms|UsersModelView' component={UsersModelView} parameters={{ jest: ['organisms/users/index.spec.tsx'] }}/>
+
+# UserView
+
+<Preview>
+  <Story name='default'>
+    <UsersModelView />
+  </Story>
+</Preview>
+
+## Props
+
+<Props of={UsersModelView} />

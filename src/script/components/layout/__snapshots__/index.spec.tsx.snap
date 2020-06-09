@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout snapshot element 1`] = `
+Array [
+  <header
+    className="w3-center"
+  >
+    <h1
+      className="w3-jumbo w3-wide"
+    >
+      <a
+        href="/"
+        onClick={[Function]}
+      >
+        Header
+      </a>
+    </h1>
+  </header>,
+  <nav
+    className="w3-bar w3-theme-d3"
+  >
+    <a
+      aria-current={null}
+      className="w3-bar-item w3-button w3-mobile w3-hover-theme"
+      href="/home"
+      onClick={[Function]}
+    >
+      Home
+    </a>
+    <a
+      aria-current={null}
+      className="w3-bar-item w3-button w3-mobile w3-hover-theme w3-right"
+      href="/about"
+      onClick={[Function]}
+    >
+      About
+    </a>
+  </nav>,
+  <main
+    className="w3-margin"
+  >
+    <span>
+      test
+    </span>
+  </main>,
+  <footer
+    className="w3-padding-32 w3-center"
+  >
+    © 
+    2020
+     by Gregor Anders
+  </footer>,
+]
+`;
+
+exports[`Layout snapshot string 1`] = `
+Array [
+  <header
+    className="w3-center"
+  >
+    <h1
+      className="w3-jumbo w3-wide"
+    >
+      <a
+        href="/"
+        onClick={[Function]}
+      >
+        Header
+      </a>
+    </h1>
+  </header>,
+  <nav
+    className="w3-bar w3-theme-d3"
+  >
+    <a
+      aria-current={null}
+      className="w3-bar-item w3-button w3-mobile w3-hover-theme"
+      href="/home"
+      onClick={[Function]}
+    >
+      Home
+    </a>
+    <a
+      aria-current={null}
+      className="w3-bar-item w3-button w3-mobile w3-hover-theme w3-right"
+      href="/about"
+      onClick={[Function]}
+    >
+      About
+    </a>
+  </nav>,
+  <main
+    className="w3-margin"
+  >
+    test
+  </main>,
+  <footer
+    className="w3-padding-32 w3-center"
+  >
+    © 
+    2020
+     by Gregor Anders
+  </footer>,
+]
+`;

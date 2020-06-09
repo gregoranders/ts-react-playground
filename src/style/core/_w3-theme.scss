@@ -1,0 +1,92 @@
+@import '_colors';
+
+@mixin w3-theme-l5 {
+  color           : $color-black !important;
+  background-color: $color-theme-l5 !important
+}
+
+@mixin w3-theme-l4 {
+  color           : $color-black !important;
+  background-color: $color-theme-l4 !important
+}
+
+@mixin w3-theme-l3 {
+  color           : $color-black !important;
+  background-color: $color-theme-l3 !important
+}
+
+@mixin w3-theme-l2 {
+  color           : $color-black !important;
+  background-color: $color-theme-l2 !important
+}
+
+@mixin w3-theme-l1 {
+  color           : $color-white !important;
+  background-color: $color-theme-l1 !important
+}
+
+@mixin w3-theme-d1 {
+  color           : $color-white !important;
+  background-color: $color-theme-d1 !important
+}
+
+@mixin w3-theme-d2 {
+  color           : $color-white !important;
+  background-color: $color-theme-d2 !important
+}
+
+@mixin w3-theme-d3 {
+  color           : $color-white !important;
+  background-color: $color-theme-d3 !important
+}
+
+@mixin w3-theme-d4 {
+  color           : $color-white !important;
+  background-color: $color-theme-d4 !important
+}
+
+@mixin w3-theme-d5 {
+  color           : $color-white !important;
+  background-color: $color-theme-d5 !important
+}
+
+@mixin w3-theme-light {
+  color           : $color-black !important;
+  background-color: $color-theme-light !important
+}
+
+@mixin w3-theme-dark {
+  color           : $color-white !important;
+  background-color: $color-theme-dark !important
+}
+
+@mixin w3-theme-action {
+  color           : $color-white !important;
+  background-color: $color-theme-dark !important
+}
+
+@mixin w3-theme {
+  color           : $color-white !important;
+  background-color: $color-theme !important
+}
+
+@mixin w3-text-theme {
+  color: $color-theme !important
+}
+
+@mixin w3-border-theme {
+  border-color: $color-theme !important
+}
+
+@mixin w3-hover-theme {
+  color           : $color-white !important;
+  background-color: $color-theme !important
+}
+
+@mixin w3-hover-text-theme {
+  color: $color-theme !important
+}
+
+@mixin w3-hover-border-theme {
+  border-color: $color-theme !important
+}

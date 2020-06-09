@@ -1,0 +1,121 @@
+name: Master CI
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        node-version: [10.x, 12.x, 13.x, 14.x]
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+          ssh-key: ${{ secrets.SSH_KEY }}
+      - name: Use Node.js ${{ matrix.node-version }} on ${{ matrix.os }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: nodejs project information
+        id: projectinfo
+        uses: gregoranders/nodejs-project-info@v0.0.6
+      - name: npm install
+        run: |
+          npm install
+        env:
+          CI: true
+      - name: npm run build
+        run: |
+          npm run build
+        env:
+          CI: true
+      - name: npm test
+        run: |
+          npm test
+        env:
+          CI: true
+      - name: code coverage
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path-to-lcov: ./coverage/lcov.info
+        env:
+          CI: true
+      - name: publish code coverage to code climate
+        if: matrix.os == 'ubuntu-latest'
+        uses: paambaati/codeclimate-action@v2.3.0
+        env:
+          CI: true
+          CC_TEST_REPORTER_ID: ${{ secrets.CODE_CLIMATE }}
+        with:
+          coverageCommand: npm run test
+          debug: true
+      - name: npm run it
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          sudo apt-get update
+          sudo apt-get install xvfb
+          xvfb-run --auto-servernum -- bash -c "npm run it"
+        env:
+          GITHUB_BRANCH: ${{ github.ref }}
+          GITHUB_COMMIT: ${{ github.sha }}
+          PACKAGE_JSON: ${{ steps.projectinfo.outputs.context }}
+      - name: npm run it
+        if: matrix.os == 'macos-latest'
+        run: |
+          npm run it
+        env:
+          GITHUB_BRANCH: ${{ github.ref }}
+          GITHUB_COMMIT: ${{ github.sha }}
+          PACKAGE_JSON: ${{ steps.projectinfo.outputs.context }}
+      - name: archive e2e screenshots
+        uses: actions/upload-artifact@v1
+        if: matrix.os == 'ubuntu-latest' && matrix.node-version == '14.x'
+        with:
+          name: Screenshots
+          path: it/screenshots
+      - name: archive e2e diff
+        uses: actions/upload-artifact@v1
+        if: matrix.os == 'ubuntu-latest' && matrix.node-version == '14.x'
+        with:
+          name: Screenshots Diff
+          path: it/__image_snapshots__
+      - name: create release
+        id: createrelease
+        uses: gregoranders/nodejs-create-release@v0.0.6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PACKAGE_JSON: ${{ steps.projectinfo.outputs.context }}
+        with:
+          tag: v${{ steps.projectinfo.outputs.version }}
+          name: ${{ steps.projectinfo.outputs.name }} - ${{ steps.projectinfo.outputs.version }}
+          body: ${{ steps.projectinfo.outputs.name }} - ${{ steps.projectinfo.outputs.version }} Release
+          target: ${{ github.ref }}
+          draft: false
+      - name: update storybook docs
+        if: matrix.os == 'ubuntu-latest' && matrix.node-version == '14.x'
+        run: |
+          cd docs/public
+          git config --global user.email "${{ secrets.EMAIL }}"
+          git config --global user.name "Gregor Anders"
+          git status
+          git checkout master
+          cd ../..
+          npm run build-storybook
+          cd docs/public
+          git status
+          git add -f .
+          git commit -m "Updated storybook" .
+          git push
+        env:
+          NODE_ENV: production
+          GITHUB_BRANCH: ${{ github.ref }}
+          GITHUB_COMMIT: ${{ github.sha }}
+          PACKAGE_JSON: ${{ steps.projectinfo.outputs.context }}

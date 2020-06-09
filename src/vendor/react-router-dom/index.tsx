@@ -1,0 +1,68 @@
+// import * as ReactRouterDOM from 'react-router-dom';
+
+import {
+  MemoryRouter,
+  Prompt,
+  Redirect,
+  Route,
+  Router,
+  StaticRouter,
+  Switch,
+  generatePath,
+  matchPath,
+  useHistory,
+  useLocation,
+  useParams,
+  useRouteMatch,
+  withRouter,
+  BrowserRouter,
+  HashRouter,
+  Link,
+  NavLink,
+} from 'react-router-dom';
+
+export {
+  // ReactRouterDOM,
+  /* */
+  MemoryRouter,
+  Prompt,
+  Redirect,
+  Route,
+  Router,
+  StaticRouter,
+  Switch,
+  generatePath,
+  matchPath,
+  useHistory,
+  useLocation,
+  useParams,
+  useRouteMatch,
+  withRouter,
+  BrowserRouter,
+  HashRouter,
+  Link,
+  NavLink,
+};
+
+export default {
+  // ReactRouterDOM,
+  /* */
+  MemoryRouter,
+  Prompt,
+  Redirect,
+  Route,
+  Router,
+  StaticRouter,
+  Switch,
+  generatePath,
+  matchPath,
+  useHistory,
+  useLocation,
+  useParams,
+  useRouteMatch,
+  withRouter,
+  BrowserRouter,
+  HashRouter,
+  Link,
+  NavLink,
+};

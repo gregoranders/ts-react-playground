@@ -1,0 +1,29 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+
+import faker from 'faker';
+
+import { UserView } from './index';
+
+import { DefaultUser, RandomUser, User, UserPropTypes } from '@models/user';
+
+<Meta title='Atoms|UserView' component={UserView} parameters={{ jest: ['atoms/user/index.spec.tsx'] }}/>
+
+# UserView
+
+<Preview>
+  <Story name='default'>
+    <UserView user={DefaultUser} />
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name='random'>
+    <UserView user={RandomUser} />
+  </Story>
+</Preview>
+
+
+## Props
+
+<Props of={UserView} />

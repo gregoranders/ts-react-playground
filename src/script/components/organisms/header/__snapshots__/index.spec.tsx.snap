@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header snapshot 1`] = `
+<header
+  className="w3-center"
+>
+  <h1
+    className="w3-jumbo w3-wide"
+  >
+    <a
+      href="/"
+      onClick={[Function]}
+    >
+      Header
+    </a>
+  </h1>
+</header>
+`;

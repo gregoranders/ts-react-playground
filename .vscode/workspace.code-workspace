@@ -1,0 +1,54 @@
+{
+  "folders": [
+    {
+      "path": "../"
+    }
+  ],
+  "settings": {
+    "editor.defaultFormatter": "vscode.typescript-language-features",
+    "workbench.colorTheme": "Nord Deep",
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    "eslint.validate": [
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact",
+    ],
+    "importCost.smallPackageSize": 50,
+    "importCost.mediumPackageSize": 100,
+    "importCost.smallPackageColor": "#7cc36e",
+    "importCost.mediumPackageColor": "#7cc36e",
+    "importCost.largePackageColor": "#d44e40",
+    "importCost.typescriptExtensions": [
+      "\\.tsx?$"
+    ],
+    "importCost.javascriptExtensions": [
+      "\\.jsx?$"
+    ],
+    "importCost.bundleSizeDecoration": "both",
+    "importCost.showCalculatingDecoration": true,
+    "importCost.debug": false,
+    "typescript.tsdk": "node_modules/typescript/lib"
+  },
+  "extensions": {
+    "recommendations": [
+      "coenraads.bracket-pair-colorizer",
+      "msjsdiag.debugger-for-chrome",
+      "editorconfig.editorconfig",
+      "dsznajder.es7-react-js-snippets",
+      "dbaeumer.vscode-eslint",
+      "orta.vscode-jest",
+      "pkief.material-icon-theme",
+      "marlosirapuan.nord-deep",
+      "eg2.vscode-npm-script",
+      "esbenp.prettier-vscode",
+      "rvest.vs-code-prettier-eslint",
+      "pflannery.vscode-versionlens",
+      "visualstudioexptteam.vscodeintellicode"
+    ]
+  }
+}
+
