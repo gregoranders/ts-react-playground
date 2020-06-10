@@ -80,7 +80,6 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.scss', '.js'],
     alias: {
       '@models': path.resolve('src/script/models'),
-      '@states': path.resolve('src/script/states'),
       '@atoms': path.resolve('src/script/components/atoms'),
       '@organisms': path.resolve('src/script/components/organisms'),
       '@molecules': path.resolve('src/script/components/molecules'),

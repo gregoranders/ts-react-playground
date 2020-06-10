@@ -1,12 +1,10 @@
 import React, { FunctionComponent, memo } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
 
-import { generate } from '@models/user';
+import { generate, UsersAtom, UsersLength } from '@models/user';
 
 import Button from '@atoms/button';
 import UsersView from '@molecules/users';
-
-import { UsersAtom, UsersLength } from '@states/user';
 
 export const UsersModelView: FunctionComponent = () => {
   const [users, setUsers] = useRecoilState(UsersAtom);

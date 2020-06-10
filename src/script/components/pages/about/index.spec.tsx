@@ -2,7 +2,7 @@ import React from 'react';
 import { create } from 'react-test-renderer';
 import { mount } from 'enzyme';
 
-import * as TestSubject from './index';
+import * as TestSubject from '@pages/about';
 
 describe(`${TestSubject.AboutPage.displayName}`, () => {
   it('exports default', () => {

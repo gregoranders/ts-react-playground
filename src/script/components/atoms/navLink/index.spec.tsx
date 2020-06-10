@@ -3,7 +3,7 @@ import { MemoryRouter } from 'react-router-dom';
 import { create } from 'react-test-renderer';
 import { mount } from 'enzyme';
 
-import * as TestSubject from './index';
+import * as TestSubject from '@atoms/navLink';
 
 describe(`${TestSubject.NavLink.displayName}`, () => {
   it('exports default', () => {

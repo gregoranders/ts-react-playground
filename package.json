@@ -116,7 +116,6 @@
     ],
     "moduleNameMapper": {
       "^@models/(.*)$": "<rootDir>../src/script/models/$1",
-      "^@states/(.*)$": "<rootDir>../src/script/states/$1",
       "^@atoms/(.*)$": "<rootDir>../src/script/components/atoms/$1",
       "^@organisms/(.*)$": "<rootDir>../src/script/components/organisms/$1",
       "^@molecules/(.*)$": "<rootDir>../src/script/components/molecules/$1",

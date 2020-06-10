@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import * as TestSubject from './application';
+import * as TestSubject from '@app/application';
 
 describe(`${TestSubject.Application.displayName}`, () => {
   it('exports default', () => {
