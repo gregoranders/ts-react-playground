@@ -1,13 +1,13 @@
 {
   "name": "ts-react-playground",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "TypeScript React Playground",
   "main": "dist/index.js",
   "scripts": {
     "dev": "webpack-dev-server --config webpack.config.js",
     "clear": "rimraf junit.xml ./it/screenshots/index ./node_modules ./dist ./coverage ./coverage-it ./package-lock.json ./public/vendor ./public/script ./public/styles.css .jest-test-results.json",
     "clear:snapshots": "rimraf ./**/__snapshots__",
-    "start": "livereloadx -a ./public",
+    "livereload": "livereloadx -a ./public",
     "build": "npm run vendor && npm run script && npm run scss",
     "postbuild": "ts-node minify.ts",
     "test": "jest --runInBand --env=enzyme --setupFilesAfterEnv=jest-enzyme --reporters=jest-spec-reporter jest-junit --coverage --coverageDirectory ../coverage --rootDir ./src",
