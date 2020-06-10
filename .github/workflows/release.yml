@@ -56,20 +56,20 @@ jobs:
         with:
           coverageCommand: npm run test
           debug: true
-      - name: npm run it
+      - name: npm run e2e
         if: matrix.os == 'ubuntu-latest'
         run: |
           sudo apt-get update
           sudo apt-get install xvfb
-          xvfb-run --auto-servernum -- bash -c "npm run it"
+          xvfb-run --auto-servernum -- bash -c "npm run e2e"
         env:
           GITHUB_BRANCH: ${{ github.ref }}
           GITHUB_COMMIT: ${{ github.sha }}
           PACKAGE_JSON: ${{ steps.projectinfo.outputs.context }}
-      - name: npm run it
+      - name: npm run e2e
         if: matrix.os == 'macos-latest'
         run: |
-          npm run it
+          npm run e2e
         env:
           GITHUB_BRANCH: ${{ github.ref }}
           GITHUB_COMMIT: ${{ github.sha }}
@@ -79,13 +79,7 @@ jobs:
         if: matrix.os == 'ubuntu-latest' && matrix.node-version == '14.x'
         with:
           name: Screenshots
-          path: it/screenshots
-      - name: archive e2e diff
-        uses: actions/upload-artifact@v1
-        if: matrix.os == 'ubuntu-latest' && matrix.node-version == '14.x'
-        with:
-          name: Screenshots Diff
-          path: it/__image_snapshots__
+          path: e2e/screenshots
       - name: create release
         id: createrelease
         uses: gregoranders/nodejs-create-release@v0.0.6
@@ -98,13 +92,3 @@ jobs:
           body: ${{ steps.projectinfo.outputs.name }} - ${{ steps.projectinfo.outputs.version }} Release
           target: ${{ github.ref }}
           draft: false
-      # - name: upload asset
-      #   if: matrix.os == 'ubuntu-latest' && matrix.node-version == '12.x'
-      #   id: uploadasset
-      #   uses: gregoranders/nodejs-upload-asset@v0.0.6
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   with:
-      #     id: ${{ steps.createrelease.outputs.id }}
-      #     path: dist/index.js
-      #     name: index.js
