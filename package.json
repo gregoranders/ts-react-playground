@@ -4,8 +4,9 @@
   "description": "TypeScript React Playground",
   "scripts": {
     "start": "webpack-dev-server --open --progress --config webpack.config.js",
-    "clear": "rimraf ./node_modules ./dist ./coverage ./coverage-e2e ./package-lock.json ./public/vendor ./public/script ./public/styles.css .jest-test-results.json junit.xml",
+    "clear": "bpm run prebuild && rimraf ./node_modules ./dist ./coverage ./coverage-e2e ./package-lock.json .jest-test-results.json junit.xml",
     "livereload": "livereloadx -a ./public",
+    "prebuild": "npm run prevendor && npm run prescript && npm run prescss",
     "build": "npm run vendor && npm run script && npm run scss",
     "postbuild": "ts-node minify.ts",
     "test": "jest --runInBand --env=enzyme --setupFilesAfterEnv=jest-enzyme --reporters=jest-spec-reporter jest-junit --coverage --coverageDirectory ../coverage --rootDir ./src",
@@ -28,11 +29,12 @@
     "vendor:react": "cross-env NODE_ENV=production rollup -c ./src/vendor/rollup-react.config.js",
     "vendor:recharts": "cross-env NODE_ENV=production rollup -c ./src/vendor/rollup-recharts.config.js",
     "vendor:esmoduleshims": "tsc --project ./src/vendor/es-module-shims",
+    "predocker:build": "npm run build",
     "docker:build": "cross-env NODE_ENV=production docker-compose build --force-rm --no-cache --parallel --pull",
     "docker:up": "docker-compose up -d",
     "docker:down": "docker-compose down",
     "prestorybook": "jest --runInBand --json --outputFile=.jest-test-results.json --env=enzyme --setupFilesAfterEnv=jest-enzyme --reporters=jest-spec-reporter jest-junit --coverage --coverageDirectory ../coverage --rootDir ./src",
-    "storybook": "cross-env NODE_ENV=production start-storybook -p 6006",
+    "storybook": "cross-env NODE_ENV=production start-storybook",
     "prebuild-storybook": "jest --runInBand --json --outputFile=.jest-test-results.json --env=enzyme --setupFilesAfterEnv=jest-enzyme --reporters=jest-spec-reporter jest-junit --coverage --coverageDirectory ../coverage --rootDir ./src",
     "build-storybook": "rimraf ./docs/public/docs/* && cross-env NODE_ENV=production build-storybook -c .storybook --quiet -o ./docs/public/docs"
   },
@@ -57,8 +59,15 @@
   ],
   "husky": {
     "hooks": {
-      "pre-commit": "tsc --noEmit --project ./src/script && eslint './src/script/**/*.{js,ts,tsx}' --quiet && npm run test"
+      "pre-commit": "lint-staged && npm run test",
+      "pre-push": "npm run build && npm run e2e"
     }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix --quiet",
+      "git add"
+    ]
   },
   "jest": {
     "collectCoverage": true,
@@ -247,6 +256,7 @@
     "jest-junit": "10.0.0",
     "jest-puppeteer": "4.4.0",
     "jest-spec-reporter": "1.0.13",
+    "lint-staged": "10.2.9",
     "livereloadx": "0.3.10",
     "mini-css-extract-plugin": "0.9.0",
     "minify": "5.1.1",

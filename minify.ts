@@ -1,10 +1,9 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import { join } from 'path';
-import { readdirSync, statSync, writeFileSync } from 'fs';
+import { readdirSync, statSync, writeFileSync, Stats } from 'fs';
 const minify = require('minify');
 
 const basePath = './public';
-const promises = [] as Promise<unknown>[];
 const options = {
   js: {
     ecma: 2016,
@@ -29,45 +28,41 @@ const options = {
     },
   },
 };
-let sizeBefore = 0;
-let sizeAfter = 0;
+
+const zerofill = (text: string) => {
+  const idx = text.indexOf('.');
+  if (idx == 1) {
+    return `0${text}`;
+  }
+  return text;
+};
+
+const compressFile = async (path: string, stat: Stats) => {
+  const data = await minify(path, options);
+  writeFileSync(path, data);
+  const nstat = statSync(path);
+  return { before: stat.size, after: nstat.size };
+};
 
 const minifyDir = (parent: string) => {
   const files = readdirSync(parent);
 
-  files.forEach((file) => {
+  files.forEach(async (file) => {
     const full = join(parent, file);
     const stat = statSync(full);
 
     if (stat.isDirectory()) {
       minifyDir(full);
     } else {
-      if (full.endsWith('.js') || full.endsWith('.css')) {
-        sizeBefore += stat.size;
-        minify(full, options)
-          .then((result: string) => {
-            writeFileSync(full, result);
-            const nstat = statSync(full);
-            sizeAfter += nstat.size;
-            console.log(
-              `Compressed ${join(parent, file)} ${stat.size} ${nstat.size} ${stat.size - nstat.size} [${(
-                (nstat.size / stat.size) *
-                100.0
-              ).toFixed(2)}%]`,
-            );
-          })
-          .catch(console.error);
+      if (file.endsWith('.js') || file.endsWith('.css')) {
+        const result = await compressFile(full, stat);
+        const ratio = (100.0 - (result.after / result.before) * 100.0).toFixed(2);
+        console.log(
+          `Compressed [${zerofill(ratio)}%] ${full} ${stat.size} ${result.after} ${stat.size - result.after}`,
+        );
       }
     }
   });
 };
 
 minifyDir(basePath);
-
-Promise.all(promises)
-  .then((results) => {
-    results.forEach((result) => console.log(result));
-  })
-  .finally(() => {
-    console.log(sizeBefore, sizeAfter, sizeBefore - sizeAfter);
-  });
