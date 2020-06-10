@@ -1,6 +1,3 @@
 [submodule "docs/public"]
 	path = docs/public
 	url = git@github.com:gregoranders/ts-react-playground-docs.git
-[submodule "it/__image_snapshots__"]
-	path = e2e/__image_snapshots__
-	url = git@github.com:gregoranders/ts-react-playground-test-data.git
