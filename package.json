@@ -4,7 +4,7 @@
   "description": "TypeScript React Playground",
   "scripts": {
     "start": "webpack-dev-server --open --progress --config webpack.config.js",
-    "clear": "bpm run prebuild && rimraf ./node_modules ./dist ./coverage ./coverage-e2e ./package-lock.json .jest-test-results.json junit.xml",
+    "clear": "npm run prebuild && rimraf ./node_modules ./dist ./coverage ./coverage-e2e ./package-lock.json .jest-test-results.json junit.xml",
     "livereload": "livereloadx -a ./public",
     "prebuild": "npm run prevendor && npm run prescript && npm run prescss",
     "build": "npm run vendor && npm run script && npm run scss",
