@@ -4,7 +4,7 @@ import { mount } from 'enzyme';
 
 import { DefaultUser } from '@models/user';
 
-import * as TestSubject from './index';
+import * as TestSubject from '@atoms/user';
 
 describe(`${TestSubject.UserView.displayName}`, () => {
   it('exports default', () => {

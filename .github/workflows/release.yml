@@ -3,7 +3,7 @@ name: Release CI
 on:
   release:
     types:
-      - edited
+      - created
 
 jobs:
   build:
@@ -11,8 +11,8 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-        node-version: [10.x, 12.x, 13.x, 14.x]
+        os: [ubuntu-latest]
+        node-version: [14.x]
 
     steps:
       - uses: actions/checkout@v2
@@ -40,71 +40,36 @@ jobs:
           npm test
         env:
           CI: true
-      - name: code coverage
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          path-to-lcov: ./coverage/lcov.info
-        env:
-          CI: true
-      - name: publish code coverage to code climate
-        if: matrix.os == 'ubuntu-latest'
-        uses: paambaati/codeclimate-action@v2.3.0
-        env:
-          CI: true
-          CC_TEST_REPORTER_ID: ${{ secrets.CODE_CLIMATE }}
-        with:
-          coverageCommand: npm run test
-          debug: true
-      - name: npm run it
-        if: matrix.os == 'ubuntu-latest'
+      - name: npm run e2e
         run: |
           sudo apt-get update
           sudo apt-get install xvfb
-          xvfb-run --auto-servernum -- bash -c "npm run it"
-        env:
-          GITHUB_BRANCH: ${{ github.ref }}
-          GITHUB_COMMIT: ${{ github.sha }}
-          PACKAGE_JSON: ${{ steps.projectinfo.outputs.context }}
-      - name: npm run it
-        if: matrix.os == 'macos-latest'
-        run: |
-          npm run it
+          xvfb-run --auto-servernum -- bash -c "npm run e2e"
         env:
           GITHUB_BRANCH: ${{ github.ref }}
           GITHUB_COMMIT: ${{ github.sha }}
           PACKAGE_JSON: ${{ steps.projectinfo.outputs.context }}
       - name: archive e2e screenshots
         uses: actions/upload-artifact@v1
-        if: matrix.os == 'ubuntu-latest' && matrix.node-version == '14.x'
         with:
-          name: Screenshots
-          path: it/screenshots
-      - name: archive e2e diff
-        uses: actions/upload-artifact@v1
-        if: matrix.os == 'ubuntu-latest' && matrix.node-version == '14.x'
-        with:
-          name: Screenshots Diff
-          path: it/__image_snapshots__
-      - name: create release
-        id: createrelease
-        uses: gregoranders/nodejs-create-release@v0.0.6
+          name: Screenshots Release ${{ matrix.os }} ${{ matrix.node-version }}
+          path: e2e/screenshots
+      - name: update storybook docs
+        run: |
+          cd docs/public
+          git config --global user.email "${{ secrets.EMAIL }}"
+          git config --global user.name "Gregor Anders"
+          git status
+          git checkout master
+          cd ../..
+          npm run build-storybook
+          cd docs/public
+          git status
+          git add -f .
+          git commit -m "${{ steps.projectinfo.outputs.name }} - v${{ steps.projectinfo.outputs.version }}" .
+          git push
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_ENV: production
+          GITHUB_BRANCH: ${{ github.ref }}
+          GITHUB_COMMIT: ${{ github.sha }}
           PACKAGE_JSON: ${{ steps.projectinfo.outputs.context }}
-        with:
-          tag: v${{ steps.projectinfo.outputs.version }}
-          name: ${{ steps.projectinfo.outputs.name }} - ${{ steps.projectinfo.outputs.version }}
-          body: ${{ steps.projectinfo.outputs.name }} - ${{ steps.projectinfo.outputs.version }} Release
-          target: ${{ github.ref }}
-          draft: false
-      # - name: upload asset
-      #   if: matrix.os == 'ubuntu-latest' && matrix.node-version == '12.x'
-      #   id: uploadasset
-      #   uses: gregoranders/nodejs-upload-asset@v0.0.6
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   with:
-      #     id: ${{ steps.createrelease.outputs.id }}
-      #     path: dist/index.js
-      #     name: index.js

@@ -1,4 +1,5 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { text } from '@storybook/addon-knobs';
 import { NavLink } from './index';
 
 <Meta title='Atoms|NavLink' component={NavLink} parameters={{ jest: ['atoms/navLink/index.spec.tsx'] }}/>
@@ -23,6 +24,13 @@ import { NavLink } from './index';
     <NavLink to='/about'>Label</NavLink>
   </Story>
 </Preview>
+
+<Preview>
+  <Story name='custom'>
+    <NavLink to={text('To', '/')}>{text('Content', 'Link')}</NavLink>
+  </Story>
+</Preview>
+
 
 ## Props
 

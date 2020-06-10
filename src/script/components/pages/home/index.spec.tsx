@@ -3,7 +3,7 @@ import { RecoilRoot } from 'recoil';
 import { create } from 'react-test-renderer';
 import { mount } from 'enzyme';
 
-import * as TestSubject from './index';
+import * as TestSubject from '@pages/home';
 
 describe(`${TestSubject.HomePage.displayName}`, () => {
   it('exports default', () => {

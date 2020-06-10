@@ -1,5 +1,6 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { action } from '@storybook/addon-actions';
+import { text, boolean } from '@storybook/addon-knobs';
 import { Button } from './index';
 
 <Meta title='Atoms|Button' component={Button} parameters={{ jest: ['atoms/button/index.spec.tsx'] }}/>
@@ -22,7 +23,7 @@ import { Button } from './index';
 
 <Preview>
   <Story name='custom'>
-    <Button onClick={action('clicked')}>custom</Button>
+    <Button onClick={action('clicked')} disabled={boolean('Disabled', false)}>{text("Text", "custom")}</Button>
   </Story>
 </Preview>
 

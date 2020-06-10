@@ -1,22 +1,22 @@
 {
   "name": "ts-react-playground",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "TypeScript React Playground",
-  "main": "dist/index.js",
   "scripts": {
-    "dev": "webpack-dev-server --config webpack.config.js",
-    "clear": "rimraf junit.xml ./it/screenshots/index ./node_modules ./dist ./coverage ./coverage-it ./package-lock.json ./public/vendor ./public/script ./public/styles.css .jest-test-results.json",
-    "clear:snapshots": "rimraf ./**/__snapshots__",
-    "start": "livereloadx -a ./public",
-    "build": "npm run vendor && npm run script && npm run scss",
-    "postbuild": "ts-node minify.ts",
+    "start": "webpack-dev-server --open --progress --config webpack.config.js",
+    "clear": "npm run prebuild && rimraf ./node_modules ./dist ./coverage ./coverage-e2e ./package-lock.json .jest-test-results.json junit.xml",
+    "prebuild": "npm run prebuild:webpack",
+    "build": "npm run build:webpack",
+    "prebuild:esc": "npm run prevendor && npm run prescript && npm run prescss",
+    "build:esm": "npm run vendor && npm run script && npm run scss",
+    "postbuild:esm": "ts-node minify.ts",
+    "prebuild:webpack": "rimraf ./dist",
+    "build:webpack": "cross-env NODE_ENV=production webpack --config webpack.config.js",
     "test": "jest --runInBand --env=enzyme --setupFilesAfterEnv=jest-enzyme --reporters=jest-spec-reporter jest-junit --coverage --coverageDirectory ../coverage --rootDir ./src",
     "test:update": "npm run test -- -u",
-    "preit": "rimraf public-it && node prepareit.js",
-    "it": "jest --runInBand --preset=jest-puppeteer --coverage --coverageDirectory ../coverage-it --rootDir ./it",
-    "postit": "rimraf public-it",
-    "preesmoduleshims": "rimraf ./public/es-module-shims.js",
-    "esmoduleshims": "tsc --project ./src/vendor/es-module-shims",
+    "e2e:serve": "cross-env NODE_ENV=production webpack-dev-server --silent --quiet --liveReload false --inline false --config ./e2e/webpack.config.js",
+    "e2e": "jest --testTimeout=60000 --runInBand --preset=jest-puppeteer --coverage --coverageDirectory ../coverage-e2e --rootDir ./e2e",
+    "livereload": "livereloadx -a ./public",
     "prescript": "rimraf ./public/script",
     "script": "tsc --project ./src/script --outDir ./public/script",
     "prewatch-script": "npm run script",
@@ -25,20 +25,20 @@
     "scss": "node-sass --output-style compressed --output ./public ./src/style/styles.scss",
     "prewatch-scss": "npm run scss",
     "watch-scss": "node-sass --output-style compressed  --watch --output ./public ./src/style/styles.scss",
-    "prevendor": "rimraf ./public/vendor",
-    "vendor": "rimraf ./public/vendor && npm run vendor:base && npm run vendor:faker && npm run vendor:fontawesome && npm run vendor:react && npm run vendor:recharts",
+    "prevendor": "rimraf ./public/vendor ./public/es-module-shims.js",
+    "vendor": "rimraf ./public/vendor && npm run vendor:base && npm run vendor:faker && npm run vendor:fontawesome && npm run vendor:react && npm run vendor:recharts && npm run vendor:esmoduleshims",
     "vendor:base": "cross-env NODE_ENV=production rollup -c ./src/vendor/rollup-base.config.js",
     "vendor:faker": "cross-env NODE_ENV=production rollup -c ./src/vendor/rollup-faker.config.js",
     "vendor:fontawesome": "cross-env NODE_ENV=production rollup -c ./src/vendor/rollup-fontawesome.config.js",
     "vendor:react": "cross-env NODE_ENV=production rollup -c ./src/vendor/rollup-react.config.js",
     "vendor:recharts": "cross-env NODE_ENV=production rollup -c ./src/vendor/rollup-recharts.config.js",
-    "postvendor": "npm run esmoduleshims",
+    "vendor:esmoduleshims": "tsc --project ./src/vendor/es-module-shims",
+    "predocker:build": "npm run build",
     "docker:build": "cross-env NODE_ENV=production docker-compose build --force-rm --no-cache --parallel --pull",
     "docker:up": "docker-compose up -d",
     "docker:down": "docker-compose down",
-    "serve": "http-serve ./public-it --cors -p 7683",
     "prestorybook": "jest --runInBand --json --outputFile=.jest-test-results.json --env=enzyme --setupFilesAfterEnv=jest-enzyme --reporters=jest-spec-reporter jest-junit --coverage --coverageDirectory ../coverage --rootDir ./src",
-    "storybook": "cross-env NODE_ENV=production start-storybook -p 6006",
+    "storybook": "cross-env NODE_ENV=production start-storybook",
     "prebuild-storybook": "jest --runInBand --json --outputFile=.jest-test-results.json --env=enzyme --setupFilesAfterEnv=jest-enzyme --reporters=jest-spec-reporter jest-junit --coverage --coverageDirectory ../coverage --rootDir ./src",
     "build-storybook": "rimraf ./docs/public/docs/* && cross-env NODE_ENV=production build-storybook -c .storybook --quiet -o ./docs/public/docs"
   },
@@ -53,6 +53,7 @@
     "jest",
     "livereload",
     "prop-types",
+    "puppeteer",
     "react",
     "react-dom",
     "react-router-dom",
@@ -63,12 +64,21 @@
   ],
   "husky": {
     "hooks": {
-      "pre-commit": "tsc --noEmit --project ./src/script && eslint './src/script/**/*.{js,ts,tsx}' --quiet && npm run test"
+      "pre-commit": "lint-staged && npm run test",
+      "pre-push": "npm run e2e"
     }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix --quiet",
+      "git add"
+    ]
   },
   "jest": {
     "collectCoverage": true,
     "collectCoverageFrom": [
+      "!setup.ts",
+      "!webpack.config.js",
       "!**/tsconfig.json",
       "!**/tsconfig.*.json",
       "!**/*.tsx.snap",
@@ -87,7 +97,6 @@
     ],
     "coverageReporters": [
       "lcovonly",
-      "html",
       "text",
       "text-summary"
     ],
@@ -112,7 +121,6 @@
     ],
     "moduleNameMapper": {
       "^@models/(.*)$": "<rootDir>../src/script/models/$1",
-      "^@states/(.*)$": "<rootDir>../src/script/states/$1",
       "^@atoms/(.*)$": "<rootDir>../src/script/components/atoms/$1",
       "^@organisms/(.*)$": "<rootDir>../src/script/components/organisms/$1",
       "^@molecules/(.*)$": "<rootDir>../src/script/components/molecules/$1",
@@ -241,7 +249,6 @@
     "faker": "4.1.0",
     "file-loader": "6.0.0",
     "html-webpack-plugin": "4.3.0",
-    "http-serve": "1.0.1",
     "husky": "4.2.5",
     "identity-obj-proxy": "3.0.0",
     "jest": "26.0.1",
@@ -252,6 +259,7 @@
     "jest-junit": "10.0.0",
     "jest-puppeteer": "4.4.0",
     "jest-spec-reporter": "1.0.13",
+    "lint-staged": "10.2.9",
     "livereloadx": "0.3.10",
     "mini-css-extract-plugin": "0.9.0",
     "minify": "5.1.1",

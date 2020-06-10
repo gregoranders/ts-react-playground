@@ -40,19 +40,12 @@ jobs:
           npm test
         env:
           CI: true
-      - name: code coverage
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          path-to-lcov: ./coverage/lcov.info
-        env:
-          CI: true
-      - name: npm run it
-        if: matrix.os == 'ubuntu-latest'
+      - name: npm run e2e
+        if: matrix.os == 'ubuntu-latest' && matrix.node-version == '14.x'
         run: |
           sudo apt-get update
           sudo apt-get install xvfb
-          xvfb-run --auto-servernum -- bash -c "npm run it"
+          xvfb-run --auto-servernum -- bash -c "npm run e2e"
         env:
           GITHUB_BRANCH: ${{ github.ref }}
           GITHUB_COMMIT: ${{ github.sha }}
@@ -61,11 +54,5 @@ jobs:
         uses: actions/upload-artifact@v1
         if: matrix.os == 'ubuntu-latest' && matrix.node-version == '14.x'
         with:
-          name: Screenshots
-          path: it/screenshots
-      - name: archive e2e diff
-        uses: actions/upload-artifact@v1
-        if: matrix.os == 'ubuntu-latest' && matrix.node-version == '14.x'
-        with:
-          name: Screenshots Diff
-          path: it/__image_snapshots__
+          name: Screenshots Feature ${{ matrix.os }} ${{ matrix.node-version }}
+          path: e2e/screenshots

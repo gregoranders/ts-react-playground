@@ -33,7 +33,6 @@
     "outDir": "../../public/script",
     "paths": {
       "@models/*": ["./models/*"],
-      "@states/*": ["./states/*"],
       "@atoms/*": ["./components/atoms/*"],
       "@organisms/*": ["./components/organisms/*"],
       "@molecules/*": ["./components/molecules/*"],

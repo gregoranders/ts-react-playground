@@ -80,7 +80,6 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.scss', '.js'],
     alias: {
       '@models': path.resolve('src/script/models'),
-      '@states': path.resolve('src/script/states'),
       '@atoms': path.resolve('src/script/components/atoms'),
       '@organisms': path.resolve('src/script/components/organisms'),
       '@molecules': path.resolve('src/script/components/molecules'),
@@ -134,6 +133,8 @@ module.exports = {
     historyApiFallback: true,
     host: '0.0.0.0',
     port: 7683,
+    hot: false,
+    inline: false,
   },
   plugins: plugins,
 };

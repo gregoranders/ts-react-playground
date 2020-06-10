@@ -1,6 +1,15 @@
-# ts-react-playground - TypeScript React Playground
+# ts-react-playground - [TypeScript](http://www.typescriptlang.org/) [React](https://reactjs.org/) Playground
 
-## [TypeScript](http://www.typescriptlang.org/) [React](https://reactjs.org/) Playground
+#### [Storybook](https://gregoranders.github.io/ts-react-playground-docs)
+
+[![Dependency Status][daviddm-image]][daviddm-url]
+[![License][license-image]][license-url]
+[![Issues][issues-image]][issues-url]
+[![Code maintainability][code-maintainability-image]][code-maintainability-url] [![Code issues][code-issues-image]][code-issues-url] [![Code Technical Debt][code-tech-debt-image]][code-tech-debt-url]
+
+[![Main Language](https://img.shields.io/github/languages/top/gregoranders/ts-react-playground)][code-metric-url] [![Languages](https://img.shields.io/github/languages/count/gregoranders/ts-react-playground)][code-metric-url] [![Code Size](https://img.shields.io/github/languages/code-size/gregoranders/ts-react-playground)][code-metric-url] [![Repo-Size](https://img.shields.io/github/repo-size/gregoranders/ts-react-playground)][code-metric-url]
+
+## Features
 
 * TypeScript
 * React + React-Router + Recoil
@@ -16,23 +25,12 @@
 * Code Quality via Code Climate
 * Docker Container (nginx with ssl)
 
-[Storybook](https://gregoranders.github.io/ts-react-playground-docs)
+| | | |
+|-|-|-|
+|[![Release Build][release-build-image]][release-url]|||
+|[![Master Build][master-build-image]][master-url]|[![Master Coverage][master-coveralls-image]][master-coveralls-url]|[![Master Version][master-version-image]][master-version-url]|
+|[![Development Build][development-build-image]][development-url]|[![Test Coverage][development-coveralls-image]][development-coveralls-url]|[![Development Version][development-version-image]][development-version-url]|
 
-[![Dependency Status][daviddm-image]][daviddm-url]
-[![License][license-image]][license-url]
-[![Issues][issues-image]][issues-url]
-
-[![Release Build][release-build-image]][release-url]
-
-[![Master Build][master-build-image]][master-url] [![Master Coverage][master-coveralls-image]][master-coveralls-url] [![Master Version][master-version-image]][master-version-url]
-
-[![Development Build][development-build-image]][development-url] [![Test Coverage][development-coveralls-image]][development-coveralls-url] [![Development Version][development-version-image]][development-version-url]
-
-[![Master Build][master-circleci-image]][master-circleci-url] [![Development Build][development-circleci-image]][development-circleci-url]
-
-[![Code maintainability][code-maintainability-image]][code-maintainability-url] [![Code issues][code-issues-image]][code-issues-url] [![Code Technical Debt][code-tech-debt-image]][code-tech-debt-url]
-
-[![Main Language](https://img.shields.io/github/languages/top/gregoranders/ts-react-playground)][code-metric-url] [![Languages](https://img.shields.io/github/languages/count/gregoranders/ts-react-playground)][code-metric-url] [![Code Size](https://img.shields.io/github/languages/code-size/gregoranders/ts-react-playground)][code-metric-url] [![Repo-Size](https://img.shields.io/github/repo-size/gregoranders/ts-react-playground)][code-metric-url]
 
 ### Clone repository
 
@@ -48,8 +46,13 @@ npm install
 
 ### Build
 
+#### Webpack
 ```
-npm run build
+npm run build:webpack
+```
+#### ESM
+```
+npm run build:esm
 ```
 
 ### Testing
@@ -63,14 +66,14 @@ npm test
 #### E2E Test using [Jest](https://jestjs.io/) and [Puppeteer](https://pptr.dev/)
 
 ```
-npm run it
+npm run e2e
 ```
 
 ### Development
 
 #### Webpack
 ```
-npm dev
+npm start
 ```
 #### ESM
 ```

@@ -3,7 +3,7 @@ import { MemoryRouter } from 'react-router-dom';
 import { create } from 'react-test-renderer';
 import { mount } from 'enzyme';
 
-import * as TestSubject from './index';
+import * as TestSubject from '@components/layout';
 
 describe(`${TestSubject.Layout.displayName}`, () => {
   it('exports default', () => {

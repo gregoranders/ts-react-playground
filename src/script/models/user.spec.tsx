@@ -1,4 +1,4 @@
-import * as TestSubject from './user';
+import * as TestSubject from '@models/user';
 
 describe(`models/user`, () => {
   it('exports generate', () => {
@@ -15,6 +15,18 @@ describe(`models/user`, () => {
 
   it('exports prop-type', () => {
     expect(TestSubject.UserPropTypes).toBeDefined();
+  });
+
+  it('exports default', () => {
+    expect(TestSubject.default).toStrictEqual(TestSubject.UsersAtom);
+  });
+
+  it('exports Atom', () => {
+    expect(TestSubject.UsersAtom).toBeDefined();
+  });
+
+  it('exports Selector', () => {
+    expect(TestSubject.UsersLength).toBeDefined();
   });
 
   it('generate default number of users', async () => {

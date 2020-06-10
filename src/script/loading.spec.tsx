@@ -2,7 +2,7 @@ import React from 'react';
 import { create } from 'react-test-renderer';
 import { mount } from 'enzyme';
 
-import * as TestSubject from './loading';
+import * as TestSubject from '@app/loading';
 
 describe(`${TestSubject.Loading.displayName}`, () => {
   it('exports default', () => {
