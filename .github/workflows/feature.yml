@@ -40,15 +40,8 @@ jobs:
           npm test
         env:
           CI: true
-      - name: code coverage
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          path-to-lcov: ./coverage/lcov.info
-        env:
-          CI: true
       - name: npm run e2e
-        if: matrix.os == 'ubuntu-latest'
+        if: matrix.os == 'ubuntu-latest' && matrix.node-version == '14.x'
         run: |
           sudo apt-get update
           sudo apt-get install xvfb
@@ -61,5 +54,5 @@ jobs:
         uses: actions/upload-artifact@v1
         if: matrix.os == 'ubuntu-latest' && matrix.node-version == '14.x'
         with:
-          name: Screenshots
+          name: Screenshots Feature ${{ matrix.os }} ${{ matrix.node-version }}
           path: e2e/screenshots

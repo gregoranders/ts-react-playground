@@ -46,8 +46,13 @@ npm install
 
 ### Build
 
+#### Webpack
 ```
-npm run build
+npm run build:webpack
+```
+#### ESM
+```
+npm run build:esm
 ```
 
 ### Testing
