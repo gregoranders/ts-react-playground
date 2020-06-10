@@ -12,7 +12,7 @@ describe('Index', () => {
   Object.keys(devices).forEach((key) => {
     const device = devices[key];
 
-    test(
+    xtest(
       `${device.name}`,
       async () => {
         const page = await browser.newPage();
