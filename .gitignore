@@ -1,9 +1,7 @@
 dist/
 coverage/
-coverage-it/
-public-it/
+coverage-e2e/
 node_modules/
-storybook-static/
 
 package-lock.json
 junit.xml

@@ -1,12 +1,10 @@
 import { Browser, Page } from 'puppeteer';
-import 'expect-puppeteer';
+import { timeout, url } from './setup';
 
 declare const browser: Browser;
 
 const width = 1920;
 const height = 1080;
-const timeout = 10000;
-const url = 'http://127.0.0.1:7683/ts-react-playground/';
 
 let page: Page;
 
