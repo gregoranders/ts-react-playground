@@ -1,3 +1,6 @@
 [submodule "docs/public"]
 	path = docs/public
 	url = git@github.com:gregoranders/ts-react-playground-docs.git
+[submodule "e2e/screenshots"]
+	path = e2e/screenshots
+	url = git@github.com:gregoranders/ts-react-playground-test-data.git
