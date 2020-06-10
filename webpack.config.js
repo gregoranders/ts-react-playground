@@ -133,7 +133,7 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     host: '0.0.0.0',
-    port: 9000,
+    port: 7683,
   },
   plugins: plugins,
 };

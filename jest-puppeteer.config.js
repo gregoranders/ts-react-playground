@@ -6,7 +6,7 @@ module.exports = {
     headless: process.env.HEADLESS !== 'false',
   },
   server: {
-    command: `npm run serve`,
+    command: `npm run dev`,
     port: 7683,
     launchTimeout: 10000,
     debug: false,
