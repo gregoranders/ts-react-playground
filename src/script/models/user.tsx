@@ -45,18 +45,7 @@ export const generate = (count = 100): User[] => {
 };
 
 export const generateAsync = async (count = 100): Promise<User[]> => {
-  const users = [] as User[];
-
-  for (let idx = 0; idx < count; idx++) {
-    users.push({
-      id: idx,
-      firstName: faker.name.firstName(),
-      lastName: faker.name.lastName(),
-      eMail: faker.internet.email(),
-    });
-  }
-
-  return users;
+  return generate(count);
 };
 
 export default User;
