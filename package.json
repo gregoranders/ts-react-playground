@@ -92,7 +92,6 @@
     ],
     "coverageReporters": [
       "lcovonly",
-      "html",
       "text",
       "text-summary"
     ],
