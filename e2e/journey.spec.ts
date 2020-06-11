@@ -4,7 +4,7 @@ import { timeout, url } from './setup';
 declare const browser: Browser;
 
 const width = 1920;
-const height = 1080;
+const height = 3000;
 
 let page: Page;
 
@@ -41,6 +41,8 @@ describe('index', () => {
       expect(h2).toBeTruthy();
       const html = await page.evaluate((h2) => h2.innerHTML, h2);
       expect(html).toBe('IndexPage');
+      const image = await page.screenshot();
+      expect(image).toMatchImageSnapshot();
     },
     timeout,
   );
@@ -54,6 +56,8 @@ describe('index', () => {
       expect(button).toBeTruthy();
       const html = await page.evaluate((h2) => h2.innerHTML, button);
       expect(html).toBe('Generate Users [0]');
+      const image = await page.screenshot();
+      expect(image).toMatchImageSnapshot();
     },
     timeout,
   );
@@ -65,6 +69,8 @@ describe('index', () => {
       await page.waitFor(500);
       const button = await page.$('button');
       expect(button).toBeTruthy();
+      const image = await page.screenshot();
+      expect(image).toMatchImageSnapshot();
       await page.click('button');
       await page.waitFor(1000);
       const html = await page.evaluate((h2) => h2.innerHTML, button);
@@ -82,6 +88,8 @@ describe('index', () => {
       expect(h2).toBeTruthy();
       const html = await page.evaluate((h2) => h2.innerHTML, h2);
       expect(html).toBe('AboutPage');
+      const image = await page.screenshot();
+      expect(image).toMatchImageSnapshot();
     },
     timeout,
   );
