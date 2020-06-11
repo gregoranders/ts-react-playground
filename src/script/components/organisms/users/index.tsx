@@ -10,8 +10,8 @@ export const UsersModelView: FunctionComponent = () => {
   const [users, setUsers] = useRecoilState(UsersAtom);
   const usersLength = useRecoilValue(UsersLength);
 
-  const generateUsers = async () => {
-    setUsers(await generate());
+  const generateUsers = () => {
+    setUsers(generate());
   };
 
   return (

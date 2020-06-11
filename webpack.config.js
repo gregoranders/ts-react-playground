@@ -1,10 +1,14 @@
 'use strict';
+/* eslint-disable @typescript-eslint/no-var-requires */
+const fs = require('fs');
 const path = require('path');
 const CaseSensitivePlugin = require('case-sensitive-paths-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin').CleanWebpackPlugin;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const webpack = require('webpack');
+// const webpack = require('webpack');
+const pkgJson = require('./package.json');
+
 const plugins = [
   new CaseSensitivePlugin(),
   new CleanPlugin(),
@@ -17,7 +21,7 @@ const plugins = [
     filename: 'css/[name].css',
     chunkFilename: 'css/[name].css',
   }),
-  new webpack.ProgressPlugin(),
+  // process.env.NODE_E2E === 'webpack' && new webpack.ProgressPlugin(),
 ];
 const cssLoaders = [
   {
@@ -92,6 +96,13 @@ module.exports = {
   },
   module: {
     rules: [
+      // {
+      //   test: /\.tsx?$/,
+      //   loader: './test',
+      //   options: {
+      //     tsConfig: path.resolve('src/script/tsConfig.json'),
+      //   },
+      // },
       {
         test: /\.tsx?$/,
         loader: 'ts-loader',
@@ -133,7 +144,11 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     host: '0.0.0.0',
-    port: 7683,
+    port: process.env.NODE_PORT || pkgJson.baseport,
+    // https: {
+    //   key: fs.readFileSync(path.resolve(__dirname, 'certs', 'key.pem')),
+    //   cert: fs.readFileSync(path.resolve(__dirname, 'certs', 'cert.pem')),
+    // },
   },
   plugins: plugins,
 };

@@ -2,10 +2,39 @@ import { atom, selector } from 'recoil';
 import { number as IsNumber, shape as IsShape, string as IsString } from 'prop-types';
 import faker from 'faker';
 
+/**
+ * User
+ *
+ * @description User representation.
+ */
 export type User = {
+  /**
+   * Id
+   *
+   * @description User ID
+   * @type number
+   */
   readonly id: number;
+  /**
+   * firstName
+   *
+   * @description User's first name
+   * @type string
+   */
   readonly firstName: string;
+  /**
+   * lastName
+   *
+   * @description User's last name
+   * @type string
+   */
   readonly lastName: string;
+  /**
+   * eMail
+   *
+   * @description User eMail
+   * @type string
+   */
   readonly eMail: string;
 };
 
@@ -51,6 +80,13 @@ export const generateAsync = async (count = 100): Promise<User[]> => {
 
 const USERS_KEY = 'userAtom';
 
+/**
+ * Users
+ *
+ * @description Collection of Users
+ *
+ * @see User
+ */
 export const UsersAtom = atom({
   key: USERS_KEY,
   default: [] as User[],
