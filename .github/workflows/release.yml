@@ -18,6 +18,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: recursive
+          ssh-key: ${{ secrets.SSH_KEY }}
       - name: Use Node.js ${{ matrix.node-version }} on ${{ matrix.os }}
         uses: actions/setup-node@v1
         with:
@@ -46,6 +47,7 @@ jobs:
           sudo apt-get install xvfb
           xvfb-run --auto-servernum -- bash -c "npm run e2e"
         env:
+          HEADLESS: true
           GITHUB_BRANCH: ${{ github.ref }}
           GITHUB_COMMIT: ${{ github.sha }}
           PACKAGE_JSON: ${{ steps.projectinfo.outputs.context }}
