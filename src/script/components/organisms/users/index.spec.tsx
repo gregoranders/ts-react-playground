@@ -44,6 +44,6 @@ describe(`${TestSubject.UsersModelView.displayName}`, () => {
       </RecoilRoot>,
     );
     testSubject.find('button').simulate('click');
-    expect(testSubject.text()).toBe('Generate Users [0]');
+    expect(testSubject.text()).toContain('Generate Users [100]');
   });
 });

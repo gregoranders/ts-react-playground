@@ -11,7 +11,14 @@ type Props = {
   user: User;
 };
 
-export const UserView: FunctionComponent<Props> = ({ user }) => {
+/**
+ * UserView
+ *
+ * @description User view
+ *
+ * @param {User} user
+ */
+export const UserView: FunctionComponent<Props> = ({ user }: Props) => {
   return (
     <dl>
       <dt>First Name</dt>
