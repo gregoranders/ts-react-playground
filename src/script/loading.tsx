@@ -37,10 +37,10 @@ export const Loading: FunctionComponent<Props> = ({ timeout, type }) => {
   const [mode, setMode] = useState<Factor>(1);
 
   const processStage = () => {
-    if (mode === -1) {
-      if (stage === 2) setMode(1);
-    } else {
-      if (stage === 4) setMode(-1);
+    if (stage === 2 && mode === -1) {
+      setMode(1);
+    } else if (stage === 4 && mode === 1) {
+      setMode(-1);
     }
     setStage(stage + mode);
   };
