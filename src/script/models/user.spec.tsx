@@ -29,6 +29,14 @@ describe(`models/user`, () => {
     expect(TestSubject.UsersLength).toBeDefined();
   });
 
+  it('exports Selector', () => {
+    expect(TestSubject.UsersTop10).toBeDefined();
+  });
+
+  it('exports Selector', () => {
+    expect(TestSubject.UsersBottom10).toBeDefined();
+  });
+
   it('generate default number of users', async () => {
     const result = TestSubject.generate();
     expect(result.length).toBe(100);

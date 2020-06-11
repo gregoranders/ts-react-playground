@@ -102,4 +102,24 @@ export const UsersLength = selector({
   },
 });
 
+const TOP10_KEY = 'usersTopTen';
+
+export const UsersTop10 = selector({
+  key: TOP10_KEY,
+  get: ({ get }) => {
+    const users = get(UsersAtom);
+    return users.slice(0, 10);
+  },
+});
+
+const BOTTOM10_KEY = 'usersBottomTen';
+
+export const UsersBottom10 = selector({
+  key: BOTTOM10_KEY,
+  get: ({ get }) => {
+    const users = get(UsersAtom);
+    return users.slice(users.length - 10);
+  },
+});
+
 export default UsersAtom;
