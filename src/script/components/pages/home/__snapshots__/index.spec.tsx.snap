@@ -1,12 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`HomePage snapshot 1`] = `
-<button
-  disabled={false}
-  onClick={[Function]}
->
-  Generate Users [
-  0
-  ]
-</button>
+Array [
+  <button
+    disabled={false}
+    onClick={[Function]}
+  >
+    Generate Users [
+    0
+    ]
+  </button>,
+  <table>
+    <tr>
+      <td />
+      <td />
+      <td />
+    </tr>
+  </table>,
+]
 `;

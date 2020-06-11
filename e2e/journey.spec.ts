@@ -68,7 +68,7 @@ describe('index', () => {
       await page.click('button');
       await page.waitFor(1000);
       const html = await page.evaluate((h2) => h2.innerHTML, button);
-      expect(html).toBe('Generate Users [100]');
+      expect(html).toBe('Generate Users [15]');
     },
     timeout,
   );
