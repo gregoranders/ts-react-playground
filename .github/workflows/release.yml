@@ -26,6 +26,9 @@ jobs:
       - name: nodejs project information
         id: projectinfo
         uses: gregoranders/nodejs-project-info@v0.0.6
+      - name: git config
+        run: |
+          cat .git/config
       - name: npm install
         run: |
           npm install
@@ -58,13 +61,16 @@ jobs:
           path: e2e/screenshots
       - name: update storybook docs
         run: |
+          cat .git/config
           cd docs/public
           git config --global user.email "${{ secrets.EMAIL }}"
           git config --global user.name "Gregor Anders"
           git status
           git checkout master
           cd ../..
+          cat .git/config
           npm run build-storybook
+          cat .git/config
           cd docs/public
           git status
           git add -f .
