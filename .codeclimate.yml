@@ -4,7 +4,17 @@ plugins:
   tslint:
     enabled: false
   eslint:
-    enabled: false
+    enabled: true
+    channel: "eslint-6"
+    config:
+      config: .cceslintrc.js
+    extensions:
+      - .es6
+      - .js
+      - .jsx
+      - .ts
+      - .tsx
+      - .mjs
   fixme:
     enabled: true
   git-legal:
@@ -14,8 +24,7 @@ exclude_patterns:
   - "!spec/support/helpers"
   - "config/"
   - "db/"
-  - "dist/"
-  - "public/"
+  - "docs/public"
   - "features/"
   - ".circleci/"
   - ".github/"

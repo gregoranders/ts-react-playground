@@ -81,6 +81,10 @@ npm run watch-script
 npm run watch-scss
 npm run watch-livereload
 ```
+#### Code Climate Checks [docker required](docs/CODECLIMATE.md)
+```
+npm run codeclimate
+```
 
 ### Storybook
 
