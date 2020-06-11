@@ -46,6 +46,7 @@ jobs:
           sudo apt-get install xvfb
           xvfb-run --auto-servernum -- bash -c "npm run e2e"
         env:
+          HEADLESS: true
           GITHUB_BRANCH: ${{ github.ref }}
           GITHUB_COMMIT: ${{ github.sha }}
           PACKAGE_JSON: ${{ steps.projectinfo.outputs.context }}

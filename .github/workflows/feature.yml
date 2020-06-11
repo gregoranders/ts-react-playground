@@ -12,7 +12,8 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node-version: [10.x, 12.x, 13.x, 14.x]
+        node-version: [14.x]
+        # node-version: [10.x, 12.x, 13.x, 14.x]
 
     steps:
       - uses: actions/checkout@v2
@@ -47,6 +48,7 @@ jobs:
           sudo apt-get install xvfb
           xvfb-run --auto-servernum -- bash -c "npm run e2e"
         env:
+          HEADLESS: true
           GITHUB_BRANCH: ${{ github.ref }}
           GITHUB_COMMIT: ${{ github.sha }}
           PACKAGE_JSON: ${{ steps.projectinfo.outputs.context }}
