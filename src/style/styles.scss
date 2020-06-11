@@ -17,6 +17,29 @@ header {
   }
 }
 
+.centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.bootstrap,
+.spinner {
+  > h1 {
+    &.dots {
+      color: $color-theme-d3;
+      font-size: 15em;
+      font-weight: 900;
+      text-shadow: 4px 4px 8px lighten($color-theme-dark, 50%);
+    }
+  }
+}
+
+main {
+  height: 90vh;
+}
+
 table {
   width: 100%;
 

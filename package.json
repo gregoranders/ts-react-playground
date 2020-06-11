@@ -1,6 +1,6 @@
 {
   "name": "ts-react-playground",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "TypeScript React Playground",
   "scripts": {
     "start": "webpack-dev-server --open --progress --config webpack.config.js",
@@ -39,6 +39,7 @@
     "docker:build": "cross-env NODE_ENV=production docker-compose build --force-rm --no-cache --parallel --pull",
     "docker:up": "docker-compose up -d",
     "docker:down": "docker-compose down",
+    "codeclimate": "docker run --interactive --tty --rm --env CODECLIMATE_CODE=\"$PWD\" --volume \"$PWD\":/code --volume /var/run/docker.sock:/var/run/docker.sock --volume /tmp/cc:/tmp/cc codeclimate/codeclimate analyze",
     "prestorybook": "jest --runInBand --json --outputFile=.jest-test-results.json --env=enzyme --setupFilesAfterEnv=jest-enzyme --reporters=jest-spec-reporter jest-junit --coverage --coverageDirectory ../coverage --rootDir ./src",
     "storybook": "cross-env NODE_ENV=production start-storybook",
     "prebuild-storybook": "jest --runInBand --json --outputFile=.jest-test-results.json --env=enzyme --setupFilesAfterEnv=jest-enzyme --reporters=jest-spec-reporter jest-junit --coverage --coverageDirectory ../coverage --rootDir ./src",

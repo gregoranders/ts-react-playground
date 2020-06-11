@@ -3,7 +3,7 @@ import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
 import { string as IsString } from 'prop-types';
 
-import Loading from '@app/loading';
+import { default as Loading } from '@app/loading';
 
 const Layout = lazy(() => import('@components/layout'));
 
