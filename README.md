@@ -14,6 +14,7 @@
 * TypeScript
 * React + React-Router + Recoil
 * SCSS
+* ServiceWorker with PWA
 * Jest Snapshot/Unit Tests with Code Coverage (enzyme)
 * Jest + Puppeteer (screenshots from submodule) E2E Tests
 * Storybook (publish via CI into submodule)
