@@ -9,73 +9,55 @@
     <meta name="description" content="TypeScript React Playground" />
     <meta name="keywords" content="typescript, react, react-router-dom, fontawesome, recharts, jest, prop-types, clsx, workbox" />
     <meta name="author" content="Gregor Anders" />
-    <link rel="shortcut icon" href="/ts-react-playground/favicon.ico" />
-    <script async src="/ts-react-playground/vendor/es-module-shims.js"></script>
-    <script defer type="importmap-shim">
-      {
-        "imports": {
-          "clsx": "/ts-react-playground/vendor/clsx.js",
-          "idb": "/ts-react-playground/vendor/idb.js",
-          "faker": "/ts-react-playground/vendor/faker.js",
-          "workbox-window": "/ts-react-playground/vendor/workbox-window.js",
-
-          "object-assign": "/ts-react-playground/vendor/object-assign.js",
-          "prop-types": "/ts-react-playground/vendor/prop-types.js",
-          "react": "/ts-react-playground/vendor/react.js",
-          "react-is": "/ts-react-playground/vendor/react-is.js",
-          "react-dom": "/ts-react-playground/vendor/react-dom.js",
-          "react-router": "/ts-react-playground/vendor/react-router.js",
-          "react-router-dom": "/ts-react-playground/vendor/react-router-dom.js",
-          "react-transition-group": "/ts-react-playground/vendor/react-transition-group.js",
-          "recoil": "/ts-react-playground/vendor/recoil.js",
-          "scheduler": "/ts-react-playground/vendor/scheduler.js",
-
-          "recharts": "/ts-react-playground/vendor/recharts.js",
-          "recharts-scale": "/ts-react-playground/vendor/recharts-scale.js",
-
-          "d3-array": "/ts-react-playground/vendor/d3-array.js",
-          "d3-color": "/ts-react-playground/vendor/d3-color.js",
-          "d3-format": "/ts-react-playground/vendor/d3-format.js",
-          "d3-interpolate": "/ts-react-playground/vendor/d3-interpolate.js",
-          "d3-path": "/ts-react-playground/vendor/d3-path.js",
-          "d3-scale": "/ts-react-playground/vendor/d3-scale.js",
-          "d3-shape": "/ts-react-playground/vendor/d3-shape.js",
-          "d3-time": "/ts-react-playground/vendor/d3-time.js",
-          "d3-time-format": "/ts-react-playground/vendor/d3-time-format.js",
-
-          "@fortawesome/fontawesome-svg-core": "/ts-react-playground/vendor/@fortawesome/fontawesome-svg-core.js",
-          "@fortawesome/free-regular-svg-icons": "/ts-react-playground/vendor/@fortawesome/free-regular-svg-icons.js",
-          "@fortawesome/free-solid-svg-icons": "/ts-react-playground/vendor/@fortawesome/free-solid-svg-icons.js",
-          "@fortawesome/free-brands-svg-icons": "/ts-react-playground/vendor/@fortawesome/free-brands-svg-icons.js",
-          "@fortawesome/react-fontawesome": "/ts-react-playground/vendor/@fortawesome/react-fontawesome.js",
-
-          "@app/index": "/ts-react-playground/script/index.js",
-          "@app/application": "/ts-react-playground/script/application.js",
-          "@app/loading": "/ts-react-playground/script/loading.js",
-
-          "@models/user": "/ts-react-playground/script/models/user.js",
-
-          "@components/layout": "/ts-react-playground/script/components/layout/index.js",
-
-          "@atoms/button": "/ts-react-playground/script/components/atoms/button/index.js",
-          "@atoms/navLink": "/ts-react-playground/script/components/atoms/navLink/index.js",
-          "@atoms/user": "/ts-react-playground/script/components/atoms/user/index.js",
-
-          "@molecules/users": "/ts-react-playground/script/components/molecules/users/index.js",
-
-          "@organisms/header": "/ts-react-playground/script/components/organisms/header/index.js",
-          "@organisms/nav": "/ts-react-playground/script/components/organisms/nav/index.js",
-          "@organisms/main": "/ts-react-playground/script/components/organisms/main/index.js",
-          "@organisms/footer": "/ts-react-playground/script/components/organisms/footer/index.js",
-
-          "@organisms/users": "/ts-react-playground/script/components/organisms/users/index.js",
-
-          "@pages/home": "/ts-react-playground/script/components/pages/home/index.js",
-          "@pages/index": "/ts-react-playground/script/components/pages/index/index.js",
-          "@pages/about": "/ts-react-playground/script/components/pages/about/index.js"
-        }
-      }
-    </script>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#000">
+    <meta name="application-name" content="ts-react-playground">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="ts-react-playground">
+    <meta name="msapplication-TileColor" content="#000">
+    <meta name="msapplication-TileImage" content="/ts-react-playground/assets/mstile-144x144.png">
+    <meta name="msapplication-config" content="/ts-react-playground/assets/browserconfig.xml">
+    <link rel="shortcut icon" href="/ts-react-playground/assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/ts-react-playground/assets/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/ts-react-playground/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/ts-react-playground/assets/favicon-48x48.png">
+    <link rel="manifest" href="/ts-react-playground/assets/manifest.json">
+    <link rel="apple-touch-icon" sizes="57x57" href="/ts-react-playground/assets/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/ts-react-playground/assets/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/ts-react-playground/assets/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/ts-react-playground/assets/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/ts-react-playground/assets/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/ts-react-playground/assets/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/ts-react-playground/assets/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/ts-react-playground/assets/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="/ts-react-playground/assets/apple-touch-icon-167x167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/ts-react-playground/assets/apple-touch-icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="1024x1024" href="/ts-react-playground/assets/apple-touch-icon-1024x1024.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"    href="/ts-react-playground/assets/apple-touch-startup-image-640x1136.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"    href="/ts-react-playground/assets/apple-touch-startup-image-750x1334.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"    href="/ts-react-playground/assets/apple-touch-startup-image-828x1792.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"    href="/ts-react-playground/assets/apple-touch-startup-image-1125x2436.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"    href="/ts-react-playground/assets/apple-touch-startup-image-1242x2208.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"    href="/ts-react-playground/assets/apple-touch-startup-image-1242x2688.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"   href="/ts-react-playground/assets/apple-touch-startup-image-1536x2048.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"   href="/ts-react-playground/assets/apple-touch-startup-image-1668x2224.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"   href="/ts-react-playground/assets/apple-touch-startup-image-1668x2388.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"  href="/ts-react-playground/assets/apple-touch-startup-image-2048x2732.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"  href="/ts-react-playground/assets/apple-touch-startup-image-1620x2160.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"   href="/ts-react-playground/assets/apple-touch-startup-image-1136x640.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"   href="/ts-react-playground/assets/apple-touch-startup-image-1334x750.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"   href="/ts-react-playground/assets/apple-touch-startup-image-1792x828.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"   href="/ts-react-playground/assets/apple-touch-startup-image-2436x1125.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"   href="/ts-react-playground/assets/apple-touch-startup-image-2208x1242.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"   href="/ts-react-playground/assets/apple-touch-startup-image-2688x1242.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"  href="/ts-react-playground/assets/apple-touch-startup-image-2048x1536.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"  href="/ts-react-playground/assets/apple-touch-startup-image-2224x1668.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"  href="/ts-react-playground/assets/apple-touch-startup-image-2388x1668.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="/ts-react-playground/assets/apple-touch-startup-image-2732x2048.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"  href="/ts-react-playground/assets/apple-touch-startup-image-2160x1620.png">
+    <link rel="icon" type="image/png" sizes="228x228" href="/ts-react-playground/assets/coast-228x228.png">
+    <link rel="yandex-tableau-widget" href="/ts-react-playground/assets/yandex-browser-manifest.json">
     <link rel="canonical" href="/ts-react-playground/"/>
     <link rel="modulepreload" href="/ts-react-playground/vendor/clsx.js">
     <link rel="modulepreload" href="/ts-react-playground/vendor/object-assign.js">
@@ -89,6 +71,8 @@
     <link rel="modulepreload" href="/ts-react-playground/vendor/recoil.js">
     <link rel="modulepreload" href="/ts-react-playground/vendor/prop-types.js">
     <link rel="stylesheet" href="/ts-react-playground/styles.css" />
+    <script defer src="/ts-react-playground/vendor/es-module-shims.js"></script>
+    <script defer type="importmap-shim" src="/ts-react-playground/importmap.json"></script>
     <base href="/ts-react-playground/" />
     <title>ts-react-playground - TypeScript React Playground</title>
   </head>

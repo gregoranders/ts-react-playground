@@ -1,4 +1,6 @@
 dist/
+public/assets/
+public/favicon.html
 coverage/
 coverage-e2e/
 node_modules/
