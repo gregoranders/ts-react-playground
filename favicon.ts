@@ -53,15 +53,16 @@ const configuration: favicons.Configuration = {
 
     const assetPath = path.resolve('public', 'assets');
 
+    const writeFiles = (files: { name: string; contents: Buffer }[]) => {
+      files.forEach((file) => {
+        fs.writeFileSync(path.resolve(assetPath, file.name), file.contents);
+      });
+    };
+
     if (!fs.existsSync(assetPath)) fs.mkdirSync(assetPath);
 
-    response.images.forEach((image) => {
-      fs.writeFileSync(path.resolve(assetPath, image.name), image.contents);
-    });
-
-    response.files.forEach((file) => {
-      fs.writeFileSync(path.resolve(assetPath, file.name), file.contents);
-    });
+    writeFiles(response.images);
+    writeFiles(response.files);
 
     fs.writeFileSync(path.resolve('public', 'favicon.html'), response.html.join('\n'));
   };

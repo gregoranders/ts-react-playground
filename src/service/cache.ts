@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-namespace */
-type CacheType = {
-  revision: string;
-  url: string;
-};
-
-type CacheProvider = {
-  __WB_MANIFEST: CacheType[];
-};
-
 namespace CustomServiceWorkerNS {
+  type CacheType = {
+    revision: string;
+    url: string;
+  };
+
+  type CacheProvider = {
+    __WB_MANIFEST: CacheType[];
+  };
+
   export class CustomServiceWorkerCache {
     private cache = ((self as unknown) as CacheProvider).__WB_MANIFEST || [];
     private routes = ['home', 'index', 'about'];
@@ -19,7 +19,7 @@ namespace CustomServiceWorkerNS {
     public async register(basename: string): Promise<void> {
       /* */
       try {
-        this.log('Cache', this.cache);
+        CustomServiceWorkerNS.log('Cache', this.cache);
         const cache = await caches.open(`install-${CustomServiceWorkerNS.VERSION}`);
         return cache.addAll(
           this.cache
@@ -53,11 +53,6 @@ namespace CustomServiceWorkerNS {
           }
         }),
       );
-    }
-
-    private log(...args: unknown[]) {
-      const styles = [`background-color: #080`];
-      console.log(...[`%cServiceWorkerCache ${CustomServiceWorkerNS.VERSION}`, styles.join(';')], args);
     }
   }
 }

@@ -30,19 +30,19 @@ namespace CustomServiceWorkerNS {
     }
 
     private onActivate(event: ExtendableEvent) {
-      this.log('onActivate');
+      CustomServiceWorkerNS.log('onActivate');
       event.waitUntil(this.service.clients.claim());
     }
 
     private onFetch(event: FetchEvent) {
       this.cache.fetch(event);
     }
-
-    private log(...args: unknown[]) {
-      const styles = [`background-color: #008`];
-      console.log(...[`%cServiceWorker ${CustomServiceWorkerNS.VERSION}`, styles.join(';')], args);
-    }
   }
+
+  export const log = (...args: unknown[]) => {
+    const styles = [`background-color: #008`];
+    console.log(...[`%cServiceWorker ${CustomServiceWorkerNS.VERSION}`, styles.join(';')], args);
+  };
 
   const url = new URL(location.toString());
   const basename = url.searchParams.get('basename') || '/';
