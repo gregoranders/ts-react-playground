@@ -23,15 +23,20 @@ namespace CustomServiceWorkerNS {
 
     private onInstall(event: ExtendableEvent) {
       event.waitUntil(
-        new Promise<void>((resolve) => {
-          resolve(this.cache.register(this.basename));
+        new Promise<void>(async (resolve) => {
+          await this.cache.register(this.basename);
+          resolve(this.service.skipWaiting());
         }),
       );
     }
 
     private onActivate(event: ExtendableEvent) {
       CustomServiceWorkerNS.log('onActivate');
-      event.waitUntil(this.service.clients.claim());
+      event.waitUntil(
+        new Promise<void>(async (resolve) => {
+          resolve(this.service.clients.claim());
+        }),
+      );
     }
 
     private onFetch(event: FetchEvent) {
@@ -39,7 +44,7 @@ namespace CustomServiceWorkerNS {
     }
   }
 
-  export const log = (...args: unknown[]) => {
+  export const log = (...args: unknown[]): void => {
     const styles = [`background-color: #008`];
     console.log(...[`%cServiceWorker ${CustomServiceWorkerNS.VERSION}`, styles.join(';')], args);
   };
