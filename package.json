@@ -5,7 +5,7 @@
   "scripts": {
     "start": "webpack-dev-server --open --progress --config webpack.config.js",
     "clear": "npm run prebuild && rimraf ./node_modules ./dist ./coverage ./coverage-e2e ./package-lock.json .jest-test-results.json junit.xml",
-    "prebuild": "npm run prebuild:webpack",
+    "prebuild": "npm run prebuild:webpack && npm run prebuild:esm",
     "build": "npm run build:webpack",
     "prebuild:esm": "npm run prevendor && npm run prescript && npm run preserviceWorker && npm run prescss && npm run prefavicon",
     "build:esm": "npm run vendor && npm run script && npm run scss && npm run favicon && npm run serviceWorker",
