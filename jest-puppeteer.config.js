@@ -8,7 +8,7 @@ module.exports = {
   launch: {
     dumpio: true,
     headless: process.env.HEADLESS !== 'false',
-    // args: ['--enable-experimental-web-platform-features']
+    args: ['--enable-experimental-web-platform-features']
   },
   server: {
     command,

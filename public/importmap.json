@@ -1,0 +1,63 @@
+{
+  "imports": {
+    "clsx": "/ts-react-playground/vendor/clsx.js",
+    "idb": "/ts-react-playground/vendor/idb.js",
+    "faker": "/ts-react-playground/vendor/faker.js",
+    "workbox-window": "/ts-react-playground/vendor/workbox-window.js",
+
+    "object-assign": "/ts-react-playground/vendor/object-assign.js",
+    "prop-types": "/ts-react-playground/vendor/prop-types.js",
+    "react": "/ts-react-playground/vendor/react.js",
+    "react-is": "/ts-react-playground/vendor/react-is.js",
+    "react-dom": "/ts-react-playground/vendor/react-dom.js",
+    "react-router": "/ts-react-playground/vendor/react-router.js",
+    "react-router-dom": "/ts-react-playground/vendor/react-router-dom.js",
+    "react-transition-group": "/ts-react-playground/vendor/react-transition-group.js",
+    "recoil": "/ts-react-playground/vendor/recoil.js",
+    "scheduler": "/ts-react-playground/vendor/scheduler.js",
+
+    "recharts": "/ts-react-playground/vendor/recharts.js",
+    "recharts-scale": "/ts-react-playground/vendor/recharts-scale.js",
+
+    "d3-array": "/ts-react-playground/vendor/d3-array.js",
+    "d3-color": "/ts-react-playground/vendor/d3-color.js",
+    "d3-format": "/ts-react-playground/vendor/d3-format.js",
+    "d3-interpolate": "/ts-react-playground/vendor/d3-interpolate.js",
+    "d3-path": "/ts-react-playground/vendor/d3-path.js",
+    "d3-scale": "/ts-react-playground/vendor/d3-scale.js",
+    "d3-shape": "/ts-react-playground/vendor/d3-shape.js",
+    "d3-time": "/ts-react-playground/vendor/d3-time.js",
+    "d3-time-format": "/ts-react-playground/vendor/d3-time-format.js",
+
+    "@fortawesome/fontawesome-svg-core": "/ts-react-playground/vendor/@fortawesome/fontawesome-svg-core.js",
+    "@fortawesome/free-regular-svg-icons": "/ts-react-playground/vendor/@fortawesome/free-regular-svg-icons.js",
+    "@fortawesome/free-solid-svg-icons": "/ts-react-playground/vendor/@fortawesome/free-solid-svg-icons.js",
+    "@fortawesome/free-brands-svg-icons": "/ts-react-playground/vendor/@fortawesome/free-brands-svg-icons.js",
+    "@fortawesome/react-fontawesome": "/ts-react-playground/vendor/@fortawesome/react-fontawesome.js",
+
+    "@app/index": "/ts-react-playground/script/index.js",
+    "@app/application": "/ts-react-playground/script/application.js",
+    "@app/loading": "/ts-react-playground/script/loading.js",
+
+    "@models/user": "/ts-react-playground/script/models/user.js",
+
+    "@components/layout": "/ts-react-playground/script/components/layout/index.js",
+
+    "@atoms/button": "/ts-react-playground/script/components/atoms/button/index.js",
+    "@atoms/navLink": "/ts-react-playground/script/components/atoms/navLink/index.js",
+    "@atoms/user": "/ts-react-playground/script/components/atoms/user/index.js",
+
+    "@molecules/users": "/ts-react-playground/script/components/molecules/users/index.js",
+
+    "@organisms/header": "/ts-react-playground/script/components/organisms/header/index.js",
+    "@organisms/nav": "/ts-react-playground/script/components/organisms/nav/index.js",
+    "@organisms/main": "/ts-react-playground/script/components/organisms/main/index.js",
+    "@organisms/footer": "/ts-react-playground/script/components/organisms/footer/index.js",
+
+    "@organisms/users": "/ts-react-playground/script/components/organisms/users/index.js",
+
+    "@pages/home": "/ts-react-playground/script/components/pages/home/index.js",
+    "@pages/index": "/ts-react-playground/script/components/pages/index/index.js",
+    "@pages/about": "/ts-react-playground/script/components/pages/about/index.js"
+  }
+}

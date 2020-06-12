@@ -1,4 +1,5 @@
 dist/
+public/assets/
 coverage/
 coverage-e2e/
 node_modules/
