@@ -2,12 +2,7 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ],
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
   "editor.formatOnSave": true,
   "[javascript]": {
     "editor.formatOnSave": false
@@ -21,20 +16,6 @@
   "[typescriptreact]": {
     "editor.formatOnSave": false
   },
-  "importCost.smallPackageSize": 50,
-  "importCost.mediumPackageSize": 100,
-  "importCost.smallPackageColor": "#7cc36e",
-  "importCost.mediumPackageColor": "#7cc36e",
-  "importCost.largePackageColor": "#d44e40",
-  "importCost.typescriptExtensions": [
-    "\\.tsx?$"
-  ],
-  "importCost.javascriptExtensions": [
-    "\\.jsx?$"
-  ],
-  "importCost.bundleSizeDecoration": "both",
-  "importCost.showCalculatingDecoration": true,
-  "importCost.debug": false,
   "editor.tabSize": 2,
   "editor.wordWrapColumn": 120,
   "editor.minimap.enabled": false
