@@ -148,6 +148,13 @@
       "^.+\\.mdx$": "@storybook/addon-docs/jest-transform-mdx"
     }
   },
+  "prettier": {
+    "semi": true,
+    "trailingComma": "all",
+    "singleQuote": true,
+    "printWidth": 120,
+    "tabWidth": 2
+  },
   "author": "Gregor Anders <gregor.anders@gmail.com>",
   "license": "MIT",
   "bugs": {
