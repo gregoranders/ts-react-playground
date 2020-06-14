@@ -1,12 +1,10 @@
 dist/
 public/assets/
 public/favicon.html
-coverage/
-coverage-e2e/
+test/
 node_modules/
 
 package-lock.json
-junit.xml
 .jest-test-results.json
 
 *.js

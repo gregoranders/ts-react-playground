@@ -5,11 +5,11 @@ import * as express from 'express';
 import * as https from 'http';
 import * as compression from 'compression';
 
-import { baseport } from './package.json';
+import { baseport } from '../package.json';
 
 // import { api } from './controller';
 const hostname = 'localhost';
-const staticPath: string = path.join(__dirname, 'public');
+const staticPath: string = path.join(__dirname, '..', 'public');
 
 const application = express();
 

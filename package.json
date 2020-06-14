@@ -1,23 +1,24 @@
 {
   "name": "ts-react-playground",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "TypeScript React Playground",
   "scripts": {
     "start": "webpack-dev-server --open --progress --config webpack.config.js",
-    "clear": "npm run prebuild && rimraf ./node_modules ./dist ./coverage ./coverage-e2e ./package-lock.json .jest-test-results.json junit.xml",
+    "clear": "npm run prebuild && npm run pretest && rimraf ./node_modules ./dist ./package-lock.json .jest-test-results.json junit.xml",
     "prebuild": "npm run prebuild:webpack && npm run prebuild:esm",
     "build": "npm run build:webpack",
     "prebuild:esm": "npm run prevendor && npm run prescript && npm run preserviceWorker && npm run prescss && npm run prefavicon",
     "build:esm": "npm run vendor && npm run script && npm run scss && npm run favicon && npm run serviceWorker",
-    "postbuild:esm": "ts-node minify.ts",
+    "postbuild:esm": "ts-node ./scripts/minify.ts",
     "prebuild:webpack": "rimraf ./dist",
     "build:webpack": "cross-env NODE_ENV=production webpack --config webpack.config.js",
-    "test": "jest --runInBand --env=enzyme --setupFilesAfterEnv=jest-enzyme --reporters=jest-spec-reporter jest-junit --coverage --coverageDirectory ../coverage --rootDir ./src",
+    "pretest": "rimraf ./test",
+    "test": "jest --runInBand --env=enzyme --setupFilesAfterEnv=jest-enzyme --reporters=jest-html-reporter jest-spec-reporter jest-junit --coverage --collectCoverage true --coverageDirectory ../test/coverage --rootDir ./src",
     "test:update": "npm run test -- -u",
     "e2e:serve": "webpack-dev-server --config ./e2e/webpack.config.js --quiet true --liveReload false --inline false",
-    "e2e": "cross-env-shell NODE_PORT=$(ts-node findport.ts) NODE_E2E=webpack jest --testTimeout=60000 --runInBand --reporters=jest-spec-reporter --preset=jest-puppeteer --coverage --coverageDirectory ../coverage-e2e --rootDir ./e2e",
-    "serve": "ts-node server.ts",
-    "e2e:esm": "cross-env-shell NODE_PORT=$(ts-node findport.ts) NODE_E2E=esm jest --testTimeout=60000 --runInBand --reporters=jest-spec-reporter --preset=jest-puppeteer --coverage --coverageDirectory ../coverage-e2e --rootDir ./e2e",
+    "e2e": "cross-env-shell NODE_PORT=$(ts-node ./scripts/findport.ts) NODE_E2E=webpack jest --testTimeout=60000 --runInBand --reporters=jest-spec-reporter --preset=jest-puppeteer --rootDir ./e2e",
+    "serve": "ts-node ./scripts/server.ts",
+    "e2e:esm": "cross-env-shell NODE_PORT=$(ts-node ./scripts/findport.ts) NODE_E2E=esm jest --testTimeout=60000 --runInBand --reporters=jest-spec-reporter --preset=jest-puppeteer --rootDir ./e2e",
     "livereload": "livereloadx -a ./public",
     "prescript": "rimraf ./public/script",
     "script": "tsc --project ./src/script --outDir ./public/script",
@@ -28,7 +29,7 @@
     "prewatch-scss": "npm run scss",
     "watch-scss": "node-sass --output-style compressed  --watch --output ./public ./src/style/styles.scss",
     "prefavicon": "rimraf ./public/assets ./public/favicon.html",
-    "favicon": "ts-node favicon.ts",
+    "favicon": "ts-node ./scripts/favicon.ts",
     "prevendor": "rimraf ./public/vendor ./public/es-module-shims.js",
     "vendor": "rimraf ./public/vendor && npm run vendor:base && npm run vendor:faker && npm run vendor:fontawesome && npm run vendor:react && npm run vendor:recharts && npm run vendor:esmoduleshims",
     "vendor:base": "cross-env NODE_ENV=production rollup -c ./src/vendor/rollup-base.config.js",
@@ -47,9 +48,9 @@
     "docker:up": "docker-compose up -d",
     "docker:down": "docker-compose down",
     "codeclimate": "docker run --interactive --tty --rm --env CODECLIMATE_CODE=\"$PWD\" --volume \"$PWD\":/code --volume /var/run/docker.sock:/var/run/docker.sock --volume /tmp/cc:/tmp/cc codeclimate/codeclimate analyze",
-    "prestorybook": "jest --runInBand --json --outputFile=.jest-test-results.json --env=enzyme --setupFilesAfterEnv=jest-enzyme --reporters=jest-spec-reporter jest-junit --coverage --coverageDirectory ../coverage --rootDir ./src",
+    "prestorybook": "jest --runInBand --json --outputFile=.jest-test-results.json --env=enzyme --setupFilesAfterEnv=jest-enzyme --reporters=jest-spec-reporter jest-junit --coverage --collectCoverage true --coverageDirectory ../test/coverage --rootDir ./src",
     "storybook": "cross-env NODE_ENV=production start-storybook",
-    "prebuild-storybook": "jest --runInBand --json --outputFile=.jest-test-results.json --env=enzyme --setupFilesAfterEnv=jest-enzyme --reporters=jest-spec-reporter jest-junit --coverage --coverageDirectory ../coverage --rootDir ./src",
+    "prebuild-storybook": "jest --runInBand --json --outputFile=.jest-test-results.json --env=enzyme --setupFilesAfterEnv=jest-enzyme --reporters=jest-spec-reporter jest-junit --coverage --collectCoverage true --coverageDirectory ../test/coverage --rootDir ./src",
     "build-storybook": "rimraf ./docs/public/docs/* && cross-env NODE_ENV=production build-storybook -c .storybook --quiet -o ./docs/public/docs"
   },
   "repository": {
@@ -87,7 +88,6 @@
     ]
   },
   "jest": {
-    "collectCoverage": true,
     "collectCoverageFrom": [
       "!setup.ts",
       "!webpack.config.js",
@@ -147,6 +147,20 @@
       "\\.ts(x)?$": "ts-jest",
       "^.+\\.mdx$": "@storybook/addon-docs/jest-transform-mdx"
     }
+  },
+  "jest-html-reporter": {
+    "pageTitle": "ts-react-playground",
+    "outputPath": "./test/index.html"
+  },
+  "jest-junit": {
+    "outputDirectory": "./test"
+  },
+  "prettier": {
+    "semi": true,
+    "trailingComma": "all",
+    "singleQuote": true,
+    "printWidth": 120,
+    "tabWidth": 2
   },
   "author": "Gregor Anders <gregor.anders@gmail.com>",
   "license": "MIT",
@@ -242,7 +256,7 @@
     "@types/react-router-dom": "5.1.5",
     "@types/react-test-renderer": "16.9.2",
     "@types/react-transition-group": "4.4.0",
-    "@types/recharts": "1.8.11",
+    "@types/recharts": "1.8.12",
     "@types/recoil": "0.0.0",
     "@types/scheduler": "0.16.1",
     "@types/storybook__addon-info": "5.2.1",
@@ -268,6 +282,7 @@
     "faker": "4.1.0",
     "favicons": "6.1.0",
     "file-loader": "6.0.0",
+    "generate-changelog": "1.8.0",
     "html-webpack-plugin": "4.3.0",
     "husky": "4.2.5",
     "identity-obj-proxy": "3.0.0",
@@ -275,6 +290,7 @@
     "jest-cli": "26.0.1",
     "jest-environment-enzyme": "7.1.2",
     "jest-enzyme": "7.1.2",
+    "jest-html-reporter": "3.1.3",
     "jest-image-snapshot": "4.0.2",
     "jest-junit": "10.0.0",
     "jest-puppeteer": "4.4.0",
