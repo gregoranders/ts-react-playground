@@ -1,4 +1,4 @@
-import * as packageJson from './package.json';
+import * as packageJson from '../package.json';
 import * as fs from 'fs';
 import * as path from 'path';
 import * as favicons from 'favicons';
@@ -20,7 +20,7 @@ const configuration: favicons.Configuration = {
     display: 'standalone',
     orientation: 'any',
     scope: '/',
-    start_url: `${packageJson.basename}/index.html`,
+    start_url: `${packageJson.basename}index.html`,
     version: '1.0',
     logging: false,
     pixel_art: false,
