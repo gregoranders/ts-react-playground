@@ -5,9 +5,9 @@ plugins:
     enabled: false
   eslint:
     enabled: true
-    channel: "eslint-6"
+    channel: 'eslint-6'
     config:
-      config: .cceslintrc.js
+      config: .eslintrc-cc.json
     extensions:
       - .es6
       - .js
@@ -20,24 +20,24 @@ plugins:
   git-legal:
     enabled: true
 exclude_patterns:
-  - "spec/"
-  - "!spec/support/helpers"
-  - "config/"
-  - "db/"
-  - "docs/public"
-  - "features/"
-  - ".circleci/"
-  - ".github/"
-  - ".storybook/"
-  - ".vscode/"
-  - "**/node_modules/"
-  - "script/"
-  - "**/spec/"
-  - "**/test/"
-  - "**/tests/"
-  - "Tests/"
-  - "**/vendor/"
-  - "**/*_test.go"
-  - "**/*.d.ts"
-  - "**/*.spec.ts"
-  - "**/*.spec.tsx"
+  - 'spec/'
+  - '!spec/support/helpers'
+  - 'config/'
+  - 'db/'
+  - 'docs/public'
+  - 'features/'
+  - '.circleci/'
+  - '.github/'
+  - '.storybook/'
+  - '.vscode/'
+  - '**/node_modules/'
+  - 'script/'
+  - '**/spec/'
+  - '**/test/'
+  - '**/tests/'
+  - 'Tests/'
+  - '**/vendor/'
+  - '**/*_test.go'
+  - '**/*.d.ts'
+  - '**/*.spec.ts'
+  - '**/*.spec.tsx'
