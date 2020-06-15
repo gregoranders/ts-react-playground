@@ -1,0 +1,55 @@
+import * as DxReactChart from '@devexpress/dx-react-chart';
+
+import {
+  Animation,
+  AreaSeries,
+  ArgumentAxis,
+  ArgumentScale,
+  Axis,
+  BarSeries,
+  Chart,
+  EventTracker,
+  HoverState,
+  Legend,
+  LineSeries,
+  Palette,
+  PieSeries,
+  ScatterSeries,
+  SelectionState,
+  SplineSeries,
+  Stack,
+  Title,
+  Tooltip,
+  ValueAxis,
+  ValueScale,
+  ZoomAndPan,
+} from '@devexpress/dx-react-chart';
+
+export {
+  DxReactChart,
+  /* */
+  Animation,
+  AreaSeries,
+  ArgumentAxis,
+  ArgumentScale,
+  Axis,
+  BarSeries,
+  Chart,
+  EventTracker,
+  HoverState,
+  Legend,
+  LineSeries,
+  Palette,
+  PieSeries,
+  ScatterSeries,
+  SelectionState,
+  SplineSeries,
+  Stack,
+  Title,
+  Tooltip,
+  ValueAxis,
+  ValueScale,
+  ZoomAndPan,
+};
+
+export default DxReactChart;

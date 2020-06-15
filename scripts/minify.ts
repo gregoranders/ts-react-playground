@@ -3,7 +3,8 @@ import { join } from 'path';
 import { readdirSync, statSync, writeFileSync, Stats } from 'fs';
 const minify = require('minify');
 
-const basePath = './public';
+const basePath = process.argv[2];
+
 const options = {
   js: {
     ecma: 2016,
