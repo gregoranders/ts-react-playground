@@ -6,13 +6,17 @@
 
 ##### Chores
 
-- **e2e:** updated screenshots ([5bc8b907](https://github.com/gregoranders/ts-react-playground/commit/5bc8b907ec2b0875a060adfe0ed27f80597d6a5b))
+- **docs:** update storybook ([61ddaa0c](https://github.com/gregoranders/ts-react-playground/commit/61ddaa0c176fef6d5e9a587163384bdf3c3643a5))
+- **e2e:**
+  - updated screenshots ([eb49b772](https://github.com/gregoranders/ts-react-playground/commit/eb49b772c4379e2088d03157b00c8e2d42c41161))
+  - updated screenshots ([5bc8b907](https://github.com/gregoranders/ts-react-playground/commit/5bc8b907ec2b0875a060adfe0ed27f80597d6a5b))
 - **build:** add CI ([d703ed37](https://github.com/gregoranders/ts-react-playground/commit/d703ed37622a6b5b4e51380e048215e3c9a72df2))
 - **eslint:** refactor ([d0f85615](https://github.com/gregoranders/ts-react-playground/commit/d0f8561585115e5571acaefe66b7f08c380c48c8))
 - **release:** prepare next release ([6c4603a0](https://github.com/gregoranders/ts-react-playground/commit/6c4603a0762a461aee451447585869bb10e57483))
 
 ##### Documentation Changes
 
+- **CHANGELOG:** update ([bb72fc2e](https://github.com/gregoranders/ts-react-playground/commit/bb72fc2ece2a2d154c78c19549fc6f6c557d34e4))
 - **SECURITY:** add next release ([f0bca9fd](https://github.com/gregoranders/ts-react-playground/commit/f0bca9fdc29fa671590e35e303239b1ca2dfbc52))
 
 ##### Bug Fixes
