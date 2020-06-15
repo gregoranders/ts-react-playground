@@ -2,6 +2,7 @@
   "imports": {
     "clsx": "/ts-react-playground/vendor/clsx.js",
     "idb": "/ts-react-playground/vendor/idb.js",
+    "gsap": "/ts-react-playground/vendor/gsap.js",
     "faker": "/ts-react-playground/vendor/faker.js",
     "workbox-window": "/ts-react-playground/vendor/workbox-window.js",
 
@@ -34,6 +35,17 @@
     "@fortawesome/free-solid-svg-icons": "/ts-react-playground/vendor/@fortawesome/free-solid-svg-icons.js",
     "@fortawesome/free-brands-svg-icons": "/ts-react-playground/vendor/@fortawesome/free-brands-svg-icons.js",
     "@fortawesome/react-fontawesome": "/ts-react-playground/vendor/@fortawesome/react-fontawesome.js",
+
+    "@material-ui/core": "/ts-react-playground/vendor/@material-ui/core.js",
+    "@material-ui/icons": "/ts-react-playground/vendor/@material-ui/icons.js",
+    "@material-ui/styles": "/ts-react-playground/vendor/@material-ui/styles.js",
+    "@material-ui/lab": "/ts-react-playground/vendor/@material-ui/lab.js",
+
+    "mdi-material-ui": "/ts-react-playground/vendor/mdi-material-ui.js",
+
+    "@devexpress/dx-react-core": "/ts-react-playground/vendor/@devexpress/dx-react-core.js",
+    "@devexpress/dx-react-chart": "/ts-react-playground/vendor/@devexpress/dx-react-chart.js",
+    "@devexpress/dx-react-chart-material-ui": "/ts-react-playground/vendor/@devexpress/dx-react-chart-material-ui.js",
 
     "@app/index": "/ts-react-playground/script/index.js",
     "@app/application": "/ts-react-playground/script/application.js",
