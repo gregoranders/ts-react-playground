@@ -1,5 +1,6 @@
 {
-  "extend": ["eslint:recommended", "plugin:react/recommended"],
+  "root": true,
+  "extends": ["eslint:recommended", "plugin:react/recommended", "esnext"],
   "parserOptions": {
     "ecmaVersion": 2020,
     "sourceType": "module",
@@ -11,7 +12,8 @@
     "node": true
   },
   "globals": {
-    "document": true
+    "document": true,
+    "module": true
   },
   "settings": {
     "react": {
