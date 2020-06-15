@@ -2,6 +2,8 @@
 
 ##### Build System / Dependencies
 
+- **ci:** remove appveyor ([d52cd699](https://github.com/gregoranders/ts-react-playground/commit/d52cd6995a48baaaf4140643df471888942ea6d8))
+- **travis:** remove ([8b038851](https://github.com/gregoranders/ts-react-playground/commit/8b03885175f0552fb728d286896cb1afd7aa56b2))
 - **feature:** run on node 14 only ([b9ac2205](https://github.com/gregoranders/ts-react-playground/commit/b9ac2205aaa9d7e106ae1f5d21df49b28dab78fe))
 
 ##### Chores
@@ -16,8 +18,14 @@
 
 ##### Documentation Changes
 
-- **CHANGELOG:** update ([bb72fc2e](https://github.com/gregoranders/ts-react-playground/commit/bb72fc2ece2a2d154c78c19549fc6f6c557d34e4))
+- **CHANGELOG:**
+  - update ([c90544cb](https://github.com/gregoranders/ts-react-playground/commit/c90544cbe1ed914207ccfbd3679f7bca8462daad))
+  - update ([bb72fc2e](https://github.com/gregoranders/ts-react-playground/commit/bb72fc2ece2a2d154c78c19549fc6f6c557d34e4))
 - **SECURITY:** add next release ([f0bca9fd](https://github.com/gregoranders/ts-react-playground/commit/f0bca9fdc29fa671590e35e303239b1ca2dfbc52))
+
+##### New Features
+
+- **materialui:** add Material-Ui ([6c9c8206](https://github.com/gregoranders/ts-react-playground/commit/6c9c8206276c004f1b81dc61afe1238d16d38a0a))
 
 ##### Bug Fixes
 
