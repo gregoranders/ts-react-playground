@@ -12,7 +12,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node-version: [10.x, 12.x, 13.x, 14.x]
+        node-version: [14.x]
 
     steps:
       - uses: actions/checkout@v2
@@ -42,7 +42,6 @@ jobs:
         env:
           CI: true
       - name: npm run e2e
-        if: matrix.os == 'ubuntu-latest' && matrix.node-version == '14.x'
         run: |
           sudo apt-get update
           sudo apt-get install xvfb
@@ -54,7 +53,6 @@ jobs:
           PACKAGE_JSON: ${{ steps.projectinfo.outputs.context }}
       - name: archive e2e screenshots
         uses: actions/upload-artifact@v1
-        if: matrix.os == 'ubuntu-latest' && matrix.node-version == '14.x'
         with:
           name: Screenshots Feature ${{ matrix.os }} ${{ matrix.node-version }}
           path: e2e/screenshots
