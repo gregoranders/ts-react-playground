@@ -1,3 +1,18 @@
+#### 0.0.11 (2020-06-16)
+
+##### Chores
+
+* **release:**  bump version ([691c4eae](https://github.com/gregoranders/ts-react-playground/commit/691c4eaef6532486330013308991d712ef0a2788))
+
+##### Documentation Changes
+
+* **SECURITY:**  update ([ec80ebcc](https://github.com/gregoranders/ts-react-playground/commit/ec80ebcc582c5b4292e8bf3236041c13300097be))
+* **storybook:**  update ([cae6a5bb](https://github.com/gregoranders/ts-react-playground/commit/cae6a5bba05dde99d6951b63a1bb6fc8448b064f))
+
+##### Other Changes
+
+* **screenshots:**  update ([b6cd9a4b](https://github.com/gregoranders/ts-react-playground/commit/b6cd9a4b90ae1009c786c7db2f19d7a5f8da0f2d))
+
 #### 0.0.9 (2020-06-15)
 
 ##### Build System / Dependencies
