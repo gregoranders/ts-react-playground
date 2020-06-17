@@ -334,7 +334,7 @@
     "jest-image-snapshot": "4.0.2",
     "jest-junit": "10.0.0",
     "jest-puppeteer": "4.4.0",
-    "jest-spec-reporter": "1.0.13",
+    "jest-spec-reporter": "1.0.14",
     "lint-staged": "10.2.10",
     "livereloadx": "0.3.10",
     "mdi-material-ui": "6.16.0",
