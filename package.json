@@ -347,7 +347,7 @@
     "react-docgen-typescript-loader": "3.7.2",
     "react-test-renderer": "16.13.1",
     "rimraf": "3.0.2",
-    "rollup": "2.15.0",
+    "rollup": "2.16.1",
     "sass-loader": "8.0.2",
     "source-map": "0.7.3",
     "ts-jest": "26.1.0",
