@@ -29,6 +29,14 @@ Array [
     </a>
     <a
       aria-current={null}
+      className="w3-bar-item w3-button w3-mobile w3-hover-theme"
+      href="/materialui"
+      onClick={[Function]}
+    >
+      Material UI
+    </a>
+    <a
+      aria-current={null}
       className="w3-bar-item w3-button w3-mobile w3-hover-theme w3-right"
       href="/about"
       onClick={[Function]}
@@ -79,6 +87,14 @@ Array [
       onClick={[Function]}
     >
       Home
+    </a>
+    <a
+      aria-current={null}
+      className="w3-bar-item w3-button w3-mobile w3-hover-theme"
+      href="/materialui"
+      onClick={[Function]}
+    >
+      Material UI
     </a>
     <a
       aria-current={null}

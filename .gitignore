@@ -5,7 +5,6 @@ test/
 node_modules/
 
 package-lock.json
-.jest-test-results.json
 
 *.js
 *.js.map

@@ -28,6 +28,6 @@ describe(`${TestSubject.Nav.displayName}`, () => {
         <TestComponent />
       </MemoryRouter>,
     );
-    expect(testSubject.text()).toBe('HomeAbout');
+    expect(testSubject.text()).toBe('HomeMaterial UIAbout');
   });
 });

@@ -19,7 +19,7 @@ const theme = create({
   url: 'https://gregoranders.github.io/ts-react-playground',
 });
 
-import results from '../.jest-test-results.json';
+import results from '../test/jest-test-results.json';
 
 import '../src/style/styles.scss';
 

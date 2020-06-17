@@ -69,12 +69,29 @@ describe('index', () => {
       await page.waitFor(500);
       const button = await page.$('button');
       expect(button).toBeTruthy();
-      const image = await page.screenshot();
-      expect(image).toMatchImageSnapshot();
+      const before = await page.screenshot();
+      expect(before).toMatchImageSnapshot();
       await page.click('button');
       await page.waitFor(1000);
       const html = await page.evaluate((h2) => h2.innerHTML, button);
       expect(html).toBe('Generate Users [15]');
+      const after = await page.screenshot();
+      expect(after).toMatchImageSnapshot();
+    },
+    timeout,
+  );
+
+  test(
+    'materialui',
+    async () => {
+      await page.click('#app > nav > a:nth-child(2)');
+      await page.waitFor(500);
+      const h2 = await page.$('h2');
+      expect(h2).toBeTruthy();
+      const html = await page.evaluate((h2) => h2.innerHTML, h2);
+      expect(html).toBe('MaterialUIPage');
+      const image = await page.screenshot();
+      expect(image).toMatchImageSnapshot();
     },
     timeout,
   );
@@ -82,7 +99,7 @@ describe('index', () => {
   test(
     'about',
     async () => {
-      await page.click('#app > nav > a:nth-child(2)');
+      await page.click('#app > nav > a:nth-child(3)');
       await page.waitFor(500);
       const h2 = await page.$('h2');
       expect(h2).toBeTruthy();

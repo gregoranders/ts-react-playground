@@ -53,9 +53,9 @@
     "docker:up": "docker-compose up -d",
     "docker:down": "docker-compose down",
     "codeclimate": "docker run --interactive --tty --rm --env CODECLIMATE_CODE=\"$PWD\" --volume \"$PWD\":/code --volume /var/run/docker.sock:/var/run/docker.sock --volume /tmp/cc:/tmp/cc codeclimate/codeclimate analyze",
-    "prestorybook": "jest --runInBand --json --outputFile=.jest-test-results.json --env=enzyme --setupFilesAfterEnv=jest-enzyme --reporters=jest-spec-reporter jest-junit --coverage --collectCoverage true --coverageDirectory ../test/coverage --rootDir ./src",
+    "prestorybook": "jest --runInBand --json --outputFile=./test/jest-test-results.json --env=enzyme --setupFilesAfterEnv=jest-enzyme --reporters=jest-spec-reporter jest-junit --coverage --collectCoverage true --coverageDirectory ../test/coverage --rootDir ./src",
     "storybook": "cross-env NODE_ENV=production start-storybook",
-    "prebuild-storybook": "jest --runInBand --json --outputFile=.jest-test-results.json --env=enzyme --setupFilesAfterEnv=jest-enzyme --reporters=jest-spec-reporter jest-junit --coverage --collectCoverage true --coverageDirectory ../test/coverage --rootDir ./src",
+    "prebuild-storybook": "jest --runInBand --json --outputFile=./test/jest-test-results.json --env=enzyme --setupFilesAfterEnv=jest-enzyme --reporters=jest-spec-reporter jest-junit --coverage --collectCoverage true --coverageDirectory ../test/coverage --rootDir ./src",
     "build-storybook": "rimraf ./docs/public/docs/* && cross-env NODE_ENV=production build-storybook -c .storybook --quiet -o ./docs/public/docs"
   },
   "repository": {
@@ -297,7 +297,7 @@
     "@types/react-test-renderer": "16.9.2",
     "@types/react-transition-group": "4.4.0",
     "@types/recharts": "1.8.12",
-    "@types/recoil": "0.0.1",
+    "@types/recoil": "0.0.0",
     "@types/scheduler": "0.16.1",
     "@types/storybook__addon-info": "5.2.1",
     "@typescript-eslint/eslint-plugin": "3.2.0",

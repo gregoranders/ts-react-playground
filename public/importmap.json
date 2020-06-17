@@ -50,6 +50,7 @@
     "@app/index": "/ts-react-playground/script/index.js",
     "@app/application": "/ts-react-playground/script/application.js",
     "@app/loading": "/ts-react-playground/script/loading.js",
+    "@app/theme": "/ts-react-playground/script/theme.js",
 
     "@models/user": "/ts-react-playground/script/models/user.js",
 
@@ -70,6 +71,7 @@
 
     "@pages/home": "/ts-react-playground/script/components/pages/home/index.js",
     "@pages/index": "/ts-react-playground/script/components/pages/index/index.js",
+    "@pages/materialui": "/ts-react-playground/script/components/pages/materialui/index.js",
     "@pages/about": "/ts-react-playground/script/components/pages/about/index.js"
   }
 }

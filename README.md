@@ -11,16 +11,17 @@
 
 ## Features
 
-- TypeScript
-- React + React-Router + Recoil
-- SCSS
-- ServiceWorker with PWA
-- Jest Snapshot/Unit Tests with Code Coverage (enzyme)
-- Jest + Puppeteer (screenshots from submodule) E2E Tests
-- Storybook (publish via CI into submodule)
+- [TypeScript](http://www.typescriptlang.org/)
+- [React](https://reactjs.org/) + [React-Router](https://reacttraining.com/react-router/) + [Recoil](https://recoiljs.org/)
+- [Material-UI](https://material-ui.com/getting-started/example-projects/)
+- [SCSS](https://sass-lang.com/)
+- [ServiceWorker](https://developers.google.com/web/fundamentals/primers/service-workers/) for [PWA](https://web.dev/progressive-web-apps/)
+- [Jest](https://jestjs.io) Snapshot/Unit Tests with Code Coverage (enzyme)
+- [Jest](https://jestjs.io) + [Puppeteer](https://pptr.dev) (screenshots from submodule) E2E Tests
+- [Storybook](https://storybook.js.org) (publish via CI into submodule)
 - ESM (development or build)
-- Webpack (development or build)
-- Rollup for Vendor as ESM
+- [Webpack](https://webpack.js.org) (development or build)
+- [Rollup](https://rollupjs.org) for Vendor as ESM
 - GitHub CI Integration (feature, development, master, release)
 - Code Quality via Code Climate
 - Docker Container (nginx with ssl)
