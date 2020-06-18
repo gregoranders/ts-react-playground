@@ -1,6 +1,5 @@
 import React, { FunctionComponent, memo } from 'react';
 import { useRecoilValue } from 'recoil';
-
 import { element as IsElement } from 'prop-types';
 
 import { ThemeProvider as MuiThemeProvider, colors, createMuiTheme, responsiveFontSizes } from '@material-ui/core';
