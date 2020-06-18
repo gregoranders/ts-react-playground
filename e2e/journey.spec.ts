@@ -73,10 +73,14 @@ describe('index', () => {
       expect(before).toMatchImageSnapshot();
       await page.click('button');
       await page.waitFor(1000);
+      let list = await page.$$('dl');
+      expect(list).toHaveLength(15);
       const html = await page.evaluate((h2) => h2.innerHTML, button);
       expect(html).toBe('Generate Users [15]');
       const after = await page.screenshot();
       expect(after).toMatchImageSnapshot();
+      list = await page.$$('dl');
+      expect(list).toHaveLength(15);
     },
     timeout,
   );

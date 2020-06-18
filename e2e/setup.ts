@@ -3,6 +3,7 @@ import { existsSync, mkdirSync } from 'fs';
 import { join } from 'path';
 import { version } from '../package.json';
 import 'expect-puppeteer';
+// import 'jest-puppeteer';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const jestPuppeteerConfig = require('../jest-puppeteer.config.js');
@@ -19,7 +20,7 @@ const toMatchImageSnapshot = configureToMatchImageSnapshot({
   customDiffConfig: customConfig,
   customSnapshotsDir,
   customDiffDir,
-  failureThreshold: 0.2,
+  failureThreshold: 0.008,
   failureThresholdType: 'percent',
 });
 

@@ -1,4 +1,4 @@
-import React, { mount, create } from '@app/testUtils';
+import React, { create, mount } from '@app/testUtils';
 
 import { MemoryRouter } from 'react-router-dom';
 
