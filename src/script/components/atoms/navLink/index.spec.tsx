@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { create, mount } from '@app/testUtils';
+
 import { MemoryRouter } from 'react-router-dom';
-import { create } from 'react-test-renderer';
-import { mount } from 'enzyme';
 
 import * as TestSubject from '@atoms/navLink';
 

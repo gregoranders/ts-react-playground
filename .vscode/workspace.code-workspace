@@ -4,16 +4,6 @@
       "path": "../"
     }
   ],
-  "settings": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "workbench.colorTheme": "Nord Deep",
-    "workbench.iconTheme": "material-icon-theme",
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
-    },
-    "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
-    "typescript.tsdk": "node_modules/typescript/lib"
-  },
   "extensions": {
     "recommendations": [
       "coenraads.bracket-pair-colorizer",

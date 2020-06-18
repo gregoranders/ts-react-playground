@@ -44,7 +44,8 @@ const sassLoaders = cssLoaders.concat([
 ]);
 
 module.exports = {
-  mode: 'production',
+  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
+  devtool: process.env.NODE_ENV === 'production' ? '' : 'source-map',
   entry: {
     index: path.resolve(path.join('src', 'script', 'index.tsx')),
     styles: path.resolve(path.join('src', 'style', 'styles.scss')),

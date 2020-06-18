@@ -11,11 +11,11 @@ Array [
     ]
   </button>,
   <table>
-    <tr>
-      <td />
-      <td />
-      <td />
-    </tr>
+    <tbody>
+      <tr>
+        <td />
+      </tr>
+    </tbody>
   </table>,
 ]
 `;

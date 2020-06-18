@@ -1,4 +1,4 @@
-import { atom, selector } from 'recoil';
+import { atom } from 'recoil';
 import { number as IsNumber, shape as IsShape, string as IsString } from 'prop-types';
 import faker from 'faker';
 
@@ -74,10 +74,6 @@ export const generate = (count = 100): User[] => {
   return users;
 };
 
-export const generateAsync = async (count = 100): Promise<User[]> => {
-  return generate(count);
-};
-
 const USERS_KEY = 'userAtom';
 
 /**
@@ -90,36 +86,6 @@ const USERS_KEY = 'userAtom';
 export const UsersAtom = atom({
   key: USERS_KEY,
   default: [] as User[],
-});
-
-const USERS_LENGTH_KEY = 'usersLengthSelector';
-
-export const UsersLength = selector({
-  key: USERS_LENGTH_KEY,
-  get: ({ get }) => {
-    const users = get(UsersAtom);
-    return users.length;
-  },
-});
-
-const TOP10_KEY = 'usersTopTen';
-
-export const UsersTop10 = selector({
-  key: TOP10_KEY,
-  get: ({ get }) => {
-    const users = get(UsersAtom);
-    return users.slice(0, 10);
-  },
-});
-
-const BOTTOM10_KEY = 'usersBottomTen';
-
-export const UsersBottom10 = selector({
-  key: BOTTOM10_KEY,
-  get: ({ get }) => {
-    const users = get(UsersAtom);
-    return users.slice(users.length - 10);
-  },
 });
 
 export default UsersAtom;

@@ -11,19 +11,67 @@
 
 ## Features
 
-- TypeScript
-- React + React-Router + Recoil
-- SCSS
-- ServiceWorker with PWA
-- Jest Snapshot/Unit Tests with Code Coverage (enzyme)
-- Jest + Puppeteer (screenshots from submodule) E2E Tests
-- Storybook (publish via CI into submodule)
-- ESM (development or build)
-- Webpack (development or build)
-- Rollup for Vendor as ESM
+- [TypeScript](http://www.typescriptlang.org/)
+- [React](https://reactjs.org/) + [React-Router](https://reacttraining.com/react-router/) + [Recoil](https://recoiljs.org/)
+- [Material-UI](https://material-ui.com/getting-started/example-projects/)
+- [SCSS](https://sass-lang.com/)
+- [ServiceWorker](https://developers.google.com/web/fundamentals/primers/service-workers/) for [PWA](https://web.dev/progressive-web-apps/)
+- [Jest](https://jestjs.io) Snapshot/Unit Tests with Code Coverage (enzyme)
+- [Jest](https://jestjs.io) + [Puppeteer](https://pptr.dev) (screenshots from submodule) E2E Tests
+- [Storybook](https://storybook.js.org) (publish via CI into submodule)
+- [ESM](https://github.com/guybedford/es-module-shims) (development or build)
+- [Webpack](https://webpack.js.org) (development or build)
+- [Rollup](https://rollupjs.org) for Vendor as [ESM](https://github.com/guybedford/es-module-shims)
 - GitHub CI Integration (feature, development, master, release)
 - Code Quality via Code Climate
 - Docker Container (nginx with ssl)
+
+### Vendor Packages
+
+- clsx
+- d3-array
+- d3-color
+- d3-format
+- d3-interpolate
+- d3-path
+- d3-scale
+- d3-shape
+- d3-time
+- d3-time-format
+- @devexpress
+  - dx-react-chart
+  - dx-react-chart-material-ui
+  - dx-react-core
+- es-module-shims
+- faker
+- @fortawesome
+  - fontawesome-svg-core
+  - free-brands-svg-icons
+  - free-regular-svg-icons
+  - free-solid-svg-icons
+  - react-fontawesome
+- gsap
+- idb
+- @material-ui
+  - core
+  - icons
+  - lab
+  - styles
+- mdi-material-ui
+- object-assign
+- prop-types
+- react
+- react-dom
+- react-is
+- react-router
+- react-router-dom
+- react-smooth
+- react-transition-group
+- recharts
+- recharts-scale
+- recoil
+- scheduler
+- workbox-window
 
 | GitHub                                                           | Coveralls                                                                  |                                                                              |
 | ---------------------------------------------------------------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |

@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { mount, create } from '@app/testUtils';
+
 import { MemoryRouter } from 'react-router-dom';
-import { create } from 'react-test-renderer';
-import { mount } from 'enzyme';
 
 import * as TestSubject from '@organisms/nav';
 
@@ -28,6 +27,6 @@ describe(`${TestSubject.Nav.displayName}`, () => {
         <TestComponent />
       </MemoryRouter>,
     );
-    expect(testSubject.text()).toBe('HomeAbout');
+    expect(testSubject.text()).toBe('HomeMaterial UIAbout');
   });
 });

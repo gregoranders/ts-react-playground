@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+import { Stats, readdirSync, statSync, writeFileSync } from 'fs';
+
 import { join } from 'path';
-import { readdirSync, statSync, writeFileSync, Stats } from 'fs';
+
 const minify = require('minify');
 
 const basePath = process.argv[2];
