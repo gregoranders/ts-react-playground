@@ -4,6 +4,44 @@ exports[`MaterialUIPage snapshot 1`] = `
 <div
   className="MuiPaper-root makeStyles-paper-1 MuiPaper-elevation1 MuiPaper-rounded"
 >
+  <span
+    className="MuiSwitch-root"
+  >
+    <span
+      aria-disabled={false}
+      className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-3 MuiSwitch-switchBase MuiSwitch-colorSecondary"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={null}
+    >
+      <span
+        className="MuiIconButton-label"
+      >
+        <input
+          checked={false}
+          className="PrivateSwitchBase-input-6 MuiSwitch-input"
+          onChange={[Function]}
+          type="checkbox"
+        />
+        <span
+          className="MuiSwitch-thumb"
+        />
+      </span>
+    </span>
+    <span
+      className="MuiSwitch-track"
+    />
+  </span>
   <button
     className="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-button-2 MuiButton-containedPrimary"
     disabled={false}

@@ -2,6 +2,8 @@ import React, { FunctionComponent, memo, useState } from 'react';
 
 import { Button, Paper, Typography, makeStyles } from '@material-ui/core';
 
+import ThemeSwitch from '@atoms/themeSwitch';
+
 const useStyles = makeStyles({
   paper: {
     padding: '20px',
@@ -17,6 +19,7 @@ export const MaterialUIPage: FunctionComponent = () => {
 
   return (
     <Paper className={classes.paper}>
+      <ThemeSwitch />
       <Button variant="contained" color="primary" onClick={() => setActive(!active)} className={classes.button}>
         {active ? 'Hide' : 'Show'}
       </Button>

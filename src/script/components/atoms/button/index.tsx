@@ -1,11 +1,5 @@
 import React, { FunctionComponent, memo } from 'react';
-import {
-  bool as IsBoolean,
-  element as IsElement,
-  func as IsFunction,
-  oneOfType as IsOneOfType,
-  string as IsString,
-} from 'prop-types';
+import { any as IsAny, bool as IsBoolean, func as IsFunction } from 'prop-types';
 
 type OnClick = (e?: React.MouseEvent<HTMLButtonElement>) => void;
 
@@ -57,7 +51,7 @@ Button.defaultProps = {
 Button.propTypes = {
   disabled: IsBoolean,
   onClick: IsFunction.isRequired,
-  children: IsOneOfType([IsString, IsElement]),
+  children: IsAny,
 };
 
 export default memo(Button);

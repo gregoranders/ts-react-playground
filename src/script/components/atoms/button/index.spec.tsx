@@ -1,6 +1,4 @@
-import React from 'react';
-import { create } from 'react-test-renderer';
-import { mount } from 'enzyme';
+import React, { act, create, mount } from '@app/testUtils';
 
 import * as TestSubject from '@atoms/button';
 
@@ -32,7 +30,9 @@ describe(`${TestSubject.Button.displayName}`, () => {
     const testSubject = mount(<TestComponent onClick={OnClick} />);
     expect(testSubject.text()).toBe('Button');
     expect(OnClick.mock.calls.length).toEqual(0);
-    testSubject.find('button').simulate('click');
+    act(() => {
+      testSubject.find('button').simulate('click');
+    });
     expect(OnClick.mock.calls.length).toEqual(1);
   });
 });

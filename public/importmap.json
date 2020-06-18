@@ -53,12 +53,14 @@
     "@app/theme": "/ts-react-playground/script/theme.js",
 
     "@models/user": "/ts-react-playground/script/models/user.js",
+    "@models/theme": "/ts-react-playground/script/models/theme.js",
 
     "@components/layout": "/ts-react-playground/script/components/layout/index.js",
 
     "@atoms/button": "/ts-react-playground/script/components/atoms/button/index.js",
     "@atoms/navLink": "/ts-react-playground/script/components/atoms/navLink/index.js",
     "@atoms/user": "/ts-react-playground/script/components/atoms/user/index.js",
+    "@atoms/themeSwitch": "/ts-react-playground/script/components/atoms/themeSwitch/index.js",
 
     "@molecules/users": "/ts-react-playground/script/components/molecules/users/index.js",
 

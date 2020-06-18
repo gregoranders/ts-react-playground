@@ -1,14 +1,29 @@
 import React, { FunctionComponent, memo } from 'react';
+import { useRecoilValue } from 'recoil';
+
 import { element as IsElement } from 'prop-types';
 
-import { createMuiTheme, colors, ThemeProvider as MuiThemeProvider, responsiveFontSizes } from '@material-ui/core';
+import { ThemeProvider as MuiThemeProvider, colors, createMuiTheme, responsiveFontSizes } from '@material-ui/core';
 
-const theme = responsiveFontSizes(
+import ThemeAtom, { Theme } from '@models/theme';
+
+const palette = {
+  primary: {
+    main: colors.blueGrey['700'],
+  },
+};
+
+export const themeLight = responsiveFontSizes(
+  createMuiTheme({
+    palette,
+  }),
+);
+
+export const themeDark = responsiveFontSizes(
   createMuiTheme({
     palette: {
-      primary: {
-        main: colors.deepPurple['800'],
-      },
+      ...palette,
+      type: 'dark',
     },
   }),
 );
@@ -17,8 +32,12 @@ type Props = {
   children?: React.ReactNode;
 };
 
+themeLight;
+themeDark;
+
 export const ThemeProvider: FunctionComponent<Props> = ({ children }) => {
-  return <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>;
+  const theme = useRecoilValue(ThemeAtom);
+  return <MuiThemeProvider theme={theme === Theme.DARK ? themeDark : themeLight}>{children}</MuiThemeProvider>;
 };
 
 ThemeProvider.displayName = 'ThemeProvider';

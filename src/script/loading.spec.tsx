@@ -1,6 +1,4 @@
-import React from 'react';
-import { create } from 'react-test-renderer';
-import { mount } from 'enzyme';
+import React, { act, create, mount } from '@app/testUtils';
 
 import * as TestSubject from '@app/loading';
 
@@ -13,12 +11,35 @@ describe(`${TestSubject.Loading.displayName}`, () => {
 
   it('snapshot', (): void => {
     const snapshot = create(<TestComponent />);
-    snapshot.toJSON();
     expect(snapshot).toMatchSnapshot();
   });
 
   it('mount', () => {
-    const testSubject = mount(<TestComponent />);
-    expect(testSubject.text()).toBe(``);
+    const stepForwardInTime = (steps = 10) => {
+      act(() => {
+        jest.advanceTimersToNextTimer(steps);
+      });
+    };
+    const testSubject = mount(<TestComponent timeout={10} />);
+    stepForwardInTime(10);
+    expect(testSubject.find('h1').text()).toBe('·');
+    stepForwardInTime(9);
+    expect(testSubject.find('h1').text()).toBe('··');
+    stepForwardInTime(9);
+    expect(testSubject.find('h1').text()).toBe('···');
+    stepForwardInTime(9);
+    expect(testSubject.find('h1').text()).toBe('····');
+    stepForwardInTime(9);
+    expect(testSubject.find('h1').text()).toBe('·····');
+    stepForwardInTime(9);
+    expect(testSubject.find('h1').text()).toBe('····');
+    stepForwardInTime(9);
+    expect(testSubject.find('h1').text()).toBe('···');
+    stepForwardInTime(9);
+    expect(testSubject.find('h1').text()).toBe('··');
+    stepForwardInTime(9);
+    expect(testSubject.find('h1').text()).toBe('·');
+    stepForwardInTime(9);
+    expect(testSubject.find('h1').text()).toBe('··');
   });
 });

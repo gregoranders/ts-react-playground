@@ -1,7 +1,7 @@
-import * as packageJson from '../package.json';
-import * as fs from 'fs';
-import * as path from 'path';
 import * as favicons from 'favicons';
+import * as fs from 'fs';
+import * as packageJson from '../package.json';
+import * as path from 'path';
 
 const icon = 'react.svg';
 
@@ -39,7 +39,7 @@ const configuration: favicons.Configuration = {
     },
   },
   callback = (
-    error: Error,
+    error: Error | null,
     response: {
       images: { name: string; contents: Buffer }[];
       files: { name: string; contents: Buffer }[];

@@ -1,7 +1,4 @@
-import React from 'react';
-import { RecoilRoot } from 'recoil';
-import { create } from 'react-test-renderer';
-import { mount } from 'enzyme';
+import React, { RecoilRoot, create, mount } from '@app/testUtils';
 
 import * as TestSubject from '@pages/home';
 

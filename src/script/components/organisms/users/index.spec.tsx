@@ -1,7 +1,4 @@
-import React from 'react';
-import { RecoilRoot } from 'recoil';
-import { create } from 'react-test-renderer';
-import { mount } from 'enzyme';
+import React, { RecoilRoot, act, create, mount } from '@app/testUtils';
 
 import * as TestSubject from '@organisms/users';
 
@@ -11,12 +8,6 @@ describe(`${TestSubject.UsersModelView.displayName}`, () => {
   });
 
   const TestComponent = TestSubject.default;
-
-  const OnClick = jest.fn();
-
-  afterEach(() => {
-    OnClick.mockReset();
-  });
 
   it('snapshot', (): void => {
     const snapshot = create(
@@ -43,7 +34,9 @@ describe(`${TestSubject.UsersModelView.displayName}`, () => {
         <TestComponent />
       </RecoilRoot>,
     );
-    testSubject.find('button').simulate('click');
+    act(() => {
+      testSubject.find('button').simulate('click');
+    });
     expect(testSubject.text()).toContain('Generate Users [15]');
   });
 });

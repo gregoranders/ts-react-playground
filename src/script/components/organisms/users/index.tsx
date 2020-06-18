@@ -1,7 +1,7 @@
 import React, { FunctionComponent, memo } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
 
-import { generate, UsersAtom, UsersLength, UsersTop10, UsersBottom10 } from '@models/user';
+import { UsersAtom, UsersBottom10, UsersLength, UsersTop10, generate } from '@models/user';
 
 import Button from '@atoms/button';
 import UsersView from '@molecules/users';
@@ -20,17 +20,19 @@ export const UsersModelView: FunctionComponent = () => {
     <>
       <Button onClick={generateUsers}>Generate Users [{usersLength}]</Button>
       <table>
-        <tr>
-          <td>
-            <UsersView users={usersTop10} />
-          </td>
-          <td>
-            <UsersView users={users} />
-          </td>
-          <td>
-            <UsersView users={usersBottom10} />
-          </td>
-        </tr>
+        <tbody>
+          <tr>
+            <td>
+              <UsersView users={usersTop10} />
+            </td>
+            <td>
+              <UsersView users={users} />
+            </td>
+            <td>
+              <UsersView users={usersBottom10} />
+            </td>
+          </tr>
+        </tbody>
       </table>
     </>
   );

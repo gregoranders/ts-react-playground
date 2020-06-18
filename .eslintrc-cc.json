@@ -1,19 +1,35 @@
 {
   "root": true,
-  "extends": ["eslint:recommended", "plugin:react/recommended", "esnext"],
+  "parser": "babel-eslint",
+  "extends": ["plugin:react-hooks/recommended", "plugin:react/recommended"],
   "parserOptions": {
     "ecmaVersion": 2020,
     "sourceType": "module",
     "ecmaFeatures": {
-      "jsx": true
+      "jsx": true,
+      "modules": true,
+      "experimentalObjectRestSpread": true,
+      "arrowFunctions": true,
+      "blockBindings": true,
+      "classes": true,
+      "defaultParams": true,
+      "destructuring": true,
+      "forOf": true,
+      "generators": false,
+      "objectLiteralComputedProperties": true,
+      "objectLiteralDuplicateProperties": false,
+      "objectLiteralShorthandMethods": true,
+      "objectLiteralShorthandProperties": true,
+      "spread": true,
+      "superInFunctions": true,
+      "templateStrings": true,
+      "restParams": true
     }
   },
+  "plugins": ["react", "import", "react-hooks"],
   "env": {
-    "node": true
-  },
-  "globals": {
-    "document": true,
-    "module": true
+    "browser": true,
+    "es6": true
   },
   "settings": {
     "react": {

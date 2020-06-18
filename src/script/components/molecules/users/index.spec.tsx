@@ -1,6 +1,4 @@
-import React from 'react';
-import { create } from 'react-test-renderer';
-import { mount } from 'enzyme';
+import React, { create, mount } from '@app/testUtils';
 
 import { DefaultUser } from '@models/user';
 
@@ -12,12 +10,6 @@ describe(`${TestSubject.UsersView.displayName}`, () => {
   });
 
   const TestComponent = TestSubject.default;
-
-  const OnClick = jest.fn();
-
-  afterEach(() => {
-    OnClick.mockReset();
-  });
 
   it('snapshot', (): void => {
     const snapshot = create(<TestComponent users={[DefaultUser]} />);
