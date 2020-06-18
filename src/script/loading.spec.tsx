@@ -1,6 +1,4 @@
-import React from 'react';
-import { create } from 'react-test-renderer';
-import { mount } from 'enzyme';
+import React, { mount, create } from '@app/testUtils';
 
 import * as TestSubject from '@app/loading';
 
@@ -17,8 +15,15 @@ describe(`${TestSubject.Loading.displayName}`, () => {
     expect(snapshot).toMatchSnapshot();
   });
 
-  it('mount', () => {
-    const testSubject = mount(<TestComponent />);
+  it('mount', async () => {
+    const testSubject = mount(<TestComponent timeout={10} />);
     expect(testSubject.text()).toBe(``);
+    return expect(
+      new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(true);
+        }, 500);
+      }),
+    ).resolves.toBeTruthy();
   });
 });

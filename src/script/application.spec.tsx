@@ -1,5 +1,4 @@
-import React from 'react';
-import { mount } from 'enzyme';
+import React, { mount } from '@app/testUtils';
 
 import * as TestSubject from '@app/application';
 

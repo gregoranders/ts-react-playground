@@ -38,8 +38,13 @@
       "@molecules/*": ["./components/molecules/*"],
       "@pages/*": ["./components/pages/*"],
       "@components/*": ["./components/*"],
-      "@app/*": ["./*"],
-    },
+      "@app/*": ["./*"]
+    }
   },
-  "files": ["index.tsx", "components/pages/about/index.tsx", "components/pages/home/index.tsx", "components/pages/index/index.tsx"]
+  "files": [
+    "index.tsx",
+    "components/pages/about/index.tsx",
+    "components/pages/home/index.tsx",
+    "components/pages/index/index.tsx"
+  ]
 }

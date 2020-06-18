@@ -1,6 +1,4 @@
-import React from 'react';
-import { create } from 'react-test-renderer';
-import { mount } from 'enzyme';
+import React, { mount, create } from '@app/testUtils';
 
 import * as TestSubject from '@organisms/footer';
 

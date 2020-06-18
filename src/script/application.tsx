@@ -23,9 +23,9 @@ export const Application: FunctionComponent<Props> = ({ basename }) => {
   return (
     <StrictMode>
       <Suspense fallback={<Loading />}>
-        <CssBaseline />
-        <ThemeProvider>
-          <RecoilRoot>
+        <RecoilRoot>
+          <CssBaseline />
+          <ThemeProvider>
             <BrowserRouter basename={basename}>
               <Layout>
                 <Switch>
@@ -37,8 +37,8 @@ export const Application: FunctionComponent<Props> = ({ basename }) => {
                 </Switch>
               </Layout>
             </BrowserRouter>
-          </RecoilRoot>
-        </ThemeProvider>
+          </ThemeProvider>
+        </RecoilRoot>
       </Suspense>
     </StrictMode>
   );

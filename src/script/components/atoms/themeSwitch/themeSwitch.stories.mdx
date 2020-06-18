@@ -1,0 +1,20 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+import { text, boolean } from '@storybook/addon-knobs';
+import { ThemeSwitch } from './index';
+
+<Meta title='Atoms|ThemeSwitch' component={ThemeSwitch} parameters={{ jest: ['atoms/button/index.spec.tsx'] }}/>
+
+# ThemeSwitch
+
+## MaterialUI Theme Switch
+
+<Preview>
+  <Story name='default'>
+    <ThemeSwitch />
+  </Story>
+</Preview>
+
+## Props
+
+<Props of={ThemeSwitch} />

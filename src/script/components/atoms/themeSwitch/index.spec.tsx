@@ -1,15 +1,26 @@
 import React, { mount, create, RecoilRoot } from '@app/testUtils';
 
-import * as TestSubject from '@app/theme';
-import ThemeAtom, { Theme } from '@models/theme';
-import { MuiThemeProvider } from '@material-ui/core';
+import { Switch } from '@material-ui/core';
 
-describe(`${TestSubject.ThemeProvider.displayName}`, () => {
+import * as TestSubject from '@atoms/themeSwitch';
+
+import ThemeAtom, { Theme } from '@models/theme';
+
+Theme;
+ThemeAtom;
+
+describe(`${TestSubject.ThemeSwitch.displayName}`, () => {
   it('exports default', () => {
     expect(TestSubject.default).toBeDefined();
   });
 
   const TestComponent = TestSubject.default;
+
+  const OnClick = jest.fn();
+
+  afterEach(() => {
+    OnClick.mockReset();
+  });
 
   it('snapshot', (): void => {
     const snapshot = create(
@@ -27,10 +38,26 @@ describe(`${TestSubject.ThemeProvider.displayName}`, () => {
         <TestComponent />
       </RecoilRoot>,
     );
-    expect(testSubject.text()).toBe('ThemeProvider');
+    expect(testSubject.text()).toBe('');
   });
 
-  describe('themes', () => {
+  it('click', () => {
+    const testSubject = mount(
+      <RecoilRoot>
+        <TestComponent />
+      </RecoilRoot>,
+    );
+
+    expect(testSubject.find('.Mui-checked')).toHaveLength(0);
+    testSubject.find('input').simulate('click');
+    expect(testSubject.find('.Mui-checked')).toHaveLength(5);
+
+    expect(testSubject.find('.Mui-checked')).toHaveLength(5);
+    testSubject.find('input').simulate('click');
+    expect(testSubject.find('.Mui-checked')).toHaveLength(0);
+  });
+
+  describe('theme', () => {
     it('light', () => {
       const testSubject = mount(
         <RecoilRoot
@@ -41,7 +68,7 @@ describe(`${TestSubject.ThemeProvider.displayName}`, () => {
           <TestComponent />
         </RecoilRoot>,
       );
-      expect(testSubject.find(MuiThemeProvider)).toHaveProp('theme', TestSubject.themeLight);
+      expect(testSubject.find(Switch)).toHaveProp('checked', false);
     });
 
     it('dark', () => {
@@ -54,7 +81,7 @@ describe(`${TestSubject.ThemeProvider.displayName}`, () => {
           <TestComponent />
         </RecoilRoot>,
       );
-      expect(testSubject.find(MuiThemeProvider)).toHaveProp('theme', TestSubject.themeDark);
+      expect(testSubject.find(Switch)).toHaveProp('checked', true);
     });
   });
 });
