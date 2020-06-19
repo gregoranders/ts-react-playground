@@ -7,7 +7,6 @@ on:
 
 env:
   CI: true
-  PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: false
   GITHUB_BRANCH: ${{ github.ref }}
   GITHUB_COMMIT: ${{ github.sha }}
 
