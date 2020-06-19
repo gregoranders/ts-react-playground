@@ -63,11 +63,15 @@ jobs:
         run: |
           ps aux
           sudo echo "--------------------"
+          sudo ls -lha /Library/Keychains/
+          sudo echo "--------------------"
           sudo security list-keychains
           sudo echo "--------------------"
           sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain ssl/fritz.box.cer
           sudo echo "--------------------"
           sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain ssl/development.fritz.box.crt
+          sudo echo "--------------------"
+          sudo security list-keychains
           sudo echo "--------------------"
           npm run e2e
         env:
