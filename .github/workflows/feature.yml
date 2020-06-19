@@ -68,11 +68,14 @@ jobs:
           sudo security list-keychains
           sudo echo "--------------------"
           sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain ssl/fritz.box.cer
+          security add-trusted-cert -d -r trustRoot -k ssl/fritz.box.crt
           sudo echo "--------------------"
           sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain ssl/development.fritz.box.crt
+          security add-trusted-cert -d -r trustRoot -k ssl/development.fritz.box.crt
           sudo echo "--------------------"
           sudo security list-keychains
           sudo echo "--------------------"
+          sudo security --help
           npm run e2e
         env:
           HEADLESS: true
