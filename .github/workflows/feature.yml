@@ -5,6 +5,11 @@ on:
     branches:
       - feature/*
 
+env:
+  CI: true
+  GITHUB_BRANCH: ${{ github.ref }}
+  GITHUB_COMMIT: ${{ github.sha }}
+
 jobs:
   build:
     runs-on: ${{ matrix.os }}
@@ -29,27 +34,26 @@ jobs:
       - name: npm install
         run: |
           npm install
-        env:
-          CI: true
       - name: npm run build
         run: |
           npm run build
-        env:
-          CI: true
       - name: npm test
         run: |
           npm test
-        env:
-          CI: true
       - name: npm run e2e
         run: |
           sudo apt-get update
-          sudo apt-get install xvfb
+          sudo apt-get install ca-certificates libnss3-tools xvfb
+          sudo mkdir -pv /usr/local/share/ca-certificates
+          sudo cp -v ssl/fritz.box.crt /usr/local/share/ca-certificates/
+          sudo chmod 644 /usr/local/share/ca-certificates/*
+          sudo update-ca-certificates
+          sudo mkdir -pv /etc/pki/nssdb
+          sudo certutil -d sql:/etc/pki/nssdb --emtpy-password -N
+          sudo certutil -d sql:/etc/pki/nssdb --emtpy-password -A -t "C,," -n "fritz.box" -i ssl/fritz.box.crt
           xvfb-run --auto-servernum -- bash -c "npm run e2e"
         env:
           HEADLESS: true
-          GITHUB_BRANCH: ${{ github.ref }}
-          GITHUB_COMMIT: ${{ github.sha }}
           PACKAGE_JSON: ${{ steps.projectinfo.outputs.context }}
       - name: archive e2e screenshots
         uses: actions/upload-artifact@v1

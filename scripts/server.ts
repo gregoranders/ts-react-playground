@@ -1,18 +1,18 @@
-// import * as fs from 'fs';
+import * as fs from 'fs';
 import * as compression from 'compression';
 import * as express from 'express';
-import * as https from 'http';
+import * as https from 'https';
 import * as path from 'path';
+import * as portfinder from 'portfinder-sync';
 
 import { baseport } from '../package.json';
 
 // import { api } from './controller';
-const hostname = 'localhost';
 const staticPath: string = path.join(__dirname, '..', 'public');
 
 const application = express();
 
-application.set('port', process.env.NODE_PORT || baseport);
+application.set('port', process.env.NODE_PORT || portfinder.getPort(baseport));
 application.use(compression());
 application.use('/ts-react-playground', express.static(staticPath));
 
@@ -23,14 +23,18 @@ application.use((req: express.Request, res: express.Response) => {
   res.sendFile(path.join(staticPath, 'index.html'));
 });
 
+const sslPath = path.resolve(__dirname, '..', 'ssl');
+
 const httpOptions = {
-  // key: fs.readFileSync(path.resolve(__dirname, 'certs', 'key.pem')),
-  // cert: fs.readFileSync(path.resolve(__dirname, 'certs', 'cert.pem')),
+  key: fs.readFileSync(path.resolve(sslPath, 'development.fritz.box.key')),
+  cert: fs.readFileSync(path.resolve(sslPath, 'development.fritz.box.crt')),
 };
 
-https.createServer(httpOptions, application).listen(application.get('port'), () => {
+const server = https.createServer(httpOptions, application);
+
+server.listen(application.get('port'), () => {
   console.log(
-    `  App is running at http://${hostname}:%d in %s mode (%s) (%s)`,
+    ` Server is running at https://localhost:%d in %s mode\n %s`,
     application.get('port'),
     application.get('env'),
     staticPath,

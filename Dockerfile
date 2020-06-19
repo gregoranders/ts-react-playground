@@ -2,8 +2,8 @@ FROM alpine:latest
 
 COPY ./docker/docker-entrypoint.sh ./docker/docker-cmd.sh \
   ./docker/docker-healthcheck.sh \
-  ./docker/fritz.box.crt ./docker/fritz.box.pem \
-  ./docker/development.fritz.box.crt ./docker/development.fritz.box.key /
+  ./ssl/fritz.box.crt ./ssl/fritz.box.pem \
+  ./ssl/development.fritz.box.crt ./ssl/development.fritz.box.key /
 
 COPY ./docker/nginx.conf /etc/nginx/nginx.conf
 

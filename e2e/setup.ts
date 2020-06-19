@@ -9,7 +9,7 @@ import 'expect-puppeteer';
 const jestPuppeteerConfig = require('../jest-puppeteer.config.js');
 
 export const timeout = 10000;
-export const url = `http://127.0.0.1:${jestPuppeteerConfig.server.port}`;
+export const url = `https://localhost:${jestPuppeteerConfig.server.port}`;
 
 export const customSnapshotsDir = join('e2e', 'screenshots', version);
 export const customDiffDir = join(customSnapshotsDir, 'diff');
