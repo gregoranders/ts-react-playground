@@ -7,12 +7,15 @@ import 'expect-puppeteer';
 
 declare const puppeteerConfig: {
   server: {
+    host: string;
     port: number;
+    ssl: boolean;
   };
 };
 
 export const timeout = 10000;
-export const url = `https://localhost:${puppeteerConfig.server.port}`;
+export const proto = `http${puppeteerConfig.server.ssl ? 's' : ''}`;
+export const url = `${proto}://${puppeteerConfig.server.host}:${puppeteerConfig.server.port}`;
 
 export const customSnapshotsDir = join('e2e', 'screenshots', version);
 export const customDiffDir = join(customSnapshotsDir, 'diff');
