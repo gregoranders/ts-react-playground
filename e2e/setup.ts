@@ -17,8 +17,6 @@ export const url = `https://localhost:${puppeteerConfig.server.port}`;
 export const customSnapshotsDir = join('e2e', 'screenshots', version);
 export const customDiffDir = join(customSnapshotsDir, 'diff');
 
-console.error('E2E URL:', url, jest);
-
 const customConfig = { threshold: 0 };
 const toMatchImageSnapshot = configureToMatchImageSnapshot({
   // blur: 1,
