@@ -16,6 +16,8 @@ module.exports = {
   server: {
     command,
     port,
+    ssl: true,
+    host: process.env.NODE_HOST || 'localhost',
     launchTimeout: 10000,
     debug: true,
   },
