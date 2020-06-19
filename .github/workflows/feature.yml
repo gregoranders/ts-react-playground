@@ -7,6 +7,7 @@ on:
 
 env:
   CI: true
+  HEADLESS: true
   GITHUB_BRANCH: ${{ github.ref }}
   GITHUB_COMMIT: ${{ github.sha }}
 
@@ -56,7 +57,6 @@ jobs:
           rm -rf .password
           xvfb-run --auto-servernum -- bash -c "npm run e2e"
         env:
-          HEADLESS: true
           PACKAGE_JSON: ${{ steps.projectinfo.outputs.context }}
       - name: npm run e2e
         if: matrix.os == 'macos-latest' && matrix.node-version == '14.x'
@@ -64,21 +64,17 @@ jobs:
           sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.Keychain ssl/fritz.box.crt
           npm run e2e
         env:
-          HEADLESS: true
-          GITHUB_BRANCH: ${{ github.ref }}
-          GITHUB_COMMIT: ${{ github.sha }}
           PACKAGE_JSON: ${{ steps.projectinfo.outputs.context }}
       - name: npm run e2e
         if: matrix.os == 'windows-latest' && matrix.node-version == '14.x'
         run: |
           certutil -addstore -f "ROOT" ssl\fritz.box.crt
+          npm run e2e
         env:
-          HEADLESS: true
-          GITHUB_BRANCH: ${{ github.ref }}
-          GITHUB_COMMIT: ${{ github.sha }}
           PACKAGE_JSON: ${{ steps.projectinfo.outputs.context }}
       - name: archive e2e screenshots
         uses: actions/upload-artifact@v1
+        if: matrix.node-version == '14.x'
         with:
           name: Screenshots Feature ${{ matrix.os }} ${{ matrix.node-version }}
           path: e2e/screenshots
