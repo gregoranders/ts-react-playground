@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest]
+        os: [ubuntu-latest, macos-latest]
         node-version: [14.x]
 
     steps:
@@ -41,6 +41,7 @@ jobs:
         run: |
           npm test
       - name: npm run e2e
+        if: matrix.os == 'linux-latest' && matrix.node-version == '14.x'
         run: |
           sudo apt-get update
           sudo apt-get install ca-certificates libnss3-tools xvfb
@@ -56,6 +57,22 @@ jobs:
           xvfb-run --auto-servernum -- bash -c "npm run e2e"
         env:
           HEADLESS: true
+          PACKAGE_JSON: ${{ steps.projectinfo.outputs.context }}
+      - name: npm run e2e
+        if: matrix.os == 'macos-latest' && matrix.node-version == '14.x'
+        run: |
+          sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain ssl/fritz.box.crt
+          brew install nss
+          mkdir -pv ${HOME}/.pki/nssdb
+          echo > .password
+          certutil -N -d sql:${HOME}/.pki/nssdb -f .password
+          certutil -A -d sql:${HOME}/.pki/nssdb -f .password -t "C,," -n "fritz.box" -i ssl/fritz.box.crt
+          rm -rf .password
+          npm run e2e
+        env:
+          HEADLESS: true
+          GITHUB_BRANCH: ${{ github.ref }}
+          GITHUB_COMMIT: ${{ github.sha }}
           PACKAGE_JSON: ${{ steps.projectinfo.outputs.context }}
       - name: archive e2e screenshots
         uses: actions/upload-artifact@v1
