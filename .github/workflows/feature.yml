@@ -49,8 +49,8 @@ jobs:
           sudo chmod 644 /usr/local/share/ca-certificates/*
           sudo update-ca-certificates
           sudo mkdir -pv /etc/pki/nssdb
-          sudo certutil -N -d sql:/etc/pki/nssdb --emtpy-password
-          sudo certutil -A -d sql:/etc/pki/nssdb --emtpy-password -t "C,," -n "fritz.box" -i ssl/fritz.box.crt
+          sudo certutil -N -d sql:/etc/pki/nssdb -f .password
+          sudo certutil -A -d sql:/etc/pki/nssdb -t "C,," -n "fritz.box" -i ssl/fritz.box.crt
           xvfb-run --auto-servernum -- bash -c "npm run e2e"
         env:
           HEADLESS: true
