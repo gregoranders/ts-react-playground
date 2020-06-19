@@ -68,9 +68,7 @@ jobs:
           sudo echo "--------------------"
           sudo security list-keychains
           sudo echo "--------------------"
-          sudo security add-trusted-cert -d -r trustAsRoot -k /Library/Keychains/System.keychain ssl/fritz.box.cer
-          sudo echo "--------------------"
-          sudo security add-trusted-cert -d -r trustAsRoot -k /Library/Keychains/System.keychain ssl/development.fritz.box.crt
+          sudo security add-trusted-cert -d -r trustRoot -p ssl -p basic -s localhost -k /Library/Keychains/System.Keychain ssl/fritz.box.cer
           sudo echo "--------------------"
           sudo security list-keychains
           sudo echo "--------------------"
