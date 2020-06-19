@@ -32,15 +32,15 @@ jobs:
       - name: nodejs project information
         id: projectinfo
         uses: gregoranders/nodejs-project-info@v0.0.6
-      # - name: npm install
-      #   run: |
-      #     npm install
-      # - name: npm run build
-      #   run: |
-      #     npm run build
-      # - name: npm test
-      #   run: |
-      #     npm test
+      - name: npm install
+        run: |
+          npm install
+      - name: npm run build
+        run: |
+          npm run build
+      - name: npm test
+        run: |
+          npm test
       - name: npm run e2e
         if: matrix.os == 'ubuntu-latest' && matrix.node-version == '14.x'
         run: |
@@ -62,17 +62,7 @@ jobs:
       - name: npm run e2e
         if: matrix.os == 'macos-latest' && matrix.node-version == '14.x'
         run: |
-          ps aux
-          sudo echo "--------------------"
-          sudo ls -lha /Library/Keychains/
-          sudo echo "--------------------"
-          sudo security list-keychains
-          sudo echo "--------------------"
           sudo security add-trusted-cert -d -r trustRoot -p ssl -p basic -s localhost -k /Library/Keychains/System.Keychain ssl/fritz.box.cer
-          sudo echo "--------------------"
-          sudo security list-keychains
-          sudo echo "--------------------"
-          sudo security --help
           npm run e2e
         env:
           HEADLESS: true
