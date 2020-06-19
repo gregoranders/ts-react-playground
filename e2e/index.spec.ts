@@ -1,5 +1,5 @@
 import { Browser, devices } from 'puppeteer';
-import { mkdir, timeout, url, customSnapshotsDir, customDiffDir } from './setup';
+import { customDiffDir, customSnapshotsDir, mkdir, timeout, url } from './setup';
 
 declare const browser: Browser;
 

@@ -5,6 +5,12 @@ on:
     branches:
       - master
 
+env:
+  CI: true
+  HEADLESS: true
+  GITHUB_BRANCH: ${{ github.ref }}
+  GITHUB_COMMIT: ${{ github.sha }}
+
 jobs:
   build:
     runs-on: ${{ matrix.os }}
@@ -29,31 +35,22 @@ jobs:
       - name: npm install
         run: |
           npm install
-        env:
-          CI: true
       - name: npm run build
         run: |
           npm run build
-        env:
-          CI: true
       - name: npm test
         run: |
           npm test
-        env:
-          CI: true
       - name: code coverage
         if: matrix.os == 'ubuntu-latest' && matrix.node-version == '14.x'
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           path-to-lcov: ./test/coverage/lcov.info
-        env:
-          CI: true
       - name: publish code coverage to code climate
         if: matrix.os == 'ubuntu-latest' && matrix.node-version == '14.x'
         uses: paambaati/codeclimate-action@v2.6.0
         env:
-          CI: true
           CC_TEST_REPORTER_ID: ${{ secrets.CODE_CLIMATE }}
         with:
           coverageCommand: npm run test
@@ -64,25 +61,36 @@ jobs:
         if: matrix.os == 'ubuntu-latest' && matrix.node-version == '14.x'
         run: |
           sudo apt-get update
-          sudo apt-get install xvfb
+          sudo apt-get install ca-certificates libnss3-tools xvfb
+          sudo mkdir -pv /usr/local/share/ca-certificates
+          sudo cp -v ssl/fritz.box.crt /usr/local/share/ca-certificates/
+          sudo chmod 644 /usr/local/share/ca-certificates/*
+          sudo update-ca-certificates
+          mkdir -pv ${HOME}/.pki/nssdb
+          echo > .password
+          certutil -N -d sql:${HOME}/.pki/nssdb -f .password
+          certutil -A -d sql:${HOME}/.pki/nssdb -f .password -t "C,," -n "fritz.box" -i ssl/fritz.box.crt
+          rm -rf .password
           xvfb-run --auto-servernum -- bash -c "npm run e2e"
         env:
-          HEADLESS: true
-          GITHUB_BRANCH: ${{ github.ref }}
-          GITHUB_COMMIT: ${{ github.sha }}
           PACKAGE_JSON: ${{ steps.projectinfo.outputs.context }}
       - name: npm run e2e
         if: matrix.os == 'macos-latest' && matrix.node-version == '14.x'
         run: |
+          sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.Keychain ssl/fritz.box.crt
           npm run e2e
         env:
-          HEADLESS: true
-          GITHUB_BRANCH: ${{ github.ref }}
-          GITHUB_COMMIT: ${{ github.sha }}
+          PACKAGE_JSON: ${{ steps.projectinfo.outputs.context }}
+      - name: npm run e2e
+        if: matrix.os == 'windows-latest' && matrix.node-version == '14.x'
+        run: |
+          certutil -addstore -f "ROOT" ssl\fritz.box.crt
+          npm run e2e
+        env:
           PACKAGE_JSON: ${{ steps.projectinfo.outputs.context }}
       - name: archive e2e screenshots
         uses: actions/upload-artifact@v1
-        if: ( matrix.os == 'ubuntu-latest' || matrix.os == 'macos-latest' ) && matrix.node-version == '14.x'
+        if: matrix.node-version == '14.x'
         with:
           name: Screenshots Master ${{ matrix.os }} ${{ matrix.node-version }}
           path: e2e/screenshots
@@ -91,7 +99,6 @@ jobs:
         id: createrelease
         uses: gregoranders/nodejs-create-release@v0.0.6
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PACKAGE_JSON: ${{ steps.projectinfo.outputs.context }}
         with:
           tag: v${{ steps.projectinfo.outputs.version }}

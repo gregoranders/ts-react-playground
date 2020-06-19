@@ -1,6 +1,16 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const cmd = `cross-env-shell NODE_PORT=${process.env.NODE_PORT}`;
-const command = `${cmd} && npm run ${process.env.NODE_E2E === 'esm' ? 'serve' : 'e2e:serve'}`;
+const portfinder = require('portfinder-sync');
+const packageJson = require('./package.json');
+
+const port = portfinder.getPort(packageJson.baseport);
+const command = `cross-env NODE_PORT=${port} NODE_ENV=production npm run ${process.env.NODE_E2E === 'esm' ? 'serve' : 'e2e:serve'}`;
+
+const args = ['--enable-experimental-web-platform-features'];
+
+// Did not manage to get self signed certs working on macos
+if (process.platform === 'darwin') {
+  args.push('--allow-insecure-localhost');
+}
 
 module.exports = {
   browser: 'chromium',
@@ -8,11 +18,13 @@ module.exports = {
   launch: {
     dumpio: true,
     headless: process.env.HEADLESS !== 'false',
-    args: ['--enable-experimental-web-platform-features']
+    args
   },
   server: {
     command,
-    port: process.env.NODE_PORT,
+    port,
+    ssl: true,
+    host: process.env.NODE_HOST || 'localhost',
     launchTimeout: 10000,
     debug: true,
   },
