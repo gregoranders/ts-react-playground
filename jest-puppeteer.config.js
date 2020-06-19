@@ -1,6 +1,9 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const cmd = `cross-env-shell NODE_PORT=${process.env.NODE_PORT}`;
-const command = `${cmd} && npm run ${process.env.NODE_E2E === 'esm' ? 'serve' : 'e2e:serve'}`;
+const portfinder = require('portfinder-sync');
+const packageJson = require('./package.json');
+
+const port = portfinder.getPort(packageJson.baseport);
+const command = `cross-env NODE_PORT=${port} NODE_ENV=production npm run ${process.env.NODE_E2E === 'esm' ? 'serve' : 'e2e:serve'}`;
 
 module.exports = {
   browser: 'chromium',
@@ -12,7 +15,7 @@ module.exports = {
   },
   server: {
     command,
-    port: process.env.NODE_PORT,
+    port,
     launchTimeout: 10000,
     debug: true,
   },
