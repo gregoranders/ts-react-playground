@@ -17,7 +17,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [macos-latest]
         node-version: [14.x]
 
     steps:
@@ -32,15 +32,15 @@ jobs:
       - name: nodejs project information
         id: projectinfo
         uses: gregoranders/nodejs-project-info@v0.0.6
-      - name: npm install
-        run: |
-          npm install
-      - name: npm run build
-        run: |
-          npm run build
-      - name: npm test
-        run: |
-          npm test
+      # - name: npm install
+      #   run: |
+      #     npm install
+      # - name: npm run build
+      #   run: |
+      #     npm run build
+      # - name: npm test
+      #   run: |
+      #     npm test
       - name: npm run e2e
         if: matrix.os == 'ubuntu-latest' && matrix.node-version == '14.x'
         run: |
