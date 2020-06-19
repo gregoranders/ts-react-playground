@@ -61,10 +61,10 @@ jobs:
       - name: npm run e2e
         if: matrix.os == 'macos-latest' && matrix.node-version == '14.x'
         run: |
-          sudo security add-trusted-cert -d -r trustRoot -p ssl -p basic -s localhost -k /Library/Keychains/System.Keychain ssl/fritz.box.cer
-          sudo security add-trusted-cert -d -r trustRoot -p ssl -p basic -s localhost -k /Library/Keychains/System.Keychain ssl/development.fritz.box.cer
-          sudo security add-trusted-cert -d -r trustRoot -k ~/Library/Keychains/login.keychain ssl/fritz.box.cer
-          sudo security add-trusted-cert -d -r trustRoot -k ~/Library/Keychains/login.keychain ssl/development.fritz.box.cer
+          sudo security add-trusted-cert -d -r trustRoot -p ssl -p basic -s localhost -k /Library/Keychains/System.Keychain ssl/fritz.box.crt
+          sudo security add-trusted-cert -d -r trustRoot -p ssl -p basic -s localhost -k /Library/Keychains/System.Keychain ssl/development.fritz.box.crt
+          sudo security add-trusted-cert -d -r trustRoot -k ~/Library/Keychains/login.keychain ssl/fritz.box.crt
+          sudo security add-trusted-cert -d -r trustRoot -k ~/Library/Keychains/login.keychain ssl/development.fritz.box.crt
           npm run e2e
         env:
           HEADLESS: true
