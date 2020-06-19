@@ -7,6 +7,7 @@ on:
 
 env:
   CI: true
+  PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
   GITHUB_BRANCH: ${{ github.ref }}
   GITHUB_COMMIT: ${{ github.sha }}
 
@@ -68,10 +69,10 @@ jobs:
           sudo security list-keychains
           sudo echo "--------------------"
           sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain ssl/fritz.box.cer
-          security add-trusted-cert -d -r trustRoot -k ssl/fritz.box.crt
+          security add-trusted-cert -d -r trustRoot -k /Users/runner/Library/Keychains/login.keychain-db ssl/fritz.box.crt
           sudo echo "--------------------"
           sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain ssl/development.fritz.box.crt
-          security add-trusted-cert -d -r trustRoot -k ssl/development.fritz.box.crt
+          security add-trusted-cert -d -r trustRoot -k /Users/runner/Library/Keychains/login.keychain-db  ssl/development.fritz.box.crt
           sudo echo "--------------------"
           sudo security list-keychains
           sudo echo "--------------------"
