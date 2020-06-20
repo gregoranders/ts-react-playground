@@ -62,7 +62,6 @@ jobs:
         if: matrix.os == 'macos-latest' && matrix.node-version == '14.x'
         run: |
           sudo security add-trusted-cert -d -r trustRoot -p ssl -p smime -p basic -u -1 -k /Library/Keychains/System.keychain ssl/fritz.box.crt
-          sudo security add-trusted-cert -d -r trustAsRoot -p ssl -p smime -p basic -u -1 -k /Library/Keychains/System.keychain ssl/fritz.box.crt
           npm run e2e
         env:
           PACKAGE_JSON: ${{ steps.projectinfo.outputs.context }}
