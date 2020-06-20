@@ -17,7 +17,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [macos-latest]
         node-version: [14.x]
 
     steps:
@@ -32,15 +32,15 @@ jobs:
       - name: nodejs project information
         id: projectinfo
         uses: gregoranders/nodejs-project-info@v0.0.6
-      - name: npm install
-        run: |
-          npm install
-      - name: npm run build
-        run: |
-          npm run build
-      - name: npm test
-        run: |
-          npm test
+      # - name: npm install
+      #   run: |
+      #     npm install
+      # - name: npm run build
+      #   run: |
+      #     npm run build
+      # - name: npm test
+      #   run: |
+      #     npm test
       - name: npm run e2e
         if: matrix.os == 'ubuntu-latest' && matrix.node-version == '14.x'
         run: |
@@ -61,9 +61,8 @@ jobs:
       - name: npm run e2e
         if: matrix.os == 'macos-latest' && matrix.node-version == '14.x'
         run: |
-          sudo security add-trusted-cert -d -r trustRoot -p ssl -p smime -p codeSign -p IPSec -p eap -p basic -p swUpdate -p pkgSign -p pkinitClient -p pkinitServer -p timestamping -u -1 -k /Library/Keychains/System.keychain ssl/fritz.box.pem
-          sudo security add-trusted-cert -d -r trustAsRoot -p ssl -p smime -p codeSign -p IPSec -p eap -p basic -p swUpdate -p pkgSign -p pkinitClient -p pkinitServer -p timestamping -u -1 -k /Library/Keychains/System.keychain ssl/fritz.box.pem
-          npm run e2e
+          sudo security add-trusted-cert -d -r trustRoot -p ssl -p smime -p codeSign -p IPSec -p eap -p basic -p swUpdate -p pkgSign -u -1 -k /Library/Keychains/System.keychain ssl/fritz.box.pem
+          sudo security add-trusted-cert -d -r trustAsRoot -p ssl -p smime -p codeSign -p IPSec -p eap -p basic -p swUpdate -p pkgSign -u -1 -k /Library/Keychains/System.keychain ssl/fritz.box.pem
         env:
           PACKAGE_JSON: ${{ steps.projectinfo.outputs.context }}
       - name: npm run e2e
