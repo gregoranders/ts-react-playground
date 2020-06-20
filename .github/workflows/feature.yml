@@ -17,7 +17,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-latest, macos-latest, windows-latest]
         node-version: [14.x]
 
     steps:
@@ -61,7 +61,7 @@ jobs:
       - name: npm run e2e
         if: matrix.os == 'macos-latest' && matrix.node-version == '14.x'
         run: |
-          sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.Keychain ssl/fritz.box.crt
+          sudo security add-trusted-cert -d -r trustRoot -p ssl -p smime -p basic -u -1 -k /Library/Keychains/System.keychain ssl/fritz.box.crt
           npm run e2e
         env:
           PACKAGE_JSON: ${{ steps.projectinfo.outputs.context }}
