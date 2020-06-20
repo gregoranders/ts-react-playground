@@ -75,6 +75,7 @@ jobs:
         if: matrix.os == 'windows-latest' && matrix.node-version == '14.x'
         run: |
           certutil -addstore -f "ROOT" ssl\fritz.box.crt
+          npm run e2e
         env:
           PACKAGE_JSON: ${{ steps.projectinfo.outputs.context }}
       - name: archive e2e screenshots
