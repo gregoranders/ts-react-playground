@@ -50,14 +50,17 @@
     "@app/index": "/ts-react-playground/script/index.js",
     "@app/application": "/ts-react-playground/script/application.js",
     "@app/loading": "/ts-react-playground/script/loading.js",
+    "@app/theme": "/ts-react-playground/script/theme.js",
 
     "@models/user": "/ts-react-playground/script/models/user.js",
+    "@models/theme": "/ts-react-playground/script/models/theme.js",
 
     "@components/layout": "/ts-react-playground/script/components/layout/index.js",
 
     "@atoms/button": "/ts-react-playground/script/components/atoms/button/index.js",
     "@atoms/navLink": "/ts-react-playground/script/components/atoms/navLink/index.js",
     "@atoms/user": "/ts-react-playground/script/components/atoms/user/index.js",
+    "@atoms/themeSwitch": "/ts-react-playground/script/components/atoms/themeSwitch/index.js",
 
     "@molecules/users": "/ts-react-playground/script/components/molecules/users/index.js",
 
@@ -70,6 +73,7 @@
 
     "@pages/home": "/ts-react-playground/script/components/pages/home/index.js",
     "@pages/index": "/ts-react-playground/script/components/pages/index/index.js",
+    "@pages/materialui": "/ts-react-playground/script/components/pages/materialui/index.js",
     "@pages/about": "/ts-react-playground/script/components/pages/about/index.js"
   }
 }

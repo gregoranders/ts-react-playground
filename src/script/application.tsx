@@ -5,11 +5,15 @@ import { string as IsString } from 'prop-types';
 
 import { default as Loading } from '@app/loading';
 
-const Layout = lazy(() => import('@components/layout'));
+import { CssBaseline } from '@material-ui/core';
 
+const Layout = lazy(() => import('@components/layout'));
 const HomePage = lazy(() => import('@pages/home'));
 const IndexPage = lazy(() => import('@pages/index'));
+const MateriaqlUIPage = lazy(() => import('@pages/materialui'));
 const AboutPage = lazy(() => import('@pages/about'));
+
+const ThemeProvider = lazy(() => import('@app/theme'));
 
 type Props = {
   basename: string;
@@ -20,16 +24,20 @@ export const Application: FunctionComponent<Props> = ({ basename }) => {
     <StrictMode>
       <Suspense fallback={<Loading />}>
         <RecoilRoot>
-          <BrowserRouter basename={basename}>
-            <Layout>
-              <Switch>
-                <Route path="/" exact component={IndexPage} />
-                <Route path="/home" component={HomePage} />
-                <Route path="/about" component={AboutPage} />
-                <Redirect to="/" />
-              </Switch>
-            </Layout>
-          </BrowserRouter>
+          <CssBaseline />
+          <ThemeProvider>
+            <BrowserRouter basename={basename}>
+              <Layout>
+                <Switch>
+                  <Route path="/" exact component={IndexPage} />
+                  <Route path="/home" component={HomePage} />
+                  <Route path="/materialui" component={MateriaqlUIPage} />
+                  <Route path="/about" component={AboutPage} />
+                  <Redirect to="/" />
+                </Switch>
+              </Layout>
+            </BrowserRouter>
+          </ThemeProvider>
         </RecoilRoot>
       </Suspense>
     </StrictMode>

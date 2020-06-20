@@ -1,4 +1,4 @@
-import { getPort } from 'portfinder-sync';
+import * as protfinderSync from 'portfinder-sync';
 import { baseport } from '../package.json';
 
-console.log(getPort(baseport));
+console.log(protfinderSync.getPort(baseport));

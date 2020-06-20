@@ -18,5 +18,10 @@
   },
   "editor.tabSize": 2,
   "editor.wordWrapColumn": 120,
-  "editor.minimap.enabled": false
+  "editor.minimap.enabled": false,
+  "jest.pathToJest": "npm test --",
+  "jest.coverageFormatter": "GutterFormatter",
+  "jest.enableInlineErrorMessages": false,
+  "jest.restartJestOnSnapshotUpdate": false,
+  "jest.showCoverageOnLoad": false
 }

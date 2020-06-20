@@ -3,12 +3,19 @@ import { existsSync, mkdirSync } from 'fs';
 import { join } from 'path';
 import { version } from '../package.json';
 import 'expect-puppeteer';
+// import 'jest-puppeteer';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const jestPuppeteerConfig = require('../jest-puppeteer.config.js');
+declare const puppeteerConfig: {
+  server: {
+    host: string;
+    port: number;
+    ssl: boolean;
+  };
+};
 
 export const timeout = 10000;
-export const url = `http://127.0.0.1:${jestPuppeteerConfig.server.port}`;
+export const proto = `http${puppeteerConfig.server.ssl ? 's' : ''}`;
+export const url = `${proto}://${puppeteerConfig.server.host}:${puppeteerConfig.server.port}`;
 
 export const customSnapshotsDir = join('e2e', 'screenshots', version);
 export const customDiffDir = join(customSnapshotsDir, 'diff');
@@ -19,7 +26,7 @@ const toMatchImageSnapshot = configureToMatchImageSnapshot({
   customDiffConfig: customConfig,
   customSnapshotsDir,
   customDiffDir,
-  failureThreshold: 0.2,
+  failureThreshold: 0.008,
   failureThresholdType: 'percent',
 });
 

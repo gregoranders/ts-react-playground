@@ -5,10 +5,6 @@ describe(`models/user`, () => {
     expect(TestSubject.generate).toBeDefined();
   });
 
-  it('exports generateAsync', () => {
-    expect(TestSubject.generateAsync).toBeDefined();
-  });
-
   it('exports default user', () => {
     expect(TestSubject.DefaultUser).toBeDefined();
   });
@@ -25,18 +21,6 @@ describe(`models/user`, () => {
     expect(TestSubject.UsersAtom).toBeDefined();
   });
 
-  it('exports Selector', () => {
-    expect(TestSubject.UsersLength).toBeDefined();
-  });
-
-  it('exports Selector', () => {
-    expect(TestSubject.UsersTop10).toBeDefined();
-  });
-
-  it('exports Selector', () => {
-    expect(TestSubject.UsersBottom10).toBeDefined();
-  });
-
   it('generate default number of users', async () => {
     const result = TestSubject.generate();
     expect(result.length).toBe(100);
@@ -49,21 +33,6 @@ describe(`models/user`, () => {
 
   it('generate 0 users', async () => {
     const result = TestSubject.generate(0);
-    expect(result.length).toBe(0);
-  });
-
-  it('generate async default number of users', async () => {
-    const result = await TestSubject.generateAsync();
-    expect(result.length).toBe(100);
-  });
-
-  it('generate async 2 users', async () => {
-    const result = await TestSubject.generateAsync(2);
-    expect(result.length).toBe(2);
-  });
-
-  it('generate async 0 users', async () => {
-    const result = await TestSubject.generateAsync(0);
     expect(result.length).toBe(0);
   });
 });

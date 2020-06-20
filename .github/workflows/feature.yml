@@ -5,13 +5,19 @@ on:
     branches:
       - feature/*
 
+env:
+  CI: true
+  HEADLESS: true
+  GITHUB_BRANCH: ${{ github.ref }}
+  GITHUB_COMMIT: ${{ github.sha }}
+
 jobs:
   build:
     runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
-        os: [ubuntu-latest]
+        os: [ubuntu-latest, macos-latest, windows-latest]
         node-version: [14.x]
 
     steps:
@@ -29,30 +35,46 @@ jobs:
       - name: npm install
         run: |
           npm install
-        env:
-          CI: true
       - name: npm run build
         run: |
           npm run build
-        env:
-          CI: true
       - name: npm test
         run: |
           npm test
-        env:
-          CI: true
       - name: npm run e2e
+        if: matrix.os == 'ubuntu-latest' && matrix.node-version == '14.x'
         run: |
           sudo apt-get update
-          sudo apt-get install xvfb
+          sudo apt-get install ca-certificates libnss3-tools xvfb
+          sudo mkdir -pv /usr/local/share/ca-certificates
+          sudo cp -v ssl/fritz.box.crt /usr/local/share/ca-certificates/
+          sudo chmod 644 /usr/local/share/ca-certificates/*
+          sudo update-ca-certificates
+          mkdir -pv ${HOME}/.pki/nssdb
+          echo > .password
+          certutil -N -d sql:${HOME}/.pki/nssdb -f .password
+          certutil -A -d sql:${HOME}/.pki/nssdb -f .password -t "C,," -n "fritz.box" -i ssl/fritz.box.crt
+          rm -rf .password
           xvfb-run --auto-servernum -- bash -c "npm run e2e"
         env:
-          HEADLESS: true
-          GITHUB_BRANCH: ${{ github.ref }}
-          GITHUB_COMMIT: ${{ github.sha }}
+          PACKAGE_JSON: ${{ steps.projectinfo.outputs.context }}
+      - name: npm run e2e
+        if: matrix.os == 'macos-latest' && matrix.node-version == '14.x'
+        run: |
+          sudo security add-trusted-cert -d -r trustRoot -p ssl -p smime -p basic -u -1 -k /Library/Keychains/System.keychain ssl/fritz.box.crt
+          npm run e2e
+        env:
+          PACKAGE_JSON: ${{ steps.projectinfo.outputs.context }}
+      - name: npm run e2e
+        if: matrix.os == 'windows-latest' && matrix.node-version == '14.x'
+        run: |
+          certutil -addstore -f "ROOT" ssl\fritz.box.crt
+          npm run e2e
+        env:
           PACKAGE_JSON: ${{ steps.projectinfo.outputs.context }}
       - name: archive e2e screenshots
         uses: actions/upload-artifact@v1
+        if: matrix.node-version == '14.x'
         with:
           name: Screenshots Feature ${{ matrix.os }} ${{ matrix.node-version }}
           path: e2e/screenshots
