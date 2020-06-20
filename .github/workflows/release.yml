@@ -8,6 +8,8 @@ on:
 env:
   CI: true
   HEADLESS: true
+  NODE_ENV: production
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   GITHUB_BRANCH: ${{ github.ref }}
   GITHUB_COMMIT: ${{ github.sha }}
 
@@ -77,7 +79,4 @@ jobs:
           git commit -m "${{ steps.projectinfo.outputs.name }} - v${{ steps.projectinfo.outputs.version }}" .
           git push
         env:
-          NODE_ENV: production
-          GITHUB_BRANCH: ${{ github.ref }}
-          GITHUB_COMMIT: ${{ github.sha }}
           PACKAGE_JSON: ${{ steps.projectinfo.outputs.context }}
