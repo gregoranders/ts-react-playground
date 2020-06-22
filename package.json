@@ -307,7 +307,7 @@
     "favicons": "6.1.0",
     "file-loader": "6.0.0",
     "generate-changelog": "1.8.0",
-    "gsap": "3.3.3",
+    "gsap": "3.3.4",
     "html-webpack-plugin": "4.3.0",
     "husky": "4.2.5",
     "idb": "5.0.4",
