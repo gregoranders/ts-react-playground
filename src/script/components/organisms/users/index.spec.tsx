@@ -25,7 +25,7 @@ describe(`${TestSubject.UsersModelView.displayName}`, () => {
         <TestComponent />
       </RecoilRoot>,
     );
-    expect(testSubject.text()).toBe('Generate Users [0]');
+    expect(testSubject.text()).toBe('Generate Users');
   });
 
   it('mount', () => {
@@ -37,6 +37,6 @@ describe(`${TestSubject.UsersModelView.displayName}`, () => {
     act(() => {
       testSubject.find('button').simulate('click');
     });
-    expect(testSubject.text()).toContain('Generate Users [15]');
+    expect(testSubject.text()).toContain('Generate Users');
   });
 });

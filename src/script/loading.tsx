@@ -1,38 +1,25 @@
-import React, { FunctionComponent, memo, useEffect, useState } from 'react';
-import { number as IsNumber, oneOf as IsOneOf } from 'prop-types';
+import React, { memo, useEffect, useState } from 'react';
+import { number as IsNumber, string as IsString } from 'prop-types';
 
-// // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-// export const importWithDelay = (name: string, timeout = 10000) => {
-//   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-//   return new Promise<{ default: React.LazyExoticComponent<React.NamedExoticComponent<any>> }>((resolve, reject) => {
-//     import(name)
-//       .then((mod) => {
-//         setTimeout(() => {
-//           resolve(mod);
-//         }, timeout);
-//       })
-//       .catch(reject);
-//   });
-// };
-
-type LoadingType = 'bootstrap' | 'spinner';
-
-type Props = {
-  timeout?: number;
-  type?: LoadingType;
-};
+type Props = Readonly<typeof defaultProps>;
 
 type Factor = 1 | -1;
 
-const dots = (count: number) => {
+const defaultProps = {
+  indicator: '&middot;',
+  timeout: 300,
+  type: 'loading',
+};
+
+const progress = (count: number, indicator: string) => {
   let dots = '';
   for (let idx = 0; idx < count; idx++) {
-    dots += '&middot;';
+    dots += indicator;
   }
   return dots;
 };
 
-export const Loading: FunctionComponent<Props> = ({ timeout, type }) => {
+export const Loading = ({ indicator, timeout, type }: Props) => {
   const [stage, setStage] = useState(0);
   const [mode, setMode] = useState<Factor>(1);
 
@@ -53,22 +40,20 @@ export const Loading: FunctionComponent<Props> = ({ timeout, type }) => {
   });
 
   return (
-    <div className={`centered ${type}`}>
-      <h1 className="dots" dangerouslySetInnerHTML={{ __html: dots(stage) }} />
+    <div className={`${type}`}>
+      <span dangerouslySetInnerHTML={{ __html: progress(stage, indicator) }} />
     </div>
   );
 };
 
 Loading.displayName = 'Loading';
 
-Loading.defaultProps = {
-  timeout: 300,
-  type: 'bootstrap',
-};
+Loading.defaultProps = { ...defaultProps };
 
 Loading.propTypes = {
-  timeout: IsNumber,
-  type: IsOneOf(['bootstrap', 'spinner']),
+  indicator: IsString.isRequired,
+  timeout: IsNumber.isRequired,
+  type: IsString.isRequired,
 };
 
 export default memo(Loading);

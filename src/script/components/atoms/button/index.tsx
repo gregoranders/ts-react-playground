@@ -1,34 +1,41 @@
-import React, { FunctionComponent, memo } from 'react';
-import { any as IsAny, bool as IsBoolean, func as IsFunction } from 'prop-types';
+import React, { memo } from 'react';
+import {
+  array as IsArray,
+  bool as IsBoolean,
+  func as IsFunction,
+  number as IsNumber,
+  oneOfType as IsOneOfType,
+  string as IsString,
+} from 'prop-types';
 
-type OnClick = (e?: React.MouseEvent<HTMLButtonElement>) => void;
+type Props = Readonly<typeof defaultProps>;
 
-type Props = {
+const defaultProps = {
   /**
    * disabled property of HTML button
    *
    * @default: false
    */
-  disabled?: boolean;
+  disabled: false,
   /**
    * onClick handler
    *
-   * @type (e?: React.MouseEvent<HTMLButtonElement>) => void
+   * @type (e: React.MouseEvent<HTMLButtonElement>) => void
    */
-  onClick: OnClick;
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => console.log(e),
   /**
    * HTML button content
    *
-   * @type string | React.ReactNode
+   * @type string
    * @default Button
    */
-  children?: string | React.ReactNode;
+  children: 'Button',
 };
 
 /**
  * HTML Button
  */
-export const Button: FunctionComponent<Props> = ({ children, disabled, onClick }) => {
+export const Button = ({ children, disabled, onClick }: Props) => {
   return (
     <button
       disabled={disabled}
@@ -43,15 +50,12 @@ export const Button: FunctionComponent<Props> = ({ children, disabled, onClick }
 
 Button.displayName = 'Button';
 
-Button.defaultProps = {
-  disabled: false,
-  children: 'Button',
-};
+Button.defaultProps = defaultProps;
 
 Button.propTypes = {
-  disabled: IsBoolean,
+  disabled: IsBoolean.isRequired,
   onClick: IsFunction.isRequired,
-  children: IsAny,
+  children: IsOneOfType([IsArray, IsString, IsNumber]).isRequired,
 };
 
 export default memo(Button);

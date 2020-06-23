@@ -26,13 +26,29 @@ describe(`${TestSubject.Button.displayName}`, () => {
     expect(testSubject.text()).toBe('Button');
   });
 
-  it('click', () => {
-    const testSubject = mount(<TestComponent onClick={OnClick} />);
-    expect(testSubject.text()).toBe('Button');
-    expect(OnClick.mock.calls.length).toEqual(0);
-    act(() => {
-      testSubject.find('button').simulate('click');
+  describe('click', () => {
+    const spy = jest.spyOn(console, 'log').mockImplementation();
+
+    afterEach(() => spy.mockRestore());
+
+    it('should invoke default onClick handler [console.log(event)]', () => {
+      const testSubject = mount(<TestComponent>Test</TestComponent>);
+      expect(testSubject.text()).toBe('Test');
+
+      act(() => {
+        testSubject.find('button').simulate('click');
+      });
+      expect(spy).toBeCalledTimes(1);
     });
-    expect(OnClick.mock.calls.length).toEqual(1);
+
+    it('should invoke provided onClick handler', () => {
+      const testSubject = mount(<TestComponent onClick={OnClick} />);
+      expect(testSubject.text()).toBe('Button');
+      expect(OnClick.mock.calls.length).toEqual(0);
+      act(() => {
+        testSubject.find('button').simulate('click');
+      });
+      expect(OnClick).toBeCalledTimes(1);
+    });
   });
 });

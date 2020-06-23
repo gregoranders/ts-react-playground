@@ -15,7 +15,7 @@ export const UsersModelView: FunctionComponent = () => {
 
   return (
     <>
-      <Button onClick={generateUsers}>Generate Users [{users.length}]</Button>
+      <Button onClick={generateUsers}>Generate Users</Button>
       <table>
         <tbody>
           <tr>

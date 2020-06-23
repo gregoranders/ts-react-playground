@@ -1,6 +1,6 @@
 jest.useFakeTimers();
 
-import React from 'react';
+import React, { memo } from 'react';
 import TestRenderer from 'react-test-renderer';
 import { act } from 'react-dom/test-utils';
 
@@ -11,6 +11,6 @@ import { mount, render } from 'enzyme';
 
 const { create } = TestRenderer;
 
-export { RecoilRoot, act, create, mount, render };
+export { RecoilRoot, act, create, memo, mount, render };
 
 export default React;

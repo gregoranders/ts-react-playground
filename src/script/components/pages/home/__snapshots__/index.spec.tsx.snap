@@ -6,9 +6,7 @@ Array [
     disabled={false}
     onClick={[Function]}
   >
-    Generate Users [
-    0
-    ]
+    Generate Users
   </button>,
   <table>
     <tbody>

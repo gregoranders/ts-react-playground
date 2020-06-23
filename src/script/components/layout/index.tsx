@@ -1,5 +1,5 @@
-import React, { FunctionComponent, memo, Suspense } from 'react';
-import { element as IsElement, oneOfType as OneOfType, string as IsString } from 'prop-types';
+import React, { FunctionComponent, Suspense, memo } from 'react';
+import { element as IsElement, string as IsString, oneOfType as OneOfType } from 'prop-types';
 
 import Loading from '@app/loading';
 
@@ -23,7 +23,7 @@ export const Layout: FunctionComponent<Props> = ({ children }) => {
       <Header />
       <Nav />
       <Main>
-        <Suspense fallback={<Loading type="spinner" />}>{children}</Suspense>
+        <Suspense fallback={<Loading type={'spinner'} />}>{children}</Suspense>
       </Main>
       <Footer />
     </>
