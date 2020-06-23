@@ -13,7 +13,7 @@
     "prebuild:webpack": "rimraf ./dist",
     "build:webpack": "cross-env NODE_ENV=production webpack --config webpack.config.js",
     "pretest": "rimraf ./test",
-    "test": "jest --runInBand --env=enzyme --setupFilesAfterEnv=jest-enzyme --reporters=jest-html-reporter jest-spec-reporter jest-junit --coverage --collectCoverage true --coverageDirectory ../test/coverage --rootDir ./src",
+    "test": "jest --runInBand --env=enzyme --setupFilesAfterEnv=jest-enzyme ../jestSetupAfterEnv.js --reporters=jest-html-reporter jest-spec-reporter jest-junit --coverage --collectCoverage true --coverageDirectory ../test/coverage --rootDir ./src",
     "test:update": "npm run test -- -u",
     "watch-test": "npm run test -- --watch",
     "e2e:serve": "webpack-dev-server --config ./e2e/webpack.config.js --quiet true --liveReload false --inline false",
