@@ -3,7 +3,7 @@ import { customDiffDir, customSnapshotsDir, mkdir, timeout, url } from './setup'
 
 declare const browser: Browser;
 
-describe('Index', () => {
+describe.skip('Index', () => {
   beforeAll(async () => {
     mkdir(customSnapshotsDir);
     mkdir(customDiffDir);
@@ -12,7 +12,7 @@ describe('Index', () => {
   Object.keys(devices).forEach((key) => {
     const device = devices[key];
 
-    xtest(
+    test.skip(
       `${device.name}`,
       async () => {
         const page = await browser.newPage();

@@ -1,4 +1,4 @@
-import React, { FunctionComponent, memo } from 'react';
+import React, { memo } from 'react';
 import { useRecoilState } from 'recoil';
 
 import { Switch } from '@material-ui/core';
@@ -10,7 +10,7 @@ import ThemeAtom, { Theme, storeTheme } from '@models/theme';
  *
  * Switches between dark and light theme.
  */
-export const ThemeSwitch: FunctionComponent = () => {
+export const ThemeSwitch = () => {
   const [theme, setThemeAtom] = useRecoilState(ThemeAtom);
 
   const setTheme = (theme: Theme) => {

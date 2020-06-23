@@ -1,4 +1,4 @@
-import React, { FunctionComponent, lazy, memo, StrictMode, Suspense } from 'react';
+import React, { StrictMode, Suspense, lazy, memo } from 'react';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
 import { string as IsString } from 'prop-types';
@@ -15,11 +15,11 @@ const AboutPage = lazy(() => import('@pages/about'));
 
 const ThemeProvider = lazy(() => import('@app/theme'));
 
-type Props = {
+type Props = Readonly<{
   basename: string;
-};
+}>;
 
-export const Application: FunctionComponent<Props> = ({ basename }) => {
+export const Application = ({ basename }: Props) => {
   return (
     <StrictMode>
       <Suspense fallback={<Loading />}>

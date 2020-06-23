@@ -1,4 +1,4 @@
-import React, { FunctionComponent, memo } from 'react';
+import React, { memo } from 'react';
 import { element as IsElement, oneOfType as IsOneOfType, string as IsString } from 'prop-types';
 
 type Props = {
@@ -10,7 +10,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-export const Main: FunctionComponent<Props> = ({ children }) => {
+export const Main = ({ children }: Props) => {
   return <main className="w3-margin">{children}</main>;
 };
 

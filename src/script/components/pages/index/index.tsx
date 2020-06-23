@@ -1,6 +1,6 @@
-import React, { FunctionComponent, memo } from 'react';
+import React, { memo } from 'react';
 
-export const IndexPage: FunctionComponent = () => {
+export const IndexPage = () => {
   return <h2>{IndexPage.displayName}</h2>;
 };
 
