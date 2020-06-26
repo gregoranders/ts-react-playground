@@ -1,3 +1,51 @@
+#### 0.0.13 (2020-06-26)
+
+##### Build System / Dependencies
+
+- **webpack:** refactor webpack config ([b73cc2aa](https://github.com/gregoranders/ts-react-playground/commit/b73cc2aacd2838aecfca60a302d81630aa334a18))
+- **e2e:** add screenshots ([2eae49fd](https://github.com/gregoranders/ts-react-playground/commit/2eae49fdf7ee08ec715127d82b275e28b3c9afb9))
+
+##### Chores
+
+- **release:**
+  - 0.0.13 release ([ac91f3d4](https://github.com/gregoranders/ts-react-playground/commit/ac91f3d4798f6d163f618e14f5a835288055d51f))
+  - prepare next release ([e287cd75](https://github.com/gregoranders/ts-react-playground/commit/e287cd752e5b484ff550f86bf2abd9fabf0c5444))
+- **dependencies:** update dependencies ([94fc59f1](https://github.com/gregoranders/ts-react-playground/commit/94fc59f18f0f7be5637dc4726a3fc9c6a83754c3))
+
+##### Bug Fixes
+
+- **eslint:** fix eslint issue ([2bb32049](https://github.com/gregoranders/ts-react-playground/commit/2bb320492233bfc6bdce6c8660e61ab3932b64c5))
+- **e2e:** fix e2e test due to test refactoring ([840c4a50](https://github.com/gregoranders/ts-react-playground/commit/840c4a5027f47dfe65b5fcc7f08a84150926ea47))
+- **test:** fix test ([b83155dd](https://github.com/gregoranders/ts-react-playground/commit/b83155dd552bc6f8809ba115d255c4c1407f89bb))
+
+##### Other Changes
+
+- bump @types/jest from 26.0.0 to 26.0.3 ([42324ba1](https://github.com/gregoranders/ts-react-playground/commit/42324ba1adb0a9fca5ef7b81bfa939f3f7076f50))
+- bump puppeteer from 4.0.0 to 4.0.1 ([fec81ab5](https://github.com/gregoranders/ts-react-playground/commit/fec81ab5483e80dc248b1b893f9874d44604b9b0))
+- bump @types/recharts from 1.8.12 to 1.8.13 ([40212304](https://github.com/gregoranders/ts-react-playground/commit/402123045305d9d89c59acb6ec0b4d1ed98562ee))
+- bump @types/node from 14.0.13 to 14.0.14 ([9bc641a2](https://github.com/gregoranders/ts-react-playground/commit/9bc641a21a6918885dc9083447d427aa8f388a97))
+- bump @types/react from 16.9.38 to 16.9.41 ([74dad208](https://github.com/gregoranders/ts-react-playground/commit/74dad208eb9c7ba079b87f52539c436b414c5531))
+- bump jest from 26.0.1 to 26.1.0 ([1a45293f](https://github.com/gregoranders/ts-react-playground/commit/1a45293f40f6b2c0d0042bd02e6d2c810b7fd073))
+- bump webpack-cli from 3.3.11 to 3.3.12 ([f10b63fd](https://github.com/gregoranders/ts-react-playground/commit/f10b63fd4d5e8810efdc35f850b94c301382e255))
+- bump jest-cli from 26.0.1 to 26.1.0 ([9f175292](https://github.com/gregoranders/ts-react-playground/commit/9f17529244e5e78c049b4d016c51a1a6c918d8e1))
+- gregoranders/ts-react-playground into development ([9462428f](https://github.com/gregoranders/ts-react-playground/commit/9462428f4764a48072cecb67c7b17771762aef64))
+- bump @rollup/plugin-node-resolve from 8.0.1 to 8.1.0 ([ca37df6c](https://github.com/gregoranders/ts-react-playground/commit/ca37df6cd556b7f01af052de584093f089a71ea2))
+- bump jest-junit from 10.0.0 to 11.0.1 ([4715f69e](https://github.com/gregoranders/ts-react-playground/commit/4715f69e3a0806bbfb1d38202863c1443ee7cabd))
+- bump @typescript-eslint/parser from 3.3.0 to 3.4.0 ([9d969c4d](https://github.com/gregoranders/ts-react-playground/commit/9d969c4d22498ec4941b778f1507bc1bc0dd8857))
+- bump @typescript-eslint/eslint-plugin from 3.3.0 to 3.4.0 ([8727e3ae](https://github.com/gregoranders/ts-react-playground/commit/8727e3aebdebc9e5af7cfc006f3deebd87777190))
+- bump ts-jest from 26.1.0 to 26.1.1 ([3bd3b787](https://github.com/gregoranders/ts-react-playground/commit/3bd3b787ad3a7395f6b1e43bd01ee5f97e2cc31d))
+- bump rollup from 2.17.1 to 2.18.0 ([c86b929e](https://github.com/gregoranders/ts-react-playground/commit/c86b929ee19d66c95fcd50cf76b525e5f873efe6))
+- bump gsap from 3.3.3 to 3.3.4 ([2735dac3](https://github.com/gregoranders/ts-react-playground/commit/2735dac36f216be7ace93c25c779b989adf5aa36))
+- bump @babel/core from 7.10.2 to 7.10.3 ([b9ff2b9c](https://github.com/gregoranders/ts-react-playground/commit/b9ff2b9c0018b5ff461d698a9ebe0a7585df6fea))
+
+##### Refactors
+
+- **script:** remove FunctionComponent usage ([aa9f7e2c](https://github.com/gregoranders/ts-react-playground/commit/aa9f7e2c9a41ea55f2733ec227d841b23c30bca5))
+- **test:**
+  - refactor and fix tests ([354f13ca](https://github.com/gregoranders/ts-react-playground/commit/354f13cac8fc9511d988f1fe303f6bf34e068ad0))
+  - add fetch mock to tests ([15dfc3c3](https://github.com/gregoranders/ts-react-playground/commit/15dfc3c30f0a322caf8b5a8e1617e1dc7f2bc927))
+- **vscode:** refactor configuration ([33ff2473](https://github.com/gregoranders/ts-react-playground/commit/33ff247313e57d46441a6055ba5361da9f77789e))
+
 #### 0.0.12 (2020-06-20)
 
 ##### Build System / Dependencies

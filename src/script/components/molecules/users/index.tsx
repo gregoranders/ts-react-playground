@@ -1,19 +1,21 @@
-import React, { FunctionComponent, memo } from 'react';
+import React, { memo } from 'react';
 import { arrayOf as IsArrayOf } from 'prop-types';
 
-import { DefaultUser, User, UserPropTypes } from '@models/user';
+import { DefaultUser, UserPropTypes } from '@models/user';
 import UserView from '@atoms/user';
 
-type Props = {
+type Props = Readonly<typeof defaultProps>;
+
+const defaultProps = {
   /**
    * Users
    *
    * @type User[]
    */
-  users: User[];
+  users: [DefaultUser],
 };
 
-export const UsersView: FunctionComponent<Props> = ({ users }) => {
+export const UsersView = ({ users }: Props) => {
   return (
     <>
       {users.map((user, index) => (
@@ -25,9 +27,7 @@ export const UsersView: FunctionComponent<Props> = ({ users }) => {
 
 UsersView.displayName = 'UsersView';
 
-UsersView.defaultProps = {
-  users: [DefaultUser],
-};
+UsersView.defaultProps = defaultProps;
 
 UsersView.propTypes = {
   users: IsArrayOf(UserPropTypes.isRequired).isRequired,

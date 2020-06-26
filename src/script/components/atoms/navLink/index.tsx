@@ -1,41 +1,41 @@
-import React, { FunctionComponent, memo } from 'react';
 import clsx from 'clsx';
-import { NavLink as ReactNavLink, NavLinkProps } from 'react-router-dom';
-import { string as IsString, element as IsElement, oneOfType as IsOneOfType } from 'prop-types';
+import React, { memo } from 'react';
+import { NavLink as ReactNavLink } from 'react-router-dom';
+import { element as IsElement, oneOfType as IsOneOfType, string as IsString } from 'prop-types';
 
-type Props = NavLinkProps & {
+type Props = Readonly<typeof defaultProps & { children: string; to: string }>;
+
+const defaultProps = {
   /**
-   * Children
+   * CSS class
    *
-   * @type React.ReactNode
+   * @type string
    */
-  children: string | React.ReactElement;
+  className: '',
 };
 
-export const NavLink: FunctionComponent<Props> = (props) => {
+export const NavLink = ({ className, to, children }: Props) => {
   const classes = {
     'w3-bar-item': true,
     'w3-button': true,
     'w3-mobile': true,
     'w3-hover-theme': true,
-  } as Record<string, true>;
+  } as Record<string, boolean>;
 
-  if (props.className && props.className.length) {
-    classes[props.className] = true;
+  if (className && className.length) {
+    classes[className] = true;
   }
 
   return (
-    <ReactNavLink className={clsx(classes)} activeClassName="w3-theme-d5" to={props.to}>
-      {props.children}
+    <ReactNavLink className={clsx(classes)} activeClassName="w3-theme-d5" to={to}>
+      {children}
     </ReactNavLink>
   );
 };
 
 NavLink.displayName = 'NavLink';
 
-NavLink.defaultProps = {
-  children: <>NavLink</>,
-};
+NavLink.defaultProps = defaultProps;
 
 NavLink.propTypes = {
   children: IsOneOfType([IsString, IsElement]).isRequired,

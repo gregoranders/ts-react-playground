@@ -1,11 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Loading snapshot 1`] = `
+exports[`Loading should match default 1`] = `
 <div
-  className="centered bootstrap"
+  className="loading"
 >
-  <h1
-    className="dots"
+  <span
     dangerouslySetInnerHTML={
       Object {
         "__html": "",

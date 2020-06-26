@@ -1,4 +1,4 @@
-import React, { FunctionComponent, memo, useState } from 'react';
+import React, { memo, useState } from 'react';
 
 import { Button, Paper, Typography, makeStyles } from '@material-ui/core';
 
@@ -13,7 +13,7 @@ const useStyles = makeStyles({
   },
 });
 
-export const MaterialUIPage: FunctionComponent = () => {
+export const MaterialUIPage = () => {
   const [active, setActive] = useState(true);
   const classes = useStyles();
 

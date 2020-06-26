@@ -55,7 +55,7 @@ describe('index', () => {
       const button = await page.$('button');
       expect(button).toBeTruthy();
       const html = await page.evaluate((h2) => h2.innerHTML, button);
-      expect(html).toBe('Generate Users [0]');
+      expect(html).toBe('Generate Users');
       const image = await page.screenshot();
       expect(image).toMatchImageSnapshot();
     },
@@ -76,7 +76,7 @@ describe('index', () => {
       let list = await page.$$('dl');
       expect(list).toHaveLength(15);
       const html = await page.evaluate((h2) => h2.innerHTML, button);
-      expect(html).toBe('Generate Users [15]');
+      expect(html).toBe('Generate Users');
       const after = await page.screenshot();
       expect(after).toMatchImageSnapshot();
       list = await page.$$('dl');

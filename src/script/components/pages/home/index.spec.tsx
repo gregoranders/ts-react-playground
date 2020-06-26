@@ -25,6 +25,6 @@ describe(`${TestSubject.HomePage.displayName}`, () => {
         <TestComponent />
       </RecoilRoot>,
     );
-    expect(testSubject.text()).toBe('Generate Users [0]');
+    expect(testSubject.text()).toBe('Generate Users');
   });
 });

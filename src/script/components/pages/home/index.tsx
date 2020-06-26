@@ -1,8 +1,8 @@
-import React, { FunctionComponent, memo } from 'react';
+import React, { memo } from 'react';
 
 import UsersModelView from '@organisms/users';
 
-export const HomePage: FunctionComponent = () => {
+export const HomePage = () => {
   return <UsersModelView />;
 };
 

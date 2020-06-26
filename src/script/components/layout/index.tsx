@@ -1,5 +1,5 @@
-import React, { FunctionComponent, memo, Suspense } from 'react';
-import { element as IsElement, oneOfType as OneOfType, string as IsString } from 'prop-types';
+import React, { Suspense, memo } from 'react';
+import { element as IsElement, string as IsString, oneOfType as OneOfType } from 'prop-types';
 
 import Loading from '@app/loading';
 
@@ -8,22 +8,22 @@ import Nav from '@organisms/nav';
 import Main from '@organisms/main';
 import Footer from '@organisms/footer';
 
-type Props = {
+type Props = Readonly<{
   /**
    * Children
    *
    * @type React.ReactNode
    */
   children: React.ReactNode;
-};
+}>;
 
-export const Layout: FunctionComponent<Props> = ({ children }) => {
+export const Layout = ({ children }: Props) => {
   return (
     <>
       <Header />
       <Nav />
       <Main>
-        <Suspense fallback={<Loading type="spinner" />}>{children}</Suspense>
+        <Suspense fallback={<Loading type={'spinner'} />}>{children}</Suspense>
       </Main>
       <Footer />
     </>

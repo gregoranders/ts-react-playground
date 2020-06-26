@@ -1,8 +1,8 @@
-import React, { FunctionComponent, memo } from 'react';
+import React, { memo } from 'react';
 
 import NavLink from '@atoms/navLink';
 
-export const Nav: FunctionComponent = () => {
+export const Nav = () => {
   return (
     <nav className="w3-bar w3-theme-d3">
       <NavLink to="/home">Home</NavLink>

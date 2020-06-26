@@ -1,4 +1,4 @@
-import React, { FunctionComponent, memo } from 'react';
+import React, { memo } from 'react';
 import { useRecoilState } from 'recoil';
 
 import { UsersAtom, generate } from '@models/user';
@@ -6,7 +6,7 @@ import { UsersAtom, generate } from '@models/user';
 import Button from '@atoms/button';
 import UsersView from '@molecules/users';
 
-export const UsersModelView: FunctionComponent = () => {
+export const UsersModelView = () => {
   const [users, setUsers] = useRecoilState(UsersAtom);
 
   const generateUsers = () => {
@@ -15,7 +15,7 @@ export const UsersModelView: FunctionComponent = () => {
 
   return (
     <>
-      <Button onClick={generateUsers}>Generate Users [{users.length}]</Button>
+      <Button onClick={generateUsers}>Generate Users</Button>
       <table>
         <tbody>
           <tr>

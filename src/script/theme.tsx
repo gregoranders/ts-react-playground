@@ -1,4 +1,4 @@
-import React, { FunctionComponent, memo } from 'react';
+import React, { memo } from 'react';
 import { useRecoilValue } from 'recoil';
 import { element as IsElement } from 'prop-types';
 
@@ -27,23 +27,20 @@ export const themeDark = responsiveFontSizes(
   }),
 );
 
-type Props = {
-  children?: React.ReactNode;
+type Props = Readonly<typeof defaultProps>;
+
+const defaultProps = {
+  children: <h1>ThemeProvider</h1>,
 };
 
-themeLight;
-themeDark;
-
-export const ThemeProvider: FunctionComponent<Props> = ({ children }) => {
+export const ThemeProvider = ({ children }: Props) => {
   const theme = useRecoilValue(ThemeAtom);
   return <MuiThemeProvider theme={theme === Theme.DARK ? themeDark : themeLight}>{children}</MuiThemeProvider>;
 };
 
 ThemeProvider.displayName = 'ThemeProvider';
 
-ThemeProvider.defaultProps = {
-  children: <h1>{ThemeProvider.displayName}</h1>,
-};
+ThemeProvider.defaultProps = defaultProps;
 
 ThemeProvider.propTypes = {
   children: IsElement,

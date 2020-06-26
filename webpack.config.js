@@ -14,7 +14,7 @@ const plugins = [
   new CleanPlugin(),
   new HtmlWebpackPlugin({
     filename: 'index.html',
-    title: 'TypeScript React Redux Webpack Demo',
+    title: 'TypeScript React Playground',
     template: path.join('./public', 'webpack.html'),
   }),
   new MiniCssExtractPlugin({
@@ -97,13 +97,6 @@ module.exports = {
   },
   module: {
     rules: [
-      // {
-      //   test: /\.tsx?$/,
-      //   loader: './test',
-      //   options: {
-      //     tsConfig: path.resolve('src/script/tsConfig.json'),
-      //   },
-      // },
       {
         test: /\.tsx?$/,
         loader: 'ts-loader',

@@ -1,6 +1,6 @@
-import React, { FunctionComponent, memo } from 'react';
+import React, { memo } from 'react';
 
-export const AboutPage: FunctionComponent = () => {
+export const AboutPage = () => {
   return <h2>{AboutPage.displayName}</h2>;
 };
 

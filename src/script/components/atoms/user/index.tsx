@@ -1,14 +1,16 @@
-import React, { FunctionComponent, memo } from 'react';
+import React, { memo } from 'react';
 
-import { DefaultUser, User, UserPropTypes } from '@models/user';
+import { DefaultUser, UserPropTypes } from '@models/user';
 
-type Props = {
+type Props = Readonly<typeof defaultProps>;
+
+const defaultProps = {
   /**
    * User
    *
    * @type User
    */
-  user: User;
+  user: DefaultUser,
 };
 
 /**
@@ -18,7 +20,7 @@ type Props = {
  *
  * @param {User} user
  */
-export const UserView: FunctionComponent<Props> = ({ user }: Props) => {
+export const UserView = ({ user }: Props) => {
   return (
     <dl>
       <dt>First Name</dt>
@@ -33,9 +35,7 @@ export const UserView: FunctionComponent<Props> = ({ user }: Props) => {
 
 UserView.displayName = 'UserView';
 
-UserView.defaultProps = {
-  user: DefaultUser,
-};
+UserView.defaultProps = defaultProps;
 
 UserView.propTypes = {
   user: UserPropTypes.isRequired,

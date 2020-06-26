@@ -1,7 +1,7 @@
-import React, { FunctionComponent, memo } from 'react';
+import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 
-export const Header: FunctionComponent = () => {
+export const Header = () => {
   return (
     <header className="w3-center">
       <h1 className="w3-jumbo w3-wide">
