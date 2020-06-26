@@ -4,6 +4,11 @@
 
 - **release:** prepare next release ([7b9ba803](https://github.com/gregoranders/ts-react-playground/commit/7b9ba8035e1e6d0d73f04531fb8e987adc1a3d5d))
 
+##### Documentation Changes
+
+- **README:** fix git clone cmd ([85721088](https://github.com/gregoranders/ts-react-playground/commit/8572108878172243d64a0f0e88c6333762cbf2d7))
+- **CHANGELOG:** update CHANGELOG ([c93bbf2d](https://github.com/gregoranders/ts-react-playground/commit/c93bbf2dab2d27486b432e44bd69e42595183051))
+
 ##### Bug Fixes
 
 - **esm:** fix esm vendor build ([0e35467e](https://github.com/gregoranders/ts-react-playground/commit/0e35467e1ded7d7d4d0641b5ed229ff75707aa13))
