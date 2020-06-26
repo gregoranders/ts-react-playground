@@ -270,7 +270,7 @@
     "@types/react-router-dom": "5.1.5",
     "@types/react-test-renderer": "16.9.2",
     "@types/react-transition-group": "4.4.0",
-    "@types/recharts": "1.8.12",
+    "@types/recharts": "1.8.13",
     "@types/recoil": "0.0.1",
     "@types/scheduler": "0.16.1",
     "@types/storybook__addon-info": "5.2.1",
