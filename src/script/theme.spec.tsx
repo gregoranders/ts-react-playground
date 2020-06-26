@@ -1,4 +1,4 @@
-import React, { RecoilRoot, create, mount } from '@app/testUtils';
+import React, { RecoilRoot, create, mount } from '@app/test-utils';
 
 import * as TestSubject from '@app/theme';
 import ThemeAtom, { Theme } from '@models/theme';
@@ -41,6 +41,7 @@ describe(`${TestSubject.ThemeProvider.displayName}`, () => {
           <TestComponent />
         </RecoilRoot>,
       );
+      // eslint-disable-next-line unicorn/no-fn-reference-in-iterator
       expect(testSubject.find(MuiThemeProvider)).toHaveProp('theme', TestSubject.themeLight);
     });
 
@@ -54,6 +55,7 @@ describe(`${TestSubject.ThemeProvider.displayName}`, () => {
           <TestComponent />
         </RecoilRoot>,
       );
+      // eslint-disable-next-line unicorn/no-fn-reference-in-iterator
       expect(testSubject.find(MuiThemeProvider)).toHaveProp('theme', TestSubject.themeDark);
     });
   });

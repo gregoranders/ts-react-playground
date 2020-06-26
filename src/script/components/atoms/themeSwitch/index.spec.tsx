@@ -1,4 +1,4 @@
-import React, { RecoilRoot, create, mount } from '@app/testUtils';
+import React, { RecoilRoot, create, mount } from '@app/test-utils';
 
 import { Switch } from '@material-ui/core';
 
@@ -68,6 +68,7 @@ describe(`${TestSubject.ThemeSwitch.displayName}`, () => {
           <TestComponent />
         </RecoilRoot>,
       );
+      // eslint-disable-next-line unicorn/no-fn-reference-in-iterator
       expect(testSubject.find(Switch)).toHaveProp('checked', false);
     });
 
@@ -81,6 +82,7 @@ describe(`${TestSubject.ThemeSwitch.displayName}`, () => {
           <TestComponent />
         </RecoilRoot>,
       );
+      // eslint-disable-next-line unicorn/no-fn-reference-in-iterator
       expect(testSubject.find(Switch)).toHaveProp('checked', true);
     });
   });

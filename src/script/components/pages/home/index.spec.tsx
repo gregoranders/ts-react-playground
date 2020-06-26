@@ -1,4 +1,4 @@
-import React, { RecoilRoot, create, mount } from '@app/testUtils';
+import React, { RecoilRoot, create, mount } from '@app/test-utils';
 
 import * as TestSubject from '@pages/home';
 

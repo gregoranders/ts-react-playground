@@ -10,7 +10,7 @@ const THEME_ATOM_KEY = 'themeAtom';
 export const loadTheme = (): Theme => {
   const theme = localStorage.getItem(THEME_ATOM_KEY);
   if (theme) {
-    return parseInt(theme);
+    return Number.parseInt(theme);
   }
   return Theme.LIGHT;
 };

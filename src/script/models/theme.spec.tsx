@@ -33,6 +33,7 @@ describe(`models/theme`, () => {
     });
 
     it('should return THEME.LIGHT as default', () => {
+      // eslint-disable-next-line unicorn/no-useless-undefined
       mockedGetItem.mockReturnValue(undefined);
       const theme = TestSubject.loadTheme();
       expect(theme).toBe(TestSubject.Theme.LIGHT);

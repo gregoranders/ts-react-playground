@@ -1,4 +1,4 @@
-import React, { act, create, memo, mount } from '@app/testUtils';
+import React, { act, create, memo, mount } from '@app/test-utils';
 
 import * as TestSubject from '@app/loading';
 

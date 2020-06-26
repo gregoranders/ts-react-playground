@@ -99,7 +99,7 @@
       "**/script/**/*.ts",
       "!**/script/index.tsx",
       "!**/script/application.tsx",
-      "!**/script/testUtils.tsx"
+      "!**/script/test-utils.tsx"
     ],
     "coverageReporters": [
       "lcovonly",
@@ -147,57 +147,6 @@
   },
   "jest-junit": {
     "outputDirectory": "./test"
-  },
-  "eslintConfig": {
-    "parser": "@typescript-eslint/parser",
-    "extends": [
-      "plugin:react-hooks/recommended",
-      "plugin:react/recommended",
-      "plugin:@typescript-eslint/recommended",
-      "plugin:prettier/recommended",
-      "prettier/@typescript-eslint"
-    ],
-    "parserOptions": {
-      "ecmaVersion": 2020,
-      "sourceType": "module",
-      "ecmaFeatures": {
-        "jsx": true
-      }
-    },
-    "rules": {
-      "@typescript-eslint/explicit-function-return-type": "off",
-      "@typescript-eslint/explicit-module-boundary-types": "off",
-      "react-hooks/rules-of-hooks": "error",
-      "react-hooks/exhaustive-deps": "warn",
-      "sort-imports": [
-        "error",
-        {
-          "ignoreCase": false,
-          "ignoreDeclarationSort": true,
-          "ignoreMemberSort": false,
-          "memberSyntaxSortOrder": [
-            "none",
-            "all",
-            "multiple",
-            "single"
-          ]
-        }
-      ],
-      "no-restricted-imports": [
-        "error",
-        {
-          "patterns": [
-            "@material-ui/*/*/*",
-            "!@material-ui/core/test-utils/*"
-          ]
-        }
-      ]
-    },
-    "settings": {
-      "react": {
-        "version": "detect"
-      }
-    }
   },
   "prettier": {
     "semi": true,
@@ -301,9 +250,11 @@
     "es-module-shims": "0.4.7",
     "eslint": "7.3.1",
     "eslint-config-prettier": "6.11.0",
+    "eslint-plugin-jest": "23.17.1",
     "eslint-plugin-prettier": "3.1.4",
     "eslint-plugin-react": "7.20.0",
     "eslint-plugin-react-hooks": "4.0.4",
+    "eslint-plugin-unicorn": "20.1.0",
     "express": "4.17.1",
     "faker": "4.1.0",
     "favicons": "6.1.0",

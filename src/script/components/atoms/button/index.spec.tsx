@@ -1,4 +1,4 @@
-import React, { act, create, mount } from '@app/testUtils';
+import React, { act, create, mount } from '@app/test-utils';
 
 import * as TestSubject from '@atoms/button';
 

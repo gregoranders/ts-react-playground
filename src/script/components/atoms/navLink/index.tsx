@@ -22,7 +22,7 @@ export const NavLink = ({ className, to, children }: Props) => {
     'w3-hover-theme': true,
   } as Record<string, boolean>;
 
-  if (className && className.length) {
+  if (className && className.length > 0) {
     classes[className] = true;
   }
 
