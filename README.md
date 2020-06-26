@@ -82,7 +82,7 @@
 ### Clone repository
 
 ```
-git clone https://github.com/gregoranders/ts-react-playground
+git clone --recursive https://github.com/gregoranders/ts-react-playground
 ```
 
 ### Install dependencies
