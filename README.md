@@ -1,4 +1,4 @@
-# ts-react-playground - [TypeScript](http://www.typescriptlang.org/) [React](https://reactjs.org/) Playground
+# [<img src="./typescript.svg" />](http://www.typescriptlang.org/) [<img src="./react.svg" />](https://reactjs.org/) Playground
 
 #### [Storybook](https://gregoranders.github.io/ts-react-playground-docs)
 
