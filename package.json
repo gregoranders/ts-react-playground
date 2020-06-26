@@ -1,6 +1,6 @@
 {
   "name": "ts-react-playground",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "TypeScript React Playground",
   "scripts": {
     "start": "webpack-dev-server --open --progress --config webpack.config.js",
@@ -271,6 +271,7 @@
     "@types/react-test-renderer": "16.9.2",
     "@types/react-transition-group": "4.4.0",
     "@types/recharts": "1.8.13",
+    "@types/recharts-scale": "1.0.0",
     "@types/recoil": "0.0.1",
     "@types/scheduler": "0.16.1",
     "@types/storybook__addon-info": "5.2.1",
