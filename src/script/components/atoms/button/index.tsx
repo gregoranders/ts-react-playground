@@ -20,9 +20,9 @@ const defaultProps = {
   /**
    * onClick handler
    *
-   * @type (e: React.MouseEvent<HTMLButtonElement>) => void
+   * @type (event: React.MouseEvent<HTMLButtonElement>) => void
    */
-  onClick: (e: React.MouseEvent<HTMLButtonElement>) => console.log(e),
+  onClick: (event: React.MouseEvent<HTMLButtonElement>) => console.log(event),
   /**
    * HTML button content
    *
@@ -39,8 +39,8 @@ export const Button = ({ children, disabled, onClick }: Props) => {
   return (
     <button
       disabled={disabled}
-      onClick={(e) => {
-        onClick(e);
+      onClick={(event) => {
+        onClick(event);
       }}
     >
       {children}

@@ -1,4 +1,4 @@
-import React, { mount, create } from '@app/testUtils';
+import React, { create, mount } from '@app/test-utils';
 
 import * as TestSubject from '@organisms/main';
 
@@ -33,7 +33,7 @@ describe(`${TestSubject.Main.displayName}`, () => {
       expect(testSubject.text()).toBe('test');
     });
 
-    it('string', () => {
+    it('element', () => {
       const testSubject = mount(
         <TestComponent>
           <span>test</span>

@@ -52,6 +52,7 @@ export const RandomUser: User = {
   eMail: faker.internet.email(),
 };
 
+// eslint-disable-next-line unicorn/prevent-abbreviations
 export const UserPropTypes = IsShape({
   id: IsNumber.isRequired,
   firstName: IsString.isRequired,

@@ -1,4 +1,4 @@
-import React, { create, mount } from '@app/testUtils';
+import React, { create, mount } from '@app/test-utils';
 
 import { DefaultUser } from '@models/user';
 

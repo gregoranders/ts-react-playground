@@ -1,4 +1,4 @@
-import React, { mount, create } from '@app/testUtils';
+import React, { create, mount } from '@app/test-utils';
 
 import * as TestSubject from '@pages/index';
 

@@ -3,11 +3,11 @@ import { render } from 'react-dom';
 import { Workbox } from 'workbox-window';
 
 const basename = (() => {
-  const el = document.head.querySelector('base');
-  if (el) {
-    const attr = el.getAttribute('href');
-    if (attr) {
-      return attr;
+  const element = document.head.querySelector('base');
+  if (element) {
+    const attribute = element.getAttribute('href');
+    if (attribute) {
+      return attribute;
     }
   }
   return '/';
@@ -25,12 +25,12 @@ const registerServiceWorker = async (base: string) => {
 };
 
 export const bootstrap = async (serviceWorker = true): Promise<void> => {
-  const el = document.querySelector('#app');
-  if (!el) {
-    throw Error('Missing element `#app`');
+  const element = document.querySelector('#app');
+  if (!element) {
+    throw new Error('Missing element `#app`');
   }
 
-  render(<Application basename={basename} />, el);
+  render(<Application basename={basename} />, element);
 
   if (serviceWorker) {
     await registerServiceWorker(basename);

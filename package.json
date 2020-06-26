@@ -1,6 +1,6 @@
 {
   "name": "ts-react-playground",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "TypeScript React Playground",
   "scripts": {
     "start": "webpack-dev-server --open --progress --config webpack.config.js",
@@ -32,25 +32,25 @@
     "prefavicon": "rimraf ./public/assets ./public/favicon.html",
     "favicon": "ts-node --project ./scripts/tsconfig.json ./scripts/favicon.ts",
     "prevendor": "rimraf ./public/vendor ./public/es-module-shims.js",
-    "vendor": "rimraf ./public/vendor && npm run vendor:base && npm run vendor:faker && npm run vendor:fontawesome && npm run vendor:react && npm run vendor:recharts && npm run vendor:esmoduleshims && npm run vendor:materialui",
-    "vendor:base": "cross-env NODE_ENV=production rollup -c ./src/vendor/rollup-base.config.js",
-    "vendor:faker": "cross-env NODE_ENV=production rollup -c ./src/vendor/rollup-faker.config.js",
-    "vendor:fontawesome": "cross-env NODE_ENV=production rollup -c ./src/vendor/rollup-fontawesome.config.js",
-    "vendor:react": "cross-env NODE_ENV=production rollup -c ./src/vendor/rollup-react.config.js",
-    "vendor:recharts": "cross-env NODE_ENV=production rollup -c ./src/vendor/rollup-recharts.config.js",
+    "vendor": "npm run vendor:base && npm run vendor:faker && npm run vendor:fontawesome && npm run vendor:react && npm run vendor:recharts && npm run vendor:esmoduleshims && npm run vendor:materialui",
+    "vendor:base": "rollup -c ./src/vendor/rollup-base.config.js",
+    "vendor:faker": "rollup -c ./src/vendor/rollup-faker.config.js",
+    "vendor:fontawesome": "rollup -c ./src/vendor/rollup-fontawesome.config.js",
+    "vendor:react": "rollup -c ./src/vendor/rollup-react.config.js",
+    "vendor:recharts": "rollup -c ./src/vendor/rollup-recharts.config.js",
     "vendor:esmoduleshims": "tsc --project ./src/vendor/es-module-shims",
     "vendor:materialui": "npm run vendor:materialui-base && npm run vendor:materialui-icons && npm run vendor:mdi-material-ui && npm run vendor:devexpress",
-    "vendor:materialui-base": "cross-env NODE_ENV=production rollup -c ./src/vendor/rollup-materialui.config.js",
-    "vendor:materialui-icons": "cross-env NODE_ENV=production rollup -c ./src/vendor/rollup-materialui-icons.config.js",
-    "vendor:mdi-material-ui": "cross-env NODE_ENV=production rollup -c ./src/vendor/rollup-mdi-material-ui.config.js",
-    "vendor:devexpress": "cross-env NODE_ENV=production rollup -c ./src/vendor/rollup-devexpress.config.js",
+    "vendor:materialui-base": "rollup -c ./src/vendor/rollup-materialui.config.js",
+    "vendor:materialui-icons": "rollup -c ./src/vendor/rollup-materialui-icons.config.js",
+    "vendor:mdi-material-ui": "rollup -c ./src/vendor/rollup-mdi-material-ui.config.js",
+    "vendor:devexpress": "rollup -c ./src/vendor/rollup-devexpress.config.js",
     "preserviceWorker": "rimraf ./public/serviceWorker.js",
     "serviceWorker": "tsc --project ./src/service --outFile ./public/serviceWorker.js",
     "postserviceWorker": "workbox injectManifest workbox-config.js",
     "prewatch-serviceWorker": "npm run serviceWorker",
     "watch-serviceWorker": "tsc --watch --project ./src/service --outFile ./public/serviceWorker.js",
     "predocker:build": "npm run build",
-    "docker:build": "cross-env NODE_ENV=production docker-compose build --force-rm --no-cache --parallel --pull",
+    "docker:build": "docker-compose build --force-rm --no-cache --parallel --pull",
     "docker:up": "docker-compose up -d",
     "docker:down": "docker-compose down",
     "codeclimate": "docker run --interactive --tty --rm --env CODECLIMATE_CODE=\"$PWD\" --volume \"$PWD\":/code --volume /var/run/docker.sock:/var/run/docker.sock --volume /tmp/cc:/tmp/cc codeclimate/codeclimate analyze",
@@ -99,7 +99,7 @@
       "**/script/**/*.ts",
       "!**/script/index.tsx",
       "!**/script/application.tsx",
-      "!**/script/testUtils.tsx"
+      "!**/script/test-utils.tsx"
     ],
     "coverageReporters": [
       "lcovonly",
@@ -147,57 +147,6 @@
   },
   "jest-junit": {
     "outputDirectory": "./test"
-  },
-  "eslintConfig": {
-    "parser": "@typescript-eslint/parser",
-    "extends": [
-      "plugin:react-hooks/recommended",
-      "plugin:react/recommended",
-      "plugin:@typescript-eslint/recommended",
-      "plugin:prettier/recommended",
-      "prettier/@typescript-eslint"
-    ],
-    "parserOptions": {
-      "ecmaVersion": 2020,
-      "sourceType": "module",
-      "ecmaFeatures": {
-        "jsx": true
-      }
-    },
-    "rules": {
-      "@typescript-eslint/explicit-function-return-type": "off",
-      "@typescript-eslint/explicit-module-boundary-types": "off",
-      "react-hooks/rules-of-hooks": "error",
-      "react-hooks/exhaustive-deps": "warn",
-      "sort-imports": [
-        "error",
-        {
-          "ignoreCase": false,
-          "ignoreDeclarationSort": true,
-          "ignoreMemberSort": false,
-          "memberSyntaxSortOrder": [
-            "none",
-            "all",
-            "multiple",
-            "single"
-          ]
-        }
-      ],
-      "no-restricted-imports": [
-        "error",
-        {
-          "patterns": [
-            "@material-ui/*/*/*",
-            "!@material-ui/core/test-utils/*"
-          ]
-        }
-      ]
-    },
-    "settings": {
-      "react": {
-        "version": "detect"
-      }
-    }
   },
   "prettier": {
     "semi": true,
@@ -301,9 +250,11 @@
     "es-module-shims": "0.4.7",
     "eslint": "7.3.1",
     "eslint-config-prettier": "6.11.0",
+    "eslint-plugin-jest": "23.17.1",
     "eslint-plugin-prettier": "3.1.4",
     "eslint-plugin-react": "7.20.0",
     "eslint-plugin-react-hooks": "4.0.4",
+    "eslint-plugin-unicorn": "20.1.0",
     "express": "4.17.1",
     "faker": "4.1.0",
     "favicons": "6.1.0",

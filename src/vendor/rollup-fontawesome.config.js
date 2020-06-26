@@ -5,9 +5,9 @@ import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 import typescript from '@rollup/plugin-typescript';
 
-const isProd = process.env.NODE_ENV === 'production';
+const isProduction = process.env.NODE_ENV === 'production';
 
-console.log('Production:', isProd);
+console.log('Production:', isProduction);
 
 const exported = [
   {
@@ -59,12 +59,12 @@ const exported = [
       format: 'esm', // 'cjs' | 'umd' | 'iife' | 'es' | 'esm'
       exports: 'named',
       name,
-      sourcemap: isProd ? false : true,
+      sourcemap: isProduction ? false : true,
     },
   ],
   plugins: [
     replace({
-      'process.env.NODE_ENV': JSON.stringify(isProd ? 'production' : 'development'),
+      'process.env.NODE_ENV': JSON.stringify(isProduction ? 'production' : 'development'),
     }),
     resolve({
       preferBuiltins: false,
@@ -72,6 +72,7 @@ const exported = [
     json(),
     typescript({
       tsconfig: `src/vendor/${name}/tsconfig.json`,
+      sourceMap: isProduction ? false : true,
     }),
     commonjs({
       include: ['node_modules/**'],

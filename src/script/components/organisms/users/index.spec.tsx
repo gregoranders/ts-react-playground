@@ -1,4 +1,4 @@
-import React, { RecoilRoot, act, create, mount } from '@app/testUtils';
+import React, { RecoilRoot, act, create, mount } from '@app/test-utils';
 
 import * as TestSubject from '@organisms/users';
 
@@ -28,7 +28,7 @@ describe(`${TestSubject.UsersModelView.displayName}`, () => {
     expect(testSubject.text()).toBe('Generate Users');
   });
 
-  it('mount', () => {
+  it('click', () => {
     const testSubject = mount(
       <RecoilRoot>
         <TestComponent />
