@@ -1,3 +1,13 @@
+#### 0.0.14 (2020-06-26)
+
+##### Chores
+
+- **release:** prepare next release ([7b9ba803](https://github.com/gregoranders/ts-react-playground/commit/7b9ba8035e1e6d0d73f04531fb8e987adc1a3d5d))
+
+##### Bug Fixes
+
+- **esm:** fix esm vendor build ([0e35467e](https://github.com/gregoranders/ts-react-playground/commit/0e35467e1ded7d7d4d0641b5ed229ff75707aa13))
+
 #### 0.0.13 (2020-06-26)
 
 ##### Build System / Dependencies
