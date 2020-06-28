@@ -1,6 +1,6 @@
 {
   "name": "ts-react-playground",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "TypeScript React Playground",
   "scripts": {
     "start": "webpack-dev-server --open --progress --config webpack.config.js",
@@ -148,13 +148,6 @@
   "jest-junit": {
     "outputDirectory": "./test"
   },
-  "prettier": {
-    "semi": true,
-    "trailingComma": "all",
-    "singleQuote": true,
-    "printWidth": 120,
-    "tabWidth": 2
-  },
   "author": "Gregor Anders <gregor.anders@gmail.com>",
   "license": "MIT",
   "bugs": {
@@ -180,7 +173,7 @@
     "@rollup/plugin-json": "4.1.0",
     "@rollup/plugin-node-resolve": "8.1.0",
     "@rollup/plugin-replace": "2.3.3",
-    "@rollup/plugin-typescript": "5.0.0",
+    "@rollup/plugin-typescript": "5.0.1",
     "@storybook/addon-a11y": "5.3.19",
     "@storybook/addon-actions": "5.3.19",
     "@storybook/addon-backgrounds": "5.3.19",
@@ -212,7 +205,7 @@
     "@types/node": "14.0.14",
     "@types/object-assign": "4.0.30",
     "@types/prop-types": "15.7.3",
-    "@types/puppeteer": "3.0.0",
+    "@types/puppeteer": "3.0.1",
     "@types/react": "16.9.41",
     "@types/react-dom": "16.9.8",
     "@types/react-is": "16.7.1",
@@ -296,7 +289,7 @@
     "recharts": "1.8.5",
     "recoil": "0.0.10",
     "rimraf": "3.0.2",
-    "rollup": "2.18.0",
+    "rollup": "2.18.1",
     "sass-loader": "8.0.2",
     "source-map": "0.7.3",
     "ts-jest": "26.1.1",

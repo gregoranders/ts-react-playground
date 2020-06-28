@@ -1,3 +1,24 @@
+#### 0.0.16 (2020-06-28)
+
+##### Build System / Dependencies
+
+- **github:** add pull request template ([4a36528f](https://github.com/gregoranders/ts-react-playground/commit/4a36528f45a93b376e89c9e4a145cd69267d7ca2))
+- **dependencies:** check for updates weekly ([c8364edb](https://github.com/gregoranders/ts-react-playground/commit/c8364edbd9870b6ba697114428c8e5f3d38fe6ab))
+
+##### Chores
+
+- **dependencies:** update dependencies ([a44ae6c8](https://github.com/gregoranders/ts-react-playground/commit/a44ae6c803bb161fe1d086ce9597f5600457ca97))
+- **release:** prepare next release ([cb6594ae](https://github.com/gregoranders/ts-react-playground/commit/cb6594ae2fd58d838ce8a7140e493bfbb80bf4fa))
+- **docs:** update external docs ([38000b82](https://github.com/gregoranders/ts-react-playground/commit/38000b820ba6a3445c6df7325eb3fdb6f415e89e))
+
+##### Documentation Changes
+
+- **CONTRIB:** add CONTRIBUTING.md ([5b23fd59](https://github.com/gregoranders/ts-react-playground/commit/5b23fd59acd3aa8cdd95dd4fca9eff02237f1313))
+
+##### Refactors
+
+- **prettier:** move configuration ([843c8c44](https://github.com/gregoranders/ts-react-playground/commit/843c8c441c23229fbe9b750777eb99e9931a2aac))
+
 #### 0.0.14 (2020-06-26)
 
 ##### Chores
