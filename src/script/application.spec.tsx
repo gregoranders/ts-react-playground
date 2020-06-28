@@ -11,6 +11,6 @@ describe(`${TestSubject.Application.displayName}`, () => {
 
   it('mount', () => {
     const testSubject = mount(<TestComponent basename="/" />);
-    expect(testSubject.text()).toBe(``);
+    expect(testSubject.text()).toBe(`·`);
   });
 });

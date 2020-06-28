@@ -1,7 +1,11 @@
 import React, { Suspense, memo } from 'react';
-import { element as IsElement, string as IsString, oneOfType as OneOfType } from 'prop-types';
+import {
+  element as IsElement,
+  string as IsString,
+  oneOfType as OneOfType,
+} from 'prop-types';
 
-import Loading from '@app/loading';
+import Loading from '@gregoranders/react-spinner';
 
 import Header from '@organisms/header';
 import Nav from '@organisms/nav';
@@ -23,7 +27,7 @@ export const Layout = ({ children }: Props) => {
       <Header />
       <Nav />
       <Main>
-        <Suspense fallback={<Loading type={'spinner'} />}>{children}</Suspense>
+        <Suspense fallback={<Loading />}>{children}</Suspense>
       </Main>
       <Footer />
     </>

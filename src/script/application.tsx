@@ -3,7 +3,7 @@ import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
 import { string as IsString } from 'prop-types';
 
-import { default as Loading } from '@app/loading';
+import Loading from '@gregoranders/react-spinner';
 
 import { CssBaseline } from '@material-ui/core';
 

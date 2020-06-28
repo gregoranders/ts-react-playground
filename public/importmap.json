@@ -47,6 +47,8 @@
     "@devexpress/dx-react-chart": "/ts-react-playground/vendor/@devexpress/dx-react-chart.js",
     "@devexpress/dx-react-chart-material-ui": "/ts-react-playground/vendor/@devexpress/dx-react-chart-material-ui.js",
 
+    "@gregoranders/react-spinner": "/ts-react-playground/vendor/@gregoranders/react-spinner.js",
+
     "@app/index": "/ts-react-playground/script/index.js",
     "@app/application": "/ts-react-playground/script/application.js",
     "@app/loading": "/ts-react-playground/script/loading.js",
