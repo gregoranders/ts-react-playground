@@ -292,7 +292,7 @@
     "recoil": "0.0.10",
     "rimraf": "3.0.2",
     "rollup": "2.18.1",
-    "sass-loader": "8.0.2",
+    "sass-loader": "9.0.1",
     "source-map": "0.7.3",
     "ts-jest": "26.1.1",
     "ts-loader": "7.0.5",
