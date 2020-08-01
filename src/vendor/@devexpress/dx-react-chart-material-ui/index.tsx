@@ -2,14 +2,14 @@ import * as DxReactChartMaterialUi from '@devexpress/dx-react-chart-material-ui'
 
 import {
   AreaSeries,
-  BarSeries,
-  LineSeries,
-  PieSeries,
-  SplineSeries,
   ArgumentAxis,
+  BarSeries,
   Chart,
   Legend,
+  LineSeries,
+  PieSeries,
   ScatterSeries,
+  SplineSeries,
   Title,
   Tooltip,
   ValueAxis,

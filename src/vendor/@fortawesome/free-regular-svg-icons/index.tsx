@@ -1,8 +1,6 @@
 import * as FontawesomeSvgRegular from '@fortawesome/free-regular-svg-icons';
 
 import {
-  far,
-  prefix,
   faAddressBook,
   faAddressCard,
   faAngry,
@@ -155,6 +153,8 @@ import {
   faWindowMaximize,
   faWindowMinimize,
   faWindowRestore,
+  far,
+  prefix,
 } from '@fortawesome/free-regular-svg-icons';
 
 export {

@@ -1,6 +1,6 @@
 import * as idb from 'idb';
 
-import { unwrap, wrap, deleteDB, openDB } from 'idb';
+import { deleteDB, openDB, unwrap, wrap } from 'idb';
 
 export {
   idb,

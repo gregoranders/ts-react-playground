@@ -1,14 +1,14 @@
 import * as d3Array from 'd3-time-format';
 
 import {
+  isoFormat,
+  isoParse,
   timeFormat,
+  timeFormatDefaultLocale,
+  timeFormatLocale,
   timeParse,
   utcFormat,
   utcParse,
-  isoFormat,
-  isoParse,
-  timeFormatDefaultLocale,
-  timeFormatLocale,
 } from 'd3-time-format';
 
 export {

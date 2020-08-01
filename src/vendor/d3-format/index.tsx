@@ -1,11 +1,11 @@
 import * as d3Format from 'd3-format';
 
 import {
-  format,
-  formatPrefix,
   FormatSpecifier,
+  format,
   formatDefaultLocale,
   formatLocale,
+  formatPrefix,
   formatSpecifier,
   precisionFixed,
   precisionPrefix,

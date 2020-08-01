@@ -1,6 +1,10 @@
 import * as RechartsScale from 'recharts-scale';
 
-import { getTickValues, getNiceTickValues, getTickValuesFixedDomain } from 'recharts-scale';
+import {
+  getNiceTickValues,
+  getTickValues,
+  getTickValuesFixedDomain,
+} from 'recharts-scale';
 
 export {
   RechartsScale,

@@ -1,20 +1,20 @@
 import * as MaterialUiStyles from '@material-ui/styles';
 
 import {
+  ServerStyleSheets,
+  StylesContext,
+  StylesProvider,
+  ThemeProvider,
   createGenerateClassName,
   createStyles,
   getThemeProps,
   jssPreset,
   makeStyles,
   mergeClasses,
-  ServerStyleSheets,
   styled,
-  StylesProvider,
-  ThemeProvider,
   useTheme,
   withStyles,
   withTheme,
-  StylesContext,
   withThemeCreator,
 } from '@material-ui/styles';
 

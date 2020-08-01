@@ -1,8 +1,6 @@
 import * as FontawesomeSvgSolid from '@fortawesome/free-solid-svg-icons';
 
 import {
-  fas,
-  prefix,
   faAd,
   faAddressBook,
   faAddressCard,
@@ -999,6 +997,8 @@ import {
   faXRay,
   faYenSign,
   faYinYang,
+  fas,
+  prefix,
 } from '@fortawesome/free-solid-svg-icons';
 
 export {

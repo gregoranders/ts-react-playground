@@ -1,7 +1,11 @@
 // import * as ReactRouterDOM from 'react-router-dom';
 
 import {
+  BrowserRouter,
+  HashRouter,
+  Link,
   MemoryRouter,
+  NavLink,
   Prompt,
   Redirect,
   Route,
@@ -15,10 +19,6 @@ import {
   useParams,
   useRouteMatch,
   withRouter,
-  BrowserRouter,
-  HashRouter,
-  Link,
-  NavLink,
 } from 'react-router-dom';
 
 export {

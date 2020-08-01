@@ -1,17 +1,17 @@
 import * as FontawesomeSvgCore from '@fortawesome/fontawesome-svg-core';
 
 import {
-  icon,
-  noAuto,
   config,
-  toHtml,
-  layer,
-  text,
   counter,
-  library,
   dom,
-  parse,
   findIconDefinition,
+  icon,
+  layer,
+  library,
+  noAuto,
+  parse,
+  text,
+  toHtml,
 } from '@fortawesome/fontawesome-svg-core';
 
 export {

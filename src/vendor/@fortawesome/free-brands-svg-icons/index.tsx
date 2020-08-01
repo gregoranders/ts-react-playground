@@ -1,8 +1,6 @@
 import * as FontawesomeBrandSvg from '@fortawesome/free-brands-svg-icons';
 
 import {
-  fab,
-  prefix,
   fa500px,
   faAccessibleIcon,
   faAccusoft,
@@ -446,6 +444,8 @@ import {
   faYoutube,
   faYoutubeSquare,
   faZhihu,
+  fab,
+  prefix,
 } from '@fortawesome/free-brands-svg-icons';
 
 export {

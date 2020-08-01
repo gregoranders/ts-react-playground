@@ -1,26 +1,26 @@
 const version = '15.7.2';
 
 import PropTypes, {
-  array,
-  bool,
-  func,
-  number,
-  object,
-  string,
-  symbol,
   any,
+  array,
   arrayOf,
+  bool,
+  checkPropTypes,
   element,
   elementType,
+  exact,
+  func,
   instanceOf,
   node,
+  number,
+  object,
   objectOf,
   oneOf,
   oneOfType,
-  shape,
-  exact,
-  checkPropTypes,
   resetWarningCache,
+  shape,
+  string,
+  symbol,
 } from 'prop-types';
 
 export {

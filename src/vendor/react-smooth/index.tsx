@@ -1,4 +1,9 @@
-import ReactSmooth, { configBezier, configSpring, translateStyle, AnimateGroup } from 'react-smooth';
+import ReactSmooth, {
+  AnimateGroup,
+  configBezier,
+  configSpring,
+  translateStyle,
+} from 'react-smooth';
 
 export {
   ReactSmooth,
