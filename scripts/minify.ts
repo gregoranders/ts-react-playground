@@ -2,6 +2,7 @@
 import { Stats, readdirSync, statSync, writeFileSync } from 'fs';
 
 import { join } from 'path';
+import { env } from 'process';
 
 const minify = require('minify');
 
@@ -47,7 +48,7 @@ const compressFile = async (path: string, stat: Stats) => {
   return { before: stat.size, after: nstat.size };
 };
 
-const minifyDir = (parent: string) => {
+const minifyDirectory = (parent: string) => {
   const files = readdirSync(parent);
 
   files.forEach(async (file) => {
@@ -55,17 +56,19 @@ const minifyDir = (parent: string) => {
     const stat = statSync(full);
 
     if (stat.isDirectory()) {
-      minifyDir(full);
+      minifyDirectory(full);
     } else {
       if (file.endsWith('.js') || file.endsWith('.css')) {
         const result = await compressFile(full, stat);
-        const ratio = (100.0 - (result.after / result.before) * 100.0).toFixed(2);
+        const ratio = (100 - (result.after / result.before) * 100).toFixed(2);
         console.log(
-          `Compressed [${zerofill(ratio)}%] ${full} ${stat.size} ${result.after} ${stat.size - result.after}`,
+          `Compressed [${zerofill(ratio)}%] ${full} ${stat.size} ${
+            result.after
+          } ${stat.size - result.after}`,
         );
       }
     }
   });
 };
 
-minifyDir(basePath);
+if (env.NODE_ENV === 'production') minifyDirectory(basePath);
