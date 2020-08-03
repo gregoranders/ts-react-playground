@@ -260,7 +260,7 @@
     "husky": "4.2.5",
     "idb": "5.0.4",
     "identity-obj-proxy": "3.0.0",
-    "jest": "26.1.0",
+    "jest": "26.2.2",
     "jest-cli": "26.1.0",
     "jest-environment-enzyme": "7.1.2",
     "jest-enzyme": "7.1.2",
