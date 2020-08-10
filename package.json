@@ -241,7 +241,7 @@
     "d3-time": "1.1.0",
     "d3-time-format": "2.2.3",
     "enzyme": "3.11.0",
-    "enzyme-adapter-react-16": "1.15.2",
+    "enzyme-adapter-react-16": "1.15.3",
     "es-module-shims": "0.5.2",
     "eslint": "7.6.0",
     "eslint-config-prettier": "6.11.0",
