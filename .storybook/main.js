@@ -7,12 +7,12 @@ module.exports = {
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
       shouldExtractLiteralValuesFromEnum: true,
-      propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
+      propFilter: (prop) =>
+        prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
     },
   },
 
-  webpackFinal: async config => {
-
+  webpackFinal: async (config) => {
     config.module.rules.push({
       test: /\.(ts|tsx)$/,
       use: [
@@ -36,8 +36,16 @@ module.exports = {
       '@models': path.resolve(__dirname, '..', 'src/script/models'),
       '@states': path.resolve(__dirname, '..', 'src/script/states'),
       '@atoms': path.resolve(__dirname, '..', 'src/script/components/atoms'),
-      '@organisms': path.resolve(__dirname, '..', 'src/script/components/organisms'),
-      '@molecules': path.resolve(__dirname, '..', 'src/script/components/molecules'),
+      '@organisms': path.resolve(
+        __dirname,
+        '..',
+        'src/script/components/organisms',
+      ),
+      '@molecules': path.resolve(
+        __dirname,
+        '..',
+        'src/script/components/molecules',
+      ),
       '@pages': path.resolve(__dirname, '..', 'src/script/components/pages'),
       '@components': path.resolve(__dirname, '..', 'src/script/components'),
       '@app': path.resolve(__dirname, '..', 'src/script'),
@@ -55,11 +63,16 @@ module.exports = {
     return config;
   },
 
-  stories: ['../src/script/**/*.stories.(tsx|mdx)'],
+  stories: ['../src/script/**/*.stories.@(tsx|mdx)'],
 
-  addons: ['@storybook/addon-actions',
-  '@storybook/addon-links', '@storybook/addon-knobs',
-  '@storybook/addon-jest', '@storybook/addon-backgrounds',
-  '@storybook/addon-docs', /* '@storybook/addon-controls', */
-  '@storybook/addon-viewport', '@storybook/addon-a11y']
+  addons: [
+    '@storybook/addon-actions',
+    '@storybook/addon-links',
+    '@storybook/addon-knobs',
+    '@storybook/addon-jest',
+    '@storybook/addon-backgrounds',
+    '@storybook/addon-docs' /* '@storybook/addon-controls', */,
+    '@storybook/addon-viewport',
+    '@storybook/addon-a11y',
+  ],
 };
