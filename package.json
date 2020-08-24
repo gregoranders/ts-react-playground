@@ -296,7 +296,7 @@
     "source-map": "0.7.3",
     "ts-jest": "26.2.0",
     "ts-loader": "8.0.2",
-    "ts-node": "8.10.2",
+    "ts-node": "9.0.0",
     "typescript": "3.9.7",
     "url-loader": "4.1.0",
     "webpack": "4.44.1",
