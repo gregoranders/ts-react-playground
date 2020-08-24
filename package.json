@@ -291,7 +291,7 @@
     "recharts": "1.8.5",
     "recoil": "0.0.10",
     "rimraf": "3.0.2",
-    "rollup": "2.26.3",
+    "rollup": "2.26.5",
     "sass-loader": "9.0.3",
     "source-map": "0.7.3",
     "ts-jest": "26.2.0",
