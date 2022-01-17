@@ -180,7 +180,7 @@
     "@storybook/addon-actions": "6.1.10",
     "@storybook/addon-backgrounds": "6.1.10",
     "@storybook/addon-centered": "5.3.21",
-    "@storybook/addon-controls": "6.1.10",
+    "@storybook/addon-controls": "6.4.13",
     "@storybook/addon-docs": "6.1.10",
     "@storybook/addon-info": "5.3.21",
     "@storybook/addon-jest": "6.1.10",
